@@ -1,4 +1,4 @@
-# 2019_06_07_.bash_profileの設定
+# 2019_07_04_.bash_profileの設定
 
 # .bash_profileは基本的に環境変数について書く
 # それ以外の
