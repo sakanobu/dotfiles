@@ -1,4 +1,4 @@
-" 2019_06_09_Mac本体のvim(vim-plug)の設定.txt
+" 2019_08_07_Mac本体のvim(vim-plug)の設定.txt
 
 
 """ メモ
@@ -164,7 +164,7 @@ Plug 'vim-scripts/ruby-matchit'
 Plug 'kana/vim-smartinput'
 
 " 構文チェックをしてくれるプラグイン
-Plug 'vim-syntastic/syntastic'
+" Plug 'vim-syntastic/syntastic'
 
 " SublimeTextでの複数カーソルもどき
 " 詳細は以下のurlで確認
