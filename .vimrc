@@ -164,6 +164,7 @@ Plug 'vim-scripts/ruby-matchit'
 Plug 'kana/vim-smartinput'
 
 " 構文チェックをしてくれるプラグイン
+" これをonにしちゃうとpytyonでオプション引数の=に疑問を投げかけてきちゃう
 " Plug 'vim-syntastic/syntastic'
 
 " SublimeTextでの複数カーソルもどき
