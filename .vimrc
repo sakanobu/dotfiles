@@ -479,6 +479,7 @@ nnoremap g# g#zz
 
 
 """ キーマッピング
+" デフォルトのキーマッピングは:help index.txtを確認する
 
 " jjでESC、つまりインサートモードからノーマルモードへ
 " ちなみに日本語入力の大きなｊｊはjjに変換すればいい
@@ -544,6 +545,12 @@ nnoremap <S-Down>  <C-w>+<CR>
 
 " ビジュアルモード中の"*yをzの一押しに
 vnoremap z "*y
+
+" ノーマルモード中のztやzzやz-などの再描画をspaceをプリフィックスにして
+" Shift+Hみたいな挙動と似せて(語彙力
+nnoremap <Space>zh zt
+nnoremap <Space>zm zz
+nnoremap <Space>zl z-
 
 
 """ スクリプト起動ショートカット
