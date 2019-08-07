@@ -538,11 +538,15 @@ inoremap <c-l> <right>
 " nnoremap <S-CR> mzo<ESC>`z
 " nnoremap <C-S-CR> mzO<ESC>`z
 
+" ウィンドウの水平分割と垂直分割の簡略化
+nnoremap <Space>sp :split<CR>
+nnoremap <Space>vsp :vsplit<CR>
+
 " Shift + 矢印でウィンドウサイズを変更
 nnoremap <S-Left>  <C-w><<CR>
 nnoremap <S-Right> <C-w>><CR>
-nnoremap <S-Up>    <C-w>-<CR>
-nnoremap <S-Down>  <C-w>+<CR>
+" nnoremap <S-Up>    <C-w>-<CR>
+" nnoremap <S-Down>  <C-w>+<CR>
 
 " ビジュアルモード中の"*yをzの一押しに
 vnoremap z "*y
