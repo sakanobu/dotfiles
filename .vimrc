@@ -524,9 +524,9 @@ inoremap <c-d> <delete>
 " <c-h>はbackspaceキーと連動しているので、
 " インサートモードでのbackspaceを用いた前の1文字削除が出来なくなることに注意
 " 2個上のキーマッピングで左1文字を消すキーを設定
+inoremap <c-h> <left>
 inoremap <c-j> <down>
 inoremap <c-k> <up>
-inoremap <c-h> <left>
 inoremap <c-l> <right>
 
 " インサートモード時の移動
@@ -547,6 +547,12 @@ nnoremap <S-Left>  <C-w><<CR>
 nnoremap <S-Right> <C-w>><CR>
 " nnoremap <S-Up>    <C-w>-<CR>
 " nnoremap <S-Down>  <C-w>+<CR>
+
+" ウィンドウの移動の簡略化
+nnoremap <Space>h <C-w>h
+nnoremap <Space>j <C-w>j
+nnoremap <Space>k <C-w>k
+nnoremap <Space>l <C-w>l
 
 " ビジュアルモード中の"*yをzの一押しに
 vnoremap z "*y
