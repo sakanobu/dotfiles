@@ -469,13 +469,6 @@ nmap <Esc><Esc> :nohlsearch<CR><Esc>
 " cnoremap <expr> / getcmdtype() == '/' ? '¥/' : '/'
 " cnoremap <expr> ? getcmdtype() == '?' ? '¥?' : '?'
 
-" 検索後にジャンプした際に検索単語を画面中央に持ってくる
-nnoremap n nzz
-nnoremap N Nzz
-nnoremap * *zz
-nnoremap # #zz
-nnoremap g* g*zz
-nnoremap g# g#zz
 
 
 """ キーマッピング
@@ -554,11 +547,22 @@ nnoremap <S-Down>  <C-w>+<CR>
 " ビジュアルモード中の"*yをzの一押しに
 vnoremap z "*y
 
+" 検索後にジャンプした際に検索単語を画面中央に持ってくる
+nnoremap n nzz
+nnoremap N Nzz
+nnoremap * *zz
+nnoremap # #zz
+nnoremap g* g*zz
+nnoremap g# g#zz
+
 " ノーマルモード中のztやzzやz-などの再描画をspaceをプリフィックスにして
 " Shift+Hみたいな挙動と似せて(語彙力
 nnoremap <Space>zh zt
 nnoremap <Space>zm zz
 nnoremap <Space>zl z-
+
+" ノーマルモード時にSpaceキーとoで空行を挿入しつつノーマルモードのまま
+nnoremap <Space>o o<ESC>k
 
 
 """ スクリプト起動ショートカット
