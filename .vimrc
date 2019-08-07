@@ -543,6 +543,7 @@ nnoremap <Space>sp :split<CR>
 nnoremap <Space>vsp :vsplit<CR>
 
 " Shift + 矢印でウィンドウサイズを変更
+" 2019_08_07時点で縦方向のサイズ変更が効かない…
 nnoremap <S-Left>  <C-w><<CR>
 nnoremap <S-Right> <C-w>><CR>
 " nnoremap <S-Up>    <C-w>-<CR>
@@ -574,6 +575,12 @@ nnoremap <Space>zl z-
 " ノーマルモード時にSpaceキーとoで空行を挿入しつつノーマルモードのまま
 nnoremap <Space>o o<ESC>k
 
+" vim-quickrunの実行簡略化
+" また､ここに書いていいのか微妙だが結果を水平分割にする↓
+" 加えて､:set filetype=pythonや:QuickRun -args fooや:QuickRun -args "foo bar baz"
+" などの設定もね｡
+let g:quickrun_config={'_': {'split': ''}}
+nnoremap <Space>r :QuickRun
 
 """ スクリプト起動ショートカット
 
