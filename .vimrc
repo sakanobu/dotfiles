@@ -578,9 +578,9 @@ nnoremap <Space>o o<ESC>k
 
 " vim-quickrunの実行簡略化
 " また､ここに書いていいのか微妙だが結果を水平分割にする↓
-" 加えて､:set filetype=pythonや:QuickRun -args fooや:QuickRun -args "foo bar baz"
+" 加えて､:QuickRun python3や:QuickRun -args fooや:QuickRun -args "foo bar baz"
 " などの設定もね｡
-let g:quickrun_config={'_': {'split': ''}}
+let g:quickrun_config={'*': {'split': ''}}
 nnoremap <Space>r :QuickRun
 
 """ スクリプト起動ショートカット
