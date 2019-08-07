@@ -544,10 +544,11 @@ nnoremap <Space>vsp :vsplit<CR>
 
 " Shift + 矢印でウィンドウサイズを変更
 " 2019_08_07時点で縦方向のサイズ変更が効かない…
-nnoremap <S-Left>  <C-w><<CR>
-nnoremap <S-Right> <C-w>><CR>
-" nnoremap <S-Up>    <C-w>-<CR>
-" nnoremap <S-Down>  <C-w>+<CR>
+" でも20<C-w>+とかやれば回数分をやってくれるのか
+nnoremap <S-Left>  <C-w><
+nnoremap <S-Right> <C-w>>
+" nnoremap <S-Up>    <C-w>+
+" nnoremap <S-Down>  <C-w>-
 
 " ウィンドウの移動の簡略化
 nnoremap <Space>h <C-w>h
