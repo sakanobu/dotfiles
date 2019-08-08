@@ -150,6 +150,7 @@ Plug 'Townk/vim-autoclose'
 Plug 'tpope/vim-fugitive'
 
 " 文字列を囲っている引用符や括弧を編集
+" http://vimblog.hatenablog.com/entry/vim_plugin_surround_vim
 Plug 'tpope/vim-surround'
 
 " ディレクトリツリーを一覧で表示したりファイルの追加削除したり
@@ -172,6 +173,10 @@ Plug 'kana/vim-smartinput'
 " 詳細は以下のurlで確認
 " https://github.com/terryma/vim-multiple-cursors
 Plug 'terryma/vim-multiple-cursors'
+
+" 'や(を指定した形式で呼び出して文字列などを囲んだり囲いを消したりする
+Plug 'tpope/vim-surround'
+
 
 call plug#end()
 
