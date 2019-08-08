@@ -151,6 +151,8 @@ Plug 'tpope/vim-fugitive'
 
 " 文字列を囲っている引用符や括弧を編集
 " http://vimblog.hatenablog.com/entry/vim_plugin_surround_vim
+" 1.()や[]や{}などの閉じカッコもあるものは閉じカッコを押すと空白を無くして囲える
+" 2.ysから始めるとヴィジュアルモードを経由せずにテキストオブジェクトで指定できる
 Plug 'tpope/vim-surround'
 
 " ディレクトリツリーを一覧で表示したりファイルの追加削除したり
