@@ -569,9 +569,13 @@ nnoremap g# g#zz
 
 " ノーマルモード中のztやzzやz-などの再描画をspaceをプリフィックスにして
 " Shift+Hみたいな挙動と似せて(語彙力
-nnoremap <Space>zh zt
-nnoremap <Space>zm zz
-nnoremap <Space>zl z-
+" nnoremap <Space>zh zt
+" nnoremap <Space>zm zz
+" nnoremap <Space>zl z-
+" zhはz<Left>だしzlはz<Right>で代替可能､zmは上書きされます
+nnoremap zh zt
+nnoremap zm zz
+nnoremap zl z-
 
 " ノーマルモード時にSpaceキーとoで空行を挿入しつつノーマルモードのまま
 nnoremap <Space>o o<ESC>k
