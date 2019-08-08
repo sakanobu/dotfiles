@@ -60,3 +60,13 @@ function add_line {
   fi
 }
 PROMPT_COMMAND='add_line'
+
+# ターミナルでの入力をviライクのキーバインドに&jjでノーマルモードへ
+# ターミナルに入った直後ではインサートモードから始まる
+# もしいま現在がインサートなのかノーマルなのかを表示するには↓を参照
+# https://www.trhrkmk.com/posts/setting-vi-mode-in-bash-comfortable/
+# 注意なのは
+# 1.インサートモード時には1つ上の履歴をみる<Ctrl+p>が使えないからノーマルモードへ
+# 2._やg_の挙動がおかしい…ほかの便利キーバインドになってるっぽい
+set -o vi
+bind '"jj": vi-movement-mode'
