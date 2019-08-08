@@ -585,6 +585,10 @@ let g:quickrun_config={'*': {'split': ''}}
 set splitbelow
 nnoremap <Space>r :QuickRun<CR><C-w>j
 
+" :qを<Space>qで
+nnoremap <Space>q :q<CR>
+
+
 """ スクリプト起動ショートカット
 
 " F6でPythonを実行
