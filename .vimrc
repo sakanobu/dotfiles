@@ -577,11 +577,13 @@ nnoremap <Space>zl z-
 nnoremap <Space>o o<ESC>k
 
 " vim-quickrunの実行簡略化
-" また､ここに書いていいのか微妙だが結果を水平分割にする↓
+" また､ここに書いていいのか微妙だが↓
+" 1.自動で実行(悩みどころ)2.結果を水平分割かつ下の窓に表示する3.自動でしたの窓に移動
 " 加えて､:QuickRun python3や:QuickRun -args fooや:QuickRun -args "foo bar baz"
 " などの設定もね｡
 let g:quickrun_config={'*': {'split': ''}}
-nnoremap <Space>r :QuickRun
+set splitbelow
+nnoremap <Space>r :QuickRun<CR><C-w>j
 
 """ スクリプト起動ショートカット
 
