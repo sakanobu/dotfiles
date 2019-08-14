@@ -1,4 +1,4 @@
-" 2019_08_07_Mac本体のvim(vim-plug)の設定.txt
+" 2019_08_14_Mac本体のvim(vim-plug)の設定.txt
 
 
 """ メモ
@@ -599,6 +599,11 @@ nnoremap <Space>r :QuickRun<CR><C-w>j
 
 " :qを<Space>qで
 nnoremap <Space>q :q<CR>
+
+" bpythonをvim内から素早く呼ぶ
+nnoremap <Space>bp :!bpython<CR>
+
+
 
 
 """ スクリプト起動ショートカット
