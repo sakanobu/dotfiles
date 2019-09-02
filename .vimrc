@@ -240,6 +240,22 @@ let g:indent_guides_enable_on_vim_startup = 1
 " ↓をコメントアウトしたらもっとエラー吐いた…
 " let g:NERDTreeDirArrowCollapsible = '▼'
 
+""" FileType定義
+" FileTypeと.vim/ftpluginの活用
+" https://qiita.com/s_of_p/items/b61e4c3a0c7ee279848a
+" Filetypeの設定はftdetectにauto~ と書いたほうがいい?
+
+" autocmdはそのまま書くと何度も実行されて重くなる?ので
+" augroupとautocmd!の使うらしい､詳細↓
+" :source ~/.vimrcを使う場合用ってことかな?
+" https://qiita.com/s_of_p/items/b61e4c3a0c7ee279848a
+" https://alpaca.tc/blog/vim/break-vim-beginners-augroup.html
+" 他のautocmd の後ろに毎回MyGroup書かないとだめなのか?
+augroup MyGroup
+    autocmd!
+    autocmd BufRead,BufNewFile *.py setfiletype python
+augroup END
+
 
 """ システム系
 
