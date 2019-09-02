@@ -115,6 +115,10 @@ Plug 'tomtom/tcomment_vim'
 " %を押せばendに飛べる
 Plug 'vim-scripts/ruby-matchit'
 
+" Tabキーで補完
+" うーん､何故か反応しない…
+" Plug 'ervandew/supertab'
+
 " ソースコードを実行し、その結果をVim上で表示することができる
 " デフォルトでは実行結果が編集領域の上または左に表示されるため
 " 以下で変更した方がよいかもしれない
@@ -237,6 +241,12 @@ let g:autopep8_disable_show_diff=1
 "     call Preserve(':silent %!autopep8 -')
 " endfunction
 
+" supertabの設定1(タブキーを押しても補完できない場合)
+" let g:SuperTabContextDefaultCompletionType = "context"
+
+" supertabの設定2(補完の順番が逆になる場合)
+" let g:SuperTabDefaultCompletionType = "<c-n>"
+"
 """ NERDTree設定
 " MacだとNERDTeeでまるごとエラー吐いちゃう
 " Ctrl+nでNERDTreeを表示
