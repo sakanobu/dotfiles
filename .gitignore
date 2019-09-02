@@ -1,0 +1,8 @@
+# But not these files...
+!.gitignore
+!.vimrc
+!.vim
+!.vim/**
+!.setup_dotfiles.sh
+# Ignore the installed plugins
+.vim/plugged/**
