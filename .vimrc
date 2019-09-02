@@ -691,6 +691,10 @@ nnoremap <Space>bp :!bpython<CR>
 nnoremap <Space>snu :set number<CR>
 nnoremap <Space>sno :set nonumber<CR>
 
+" インサートモード中での文頭や末尾への移動へのキーバインド
+" インサートモード中にC-o → A とかC-o → Iとかでもいいんだけど､一応作った
+inoremap <Space><S-i>i <C-o>^
+inoremap <Space><S-a>a <C-o>$
 
 """ スクリプト起動ショートカット
 
