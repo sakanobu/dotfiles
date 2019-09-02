@@ -299,7 +299,7 @@ set columns=90
 syntax enable
 
 " 行番号を表示する
-" set number
+set number
 
 " 行番号の色
 highlight LineNr ctermfg=darkyellow
@@ -616,7 +616,9 @@ nnoremap <Space>q :q<CR>
 " bpythonをvim内から素早く呼ぶ
 nnoremap <Space>bp :!bpython<CR>
 
-
+" :set numberと:set nonumberのキーバインド
+nnoremap <Space>snu :set number<CR>
+nnoremap <Space>sno :set nonumber<CR>
 
 
 """ スクリプト起動ショートカット
