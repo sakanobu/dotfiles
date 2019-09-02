@@ -29,3 +29,9 @@ export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 # .bashrc を読み込む処理
 # https://qiita.com/magicant/items/d3bb7ea1192e63fba850
 test -r ~/.bashrc && . ~/.bashrc
+
+# bash_completionという補完のための設定､参照サイトは↓
+# bashの補完に関しては以下のサイトを参照
+# https://qiita.com/notakaos/items/d44a4c2b72625746de25
+# https://rcmdnk.com/blog/2015/05/14/computer-linux-mac-bash/
+[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion

@@ -1,4 +1,4 @@
-# 2019_07_04_.bashrcの設定
+# 2019_09_02_.bashrcの設定
 
 ### 導入
 
@@ -9,6 +9,9 @@
 
 # source ~/.bashrcで反映
 
+# bashの補完に関しては以下のサイトを参照
+# https://qiita.com/notakaos/items/d44a4c2b72625746de25
+# https://rcmdnk.com/blog/2015/05/14/computer-linux-mac-bash/
 
 ### 注意
 
