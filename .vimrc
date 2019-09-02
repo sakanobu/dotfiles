@@ -62,34 +62,21 @@ set fileformats=unix,dos,mac
 
 call plug#begin('~/.vim/plugged')
 
-" 行末のスペースを色付けする
-" :FixWhitespace で自動削除
-Plug 'bronson/vim-trailing-whitespace'
-
-" html閉じタグを自動挿入する
-Plug 'alvan/vim-closetag'
+"  j/kによる移動を速くする
+Plug 'rhysd/accelerated-jk'
 
 " 謎
 Plug 'tpope/vim-sensible'
 
-" Ruby向けにendを自動挿入(本採用)
-" Plug 'tpope/vim-endwise'
+" ステータスライン表示をおしゃれに
+Plug 'itchyny/lightline.vim'
 
-" Rubyのendキーワードを自動挿入part2
-" Plug 'cohama/vim-smartinput-endwise'
-
-"  Ctrl + / (/は2回押す)でコメントのON/OFF、gccでも可
-"  2019_04_06現在､gccなら可能だが､/では反応なし
-Plug 'tomtom/tcomment_vim'
+" 行末のスペースを色付けする
+" :FixWhitespace で自動削除
+Plug 'bronson/vim-trailing-whitespace'
 
 " インデントに色を付けて見やすくする
 Plug 'nathanaelkane/vim-indent-guides'
-
-" カラースキーム solarized
-Plug 'altercation/vim-colors-solarized'
-
-" ステータスライン表示をおしゃれに
-Plug 'itchyny/lightline.vim'
 
 " スニペット入力サポート
 " neocomplete.vimや次のスニペット集と合わせて導入
@@ -97,6 +84,52 @@ Plug 'Shougo/neosnippet.vim'
 
 " neosnippet.vimのためのスニペット集
 Plug 'Shougo/neosnippet-snippets'
+
+"  自動補完機能を有効にする
+Plug 'Shougo/neocomplete.vim'
+
+" html閉じタグを自動挿入する
+Plug 'alvan/vim-closetag'
+
+" カッコ（(や{など）を入力すると、自動で閉じカッコを補完
+Plug 'Townk/vim-autoclose'
+
+" () や {} の自動入力
+Plug 'kana/vim-smartinput'
+
+" 文字列を囲っている引用符や括弧を編集
+" http://vimblog.hatenablog.com/entry/vim_plugin_surround_vim
+" 1.()や[]や{}などの閉じカッコもあるものは閉じカッコを押すと空白を無くして囲える
+" 2.ysから始めるとヴィジュアルモードを経由せずにテキストオブジェクトで指定できる
+Plug 'tpope/vim-surround'
+
+" SublimeTextでの複数カーソルもどき
+" 詳細は以下のurlで確認
+" https://github.com/terryma/vim-multiple-cursors
+Plug 'terryma/vim-multiple-cursors'
+
+"  Ctrl + / (/は2回押す)でコメントのON/OFF、gccでも可
+"  2019_04_06現在､gccなら可能だが､/では反応なし
+Plug 'tomtom/tcomment_vim'
+
+" %を押せばendに飛べる
+Plug 'vim-scripts/ruby-matchit'
+
+" ソースコードを実行し、その結果をVim上で表示することができる
+" デフォルトでは実行結果が編集領域の上または左に表示されるため
+" 以下で変更した方がよいかもしれない
+" " エディタの分割方向を設定する
+" set splitbelow
+" set splitright
+Plug 'thinca/vim-quickrun'
+
+" 選択した文字列をコマンドで上下左右に移動したり、コピーしたりできる
+" 詳細は以下のURLで確認
+" https://vim-jp.org/vim-users-jp/2011/07/18/Hack-223.html
+" Plug 't9md/vim-textmanip'
+
+" カラースキーム solarized
+Plug 'altercation/vim-colors-solarized'
 
 " カラースキーム molokai
 Plug 'tomasr/molokai'
@@ -107,33 +140,17 @@ Plug 'sjl/badwolf'
 " カラースキーム Twilight
 Plug 'vim-scripts/twilight'
 
-" REPLをvimで
-" Plug 'ujihisa/repl.vim'
-
-"  j/kによる移動を速くする
-Plug 'rhysd/accelerated-jk'
-
-"  自動補完機能を有効にする
-Plug 'Shougo/neocomplete.vim'
-
 " Rubyのコード補完機能を提供
 " Plug 'osyo-manga/vim-monster'
 
-" ソースコードを実行し、その結果をVim上で表示することができる
-" デフォルトでは実行結果が編集領域の上または左に表示されるため
-" 以下で変更した方がよいかもしれない
-" " エディタの分割方向を設定する
-" set splitbelow
-" set splitright
-Plug 'thinca/vim-quickrun'
+" Ruby向けにendを自動挿入(本採用)
+" Plug 'tpope/vim-endwise'
 
-" プロジェクト内のファイルやバッファ、履歴からファイルを検索
-" 検索モードを開く
-" nmap <Leader>f :CtrlP<CR>と併用
-Plug 'ctrlpvim/ctrlp.vim'
+" Rubyのendキーワードを自動挿入part2
+" Plug 'cohama/vim-smartinput-endwise'
 
-" カッコ（(や{など）を入力すると、自動で閉じカッコを補完
-Plug 'Townk/vim-autoclose'
+" Ruby のシンタックスプラグインやその他便利機能が色々入ってる
+" Plug 'vim-ruby/vim-ruby'
 
 " Rubyのローカル変数をハイライト表示
 " なぜかエラー吐いちゃう
@@ -141,44 +158,23 @@ Plug 'Townk/vim-autoclose'
 " https://pocke.hatenablog.com/entry/2014/06/22/113012
 " Plug 'todesking/ruby_hl_lvar.vim'
 
-" 選択した文字列をコマンドで上下左右に移動したり、コピーしたりできる
-" 詳細は以下のURLで確認
-" https://vim-jp.org/vim-users-jp/2011/07/18/Hack-223.html
-" Plug 't9md/vim-textmanip'
-
-" vimを開いたままgitのコマンドを実行
-Plug 'tpope/vim-fugitive'
-
-" 文字列を囲っている引用符や括弧を編集
-" http://vimblog.hatenablog.com/entry/vim_plugin_surround_vim
-" 1.()や[]や{}などの閉じカッコもあるものは閉じカッコを押すと空白を無くして囲える
-" 2.ysから始めるとヴィジュアルモードを経由せずにテキストオブジェクトで指定できる
-Plug 'tpope/vim-surround'
-
-" ディレクトリツリーを一覧で表示したりファイルの追加削除したり
-Plug 'scrooloose/nerdtree'
-
-" Ruby のシンタックスプラグインやその他便利機能が色々入ってる
-" Plug 'vim-ruby/vim-ruby'
-
-" %を押せばendに飛べる
-Plug 'vim-scripts/ruby-matchit'
-
-" () や {} の自動入力
-Plug 'kana/vim-smartinput'
+" REPLをvimで
+" Plug 'ujihisa/repl.vim'
 
 " 構文チェックをしてくれるプラグイン
 " これをonにしちゃうとpytyonでオプション引数の=に疑問を投げかけてきちゃう
 " Plug 'vim-syntastic/syntastic'
 
-" SublimeTextでの複数カーソルもどき
-" 詳細は以下のurlで確認
-" https://github.com/terryma/vim-multiple-cursors
-Plug 'terryma/vim-multiple-cursors'
+" vimを開いたままgitのコマンドを実行
+Plug 'tpope/vim-fugitive'
 
-" 'や(を指定した形式で呼び出して文字列などを囲んだり囲いを消したりする
-Plug 'tpope/vim-surround'
+" ディレクトリツリーを一覧で表示したりファイルの追加削除したり
+Plug 'scrooloose/nerdtree'
 
+" プロジェクト内のファイルやバッファ、履歴からファイルを検索
+" 検索モードを開く
+" nmap <Leader>f :CtrlP<CR>と併用
+Plug 'ctrlpvim/ctrlp.vim'
 
 call plug#end()
 
@@ -240,6 +236,7 @@ let g:indent_guides_enable_on_vim_startup = 1
 " ↓をコメントアウトしたらもっとエラー吐いた…
 " let g:NERDTreeDirArrowCollapsible = '▼'
 
+
 """ FileType定義
 " FileTypeと.vim/ftpluginの活用
 " https://qiita.com/s_of_p/items/b61e4c3a0c7ee279848a
@@ -292,6 +289,15 @@ set visualbell
 
 """ 見た目系
 
+" Windowの縦幅を指定
+set lines=35
+
+" Windowの横幅を指定
+set columns=90
+
+" 構文ごとに文字色を変化
+syntax enable
+
 " 行番号を表示する
 " set number
 
@@ -301,41 +307,11 @@ highlight LineNr ctermfg=darkyellow
 " カーソルが何行目の何列目に置かれているかを表示
 set ruler
 
-" 構文ごとに文字色を変化
-syntax enable
-
-" 入力中のコマンドを表示する
-set showcmd
-
-" 編集中ファイル名の表示
-set title
-
-" タブ、空白、改行を可視化
-set list
-
 " タブと行の続きを可視化する
 set listchars=tab:>\ ,extends:<
 
-" 括弧入力時の対応する括弧を表示
-set showmatch
-
-" コマンドラインに使われる画面上の行数
-set cmdheight=2
-
-" エディタウィンドウの末尾から2行目にステータスラインを常時表示させる
-set laststatus=2
-
-" ステータス行に表示させる情報の指定(どこからかコピペしたので細かい意味はわかっていない)
-set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
-
-" ステータス行に現在のgitブランチを表示する
-set statusline+=%{fugitive#statusline()}
-
-" Windowの縦幅を指定
-set lines=35
-
-" Windowの横幅を指定
-set columns=90
+" タブ、空白、改行を可視化
+set list
 
 " 全角スペースの表示
 function! ZenkakuSpace()
@@ -350,6 +326,27 @@ if has('syntax')
     augroup END
     call ZenkakuSpace()
 endif
+
+" 括弧入力時の対応する括弧を表示
+set showmatch
+
+" 入力中のコマンドを表示する
+set showcmd
+
+" 編集中ファイル名の表示
+set title
+
+" コマンドラインに使われる画面上の行数
+set cmdheight=2
+
+" エディタウィンドウの末尾から2行目にステータスラインを常時表示させる
+set laststatus=2
+
+" ステータス行に表示させる情報の指定(どこからかコピペしたので細かい意味はわかっていない)
+set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
+
+" ステータス行に現在のgitブランチを表示する
+set statusline+=%{fugitive#statusline()}
 
 " 挿入モード時、ステータスラインの色を変更
 " MacではStatusLineがE492となる…
@@ -422,10 +419,10 @@ set whichwrap=b,s,h,l,<,>,[,]
 " インサートモードから抜けるときにpasteモードをやめる
 autocmd InsertLeave * set nopaste
 
-" タブ文字の表示幅
+" タブ文字の表示幅●
 set tabstop=4
 
-" 指定した数のスペースを1回で削除できるようにする
+" 指定した数のスペースを1回で削除できるようにする●
 set softtabstop=4
 
 " Tab文字の代わりに半角スペースに
@@ -624,7 +621,7 @@ nnoremap <Space>bp :!bpython<CR>
 
 """ スクリプト起動ショートカット
 
-" F6でPythonを実行
+" F6でPythonを実行●
 " function内にちゃんとpython3と書かないとpython2gajikkousaretesimau
 command! Python call s:Python()
 nmap <F6> :Python<CR>
