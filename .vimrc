@@ -91,6 +91,11 @@ Plug 'Shougo/neocomplete.vim'
 " html閉じタグを自動挿入する
 Plug 'alvan/vim-closetag'
 
+" htmlを楽々コーディング､専用の文法を書いたあとにC-y → , とすれば展開
+" https://qiita.com/yyuuiikk/items/6c7e793b9c734a84b62a
+" http://motw.mods.jp/Vim/emmet-vim.html
+Plug 'mattn/emmet-vim'
+
 " カッコ（(や{など）を入力すると、自動で閉じカッコを補完
 Plug 'Townk/vim-autoclose'
 
@@ -114,6 +119,9 @@ Plug 'tomtom/tcomment_vim'
 
 " Tabキーで補完
 Plug 'ervandew/supertab'
+
+" .でのリピートを強化
+Plug 'tpope/vim-repeat'
 
 " ソースコードを実行し、その結果をVim上で表示することができる
 " デフォルトでは実行結果が編集領域の上または左に表示されるため
@@ -146,7 +154,7 @@ Plug 'tell-k/vim-autopep8'
 
 " pythonの補完､ジェダイ
 " エラー…
-Plug 'davidhalter/jedi-vim'
+" Plug 'davidhalter/jedi-vim'
 
 " Rubyのコード補完機能を提供
 " Plug 'osyo-manga/vim-monster'
