@@ -3,3 +3,5 @@
 	email = grapejuice100percent@gmail.com
 [color]
 	ui = auto
+[alias]
+	st = status

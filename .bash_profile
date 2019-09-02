@@ -13,6 +13,11 @@
 # Macだとターミナル→環境設定→プロファイル→ウィンドウサイズ→ウィンドウサイズ
 # で列:90､行:35にする｡
 
+## alias
+
+# git
+alias st='git status'
+
 # なんかのバス
 export PATH="$HOME/.rbenv/bin:$PATH"
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
