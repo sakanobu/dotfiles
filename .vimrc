@@ -112,12 +112,8 @@ Plug 'terryma/vim-multiple-cursors'
 "  2019_04_06現在､gccなら可能だが､/では反応なし
 Plug 'tomtom/tcomment_vim'
 
-" %を押せばendに飛べる
-Plug 'vim-scripts/ruby-matchit'
-
 " Tabキーで補完
-" うーん､何故か反応しない…
-" Plug 'ervandew/supertab'
+Plug 'ervandew/supertab'
 
 " ソースコードを実行し、その結果をVim上で表示することができる
 " デフォルトでは実行結果が編集領域の上または左に表示されるため
@@ -146,7 +142,11 @@ Plug 'vim-scripts/twilight'
 
 " pythonのコーディングスタイルチェック
 " 事前にpip3 install autopep8をしておこうね
-Plug 'tell-k/vim-autopep8', {'for': 'python'}
+Plug 'tell-k/vim-autopep8'
+
+" pythonの補完､ジェダイ
+" エラー…
+Plug 'davidhalter/jedi-vim'
 
 " Rubyのコード補完機能を提供
 " Plug 'osyo-manga/vim-monster'
@@ -165,6 +165,9 @@ Plug 'tell-k/vim-autopep8', {'for': 'python'}
 " もうちょい詳しくなるまで放置 ↓の記事は使えそう
 " https://pocke.hatenablog.com/entry/2014/06/22/113012
 " Plug 'todesking/ruby_hl_lvar.vim'
+
+" %を押せばendに飛べる(Ruby?)
+" Plug 'vim-scripts/ruby-matchit'
 
 " REPLをvimで
 " Plug 'ujihisa/repl.vim'
@@ -246,7 +249,23 @@ let g:autopep8_disable_show_diff=1
 
 " supertabの設定2(補完の順番が逆になる場合)
 " let g:SuperTabDefaultCompletionType = "<c-n>"
-"
+
+" jedi-vimの設定
+" 参考サイトは
+" https://kashewnuts.github.io/2018/08/22/jedivim_memo.html
+" https://wonderwall.hatenablog.com/entry/2017/01/29/213052
+" set completeopt=menuone                        " 補完候補を呼び出すとき常にポップアップメニューを使う
+" autocmd! User jedi-vim call s:jedivim_hook()   " vim-plugの遅延ロード呼び出し
+" function! s:jedivim_hook()              " jedi-vimを使うときだけ呼び出す処理を関数化
+"   let g:jedi#auto_initialization    = 0 " 自動で実行される初期化処理を無効
+"   let g:jedi#auto_vim_configuration = 0 " 'completeopt' オプションを上書きしない
+"   let g:jedi#popup_on_dot           = 0 " ドット(.)を入力したとき自動で補完しない
+"   let g:jedi#popup_select_first     = 0 " 補完候補の1番目を選択しない
+"   let g:jedi#show_call_signatures   = 0 " 関数の引数表示を無効(ポップアップのバグを踏んだことがあるため)
+"   autocmd FileType python setlocal omnifunc=jedi#completions   " 補完エンジンはjediを使う
+" endfunction
+
+
 """ NERDTree設定
 " MacだとNERDTeeでまるごとエラー吐いちゃう
 " Ctrl+nでNERDTreeを表示
