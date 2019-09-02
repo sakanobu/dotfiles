@@ -140,6 +140,10 @@ Plug 'sjl/badwolf'
 " カラースキーム Twilight
 Plug 'vim-scripts/twilight'
 
+" pythonのコーディングスタイルチェック
+" 事前にpip3 install autopep8をしておこうね
+Plug 'tell-k/vim-autopep8', {'for': 'python'}
+
 " Rubyのコード補完機能を提供
 " Plug 'osyo-manga/vim-monster'
 
@@ -202,6 +206,36 @@ nmap <Leader>f :CtrlP<CR>
 
 " vim-indent-guidesというプラグインの追加設定
 let g:indent_guides_enable_on_vim_startup = 1
+
+" autopep8の補助設定1
+let g:autopep8_max_line_length=99
+let g:autopep8_disable_show_diff=1
+
+" autopep8の補助設定2
+" original http://stackoverflow.com/questions/12374200/using-uncrustify-with-vim/15513829#15513829
+" function! Preserve(command)
+"     " Save the last search.
+"     let search = @/
+"     " Save the current cursor position.
+"     let cursor_position = getpos('.')
+"     " Save the current window position.
+"     normal! H
+"     let window_position = getpos('.')
+"     call setpos('.', cursor_position)
+"     " Execute the command.
+"     execute a:command
+"     " Restore the last search.
+"     let @/ = search
+"     " Restore the previous window position.
+"     call setpos('.', window_position)
+"     normal! zt
+"     " Restore the previous cursor position.
+"     call setpos('.', cursor_position)
+" endfunction
+"
+" function! Autopep8()
+"     call Preserve(':silent %!autopep8 -')
+" endfunction
 
 """ NERDTree設定
 " MacだとNERDTeeでまるごとエラー吐いちゃう
