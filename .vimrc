@@ -595,22 +595,40 @@ endfunction
 set ttimeoutlen=150
 autocmd InsertLeave * call Fcitx2en()
 
-" vを二回で行末まで選択
-vnoremap v $h
-
-" TABにて対応ペアにジャンプ
-nnoremap &lt;Tab&gt; %
-vnoremap &lt;Tab&gt; %
+" 検索後にジャンプした際に検索単語を画面中央に持ってくる
+nnoremap n nzz
+nnoremap N Nzz
+nnoremap * *zz
+nnoremap # #zz
+nnoremap g* g*zz
+nnoremap g# g#zz
 
 " 折り返し時に表示行単位での移動
 nnoremap <silent> j gj
 nnoremap <silent> k gk
 
-" インサートモード時にカーソル左の1文字削除(ノーマルモードでの?)
-inoremap <c-b> <BS>
+" TABにて対応ペアにジャンプ
+nnoremap &lt;Tab&gt; %
+vnoremap &lt;Tab&gt; %
 
-" インサートモード時にカーソル位置の1文字削除(ノーマルモードでのx)
-inoremap <c-d> <delete>
+" ノーマルモード中のztやzzやz-などの再描画をspaceをプリフィックスにして
+" Shift+Hみたいな挙動と似せて(語彙力
+" nnoremap <Space>zh zt
+" nnoremap <Space>zm zz
+" nnoremap <Space>zl z-
+" zhはz<Left>だしzlはz<Right>で代替可能､zmは上書きされます
+nnoremap zh zt
+nnoremap zm zz
+nnoremap zl z-
+
+" ノーマルモード時にSpaceキーとoで空行を挿入しつつノーマルモードのまま
+nnoremap <Space>o o<ESC>k
+
+" vを二回で行末まで選択
+vnoremap v $h
+
+" ビジュアルモード中の"*yをzの一押しに
+vnoremap z "*y
 
 " インサートモード時の移動
 " <c-h>はbackspaceキーと連動しているので、
@@ -621,7 +639,7 @@ inoremap <c-j> <down>
 inoremap <c-k> <up>
 inoremap <c-l> <right>
 
-" インサートモード時の移動
+" インサートモード時の移動(旧版)
 " Shift + Enterで下に、Shift + Ctrl + Enterで上に空行を挿入
 " https://qiita.com/itmammoth/items/312246b4b7688875d023
 " ただし、↓だけではうごかない可能性大なので↑のurlを参考に
@@ -629,6 +647,24 @@ inoremap <c-l> <right>
 " imap <C-S-CR> <Up><End><CR>
 " nnoremap <S-CR> mzo<ESC>`z
 " nnoremap <C-S-CR> mzO<ESC>`z
+
+" インサートモード時にカーソル左の1文字削除(ノーマルモードでの?)
+inoremap <c-b> <BS>
+
+" インサートモード時にカーソル位置の1文字削除(ノーマルモードでのx)
+inoremap <c-d> <delete>
+
+" インサートモード中での文頭や末尾への移動へのキーバインド
+" インサートモード中にC-o → A とかC-o → Iとかでもいいんだけど､一応作った
+inoremap <Space><S-i>i <C-o>^
+inoremap <Space><S-a>a <C-o>$
+
+" :qを<Space>qで
+nnoremap <Space>q :q<CR>
+
+" :set numberと:set nonumberのキーバインド
+nnoremap <Space>snu :set number<CR>
+nnoremap <Space>sno :set nonumber<CR>
 
 " ウィンドウの水平分割と垂直分割の簡略化
 nnoremap <Space>sp :split<CR>
@@ -648,30 +684,6 @@ nnoremap <Space>j <C-w>j
 nnoremap <Space>k <C-w>k
 nnoremap <Space>l <C-w>l
 
-" ビジュアルモード中の"*yをzの一押しに
-vnoremap z "*y
-
-" 検索後にジャンプした際に検索単語を画面中央に持ってくる
-nnoremap n nzz
-nnoremap N Nzz
-nnoremap * *zz
-nnoremap # #zz
-nnoremap g* g*zz
-nnoremap g# g#zz
-
-" ノーマルモード中のztやzzやz-などの再描画をspaceをプリフィックスにして
-" Shift+Hみたいな挙動と似せて(語彙力
-" nnoremap <Space>zh zt
-" nnoremap <Space>zm zz
-" nnoremap <Space>zl z-
-" zhはz<Left>だしzlはz<Right>で代替可能､zmは上書きされます
-nnoremap zh zt
-nnoremap zm zz
-nnoremap zl z-
-
-" ノーマルモード時にSpaceキーとoで空行を挿入しつつノーマルモードのまま
-nnoremap <Space>o o<ESC>k
-
 " vim-quickrunの実行簡略化
 " また､ここに書いていいのか微妙だが↓
 " 1.自動で実行(悩みどころ)2.結果を水平分割かつ下の窓に表示する3.自動でしたの窓に移動
@@ -681,20 +693,8 @@ let g:quickrun_config={'*': {'split': ''}}
 set splitbelow
 nnoremap <Space>r :QuickRun<CR><C-w>j
 
-" :qを<Space>qで
-nnoremap <Space>q :q<CR>
-
 " bpythonをvim内から素早く呼ぶ
 nnoremap <Space>bp :!bpython<CR>
-
-" :set numberと:set nonumberのキーバインド
-nnoremap <Space>snu :set number<CR>
-nnoremap <Space>sno :set nonumber<CR>
-
-" インサートモード中での文頭や末尾への移動へのキーバインド
-" インサートモード中にC-o → A とかC-o → Iとかでもいいんだけど､一応作った
-inoremap <Space><S-i>i <C-o>^
-inoremap <Space><S-a>a <C-o>$
 
 """ スクリプト起動ショートカット
 
