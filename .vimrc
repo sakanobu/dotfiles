@@ -703,35 +703,6 @@ let g:quickrun_config={'*': {'split': ''}}
 set splitbelow
 nnoremap <Space>r :QuickRun<CR><C-w>j
 
-" C
-function! s:Gcc()
-	:w
-		:!gcc % -o %.out
-		:!./%.out
-    :!rm -f ./%.out
-		endfunction
-
-command! Gcc call s:Gcc()
-
-nmap <F7> :Gcc<CR><CR><CR>
-
-" " C++
-" function! s:CPlus()
-" 	:w
-" 		:!g++ % -o %.exe
-" 		:!./%.exe
-"     :!rm -f ./%.exe
-" 		endfunction
-"
-" command! CPlus call s:CPlus()
-
-nmap <F8> :CPlus<CR><CR><CR>
-
-" 他のvim内でのPython実行方法
-" autocmd BufNewFile,BufRead *.py nnoremap <C-e> :!python %
-" imap <F5> <Esc>:w<CR>:!clear;python %<CR>
-
-
 
 """ 新しく追加したい
 
