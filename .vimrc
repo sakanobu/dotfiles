@@ -617,6 +617,14 @@ nnoremap g# g#zz
 nnoremap <silent> j gj
 nnoremap <silent> k gk
 
+" <Space> → jkhlのどれかで9個分移動
+" しかし､エラー…
+" そもそも<Space>j <down>が効かない時点でよく分からない…
+" nnoremap <Space><left> 9<left>
+" nnoremap <Space>j <down>
+" nnoremap <Space>k 9<up>
+" nnoremap <Space>l 9<right>
+
 " TABにて対応ペアにジャンプ
 nnoremap &lt;Tab&gt; %
 vnoremap &lt;Tab&gt; %
