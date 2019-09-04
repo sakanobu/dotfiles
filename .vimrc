@@ -490,26 +490,34 @@ set whichwrap=b,s,h,l,<,>,[,]
 " インサートモードから抜けるときにpasteモードをやめる
 autocmd InsertLeave * set nopaste
 
-" タブ文字の表示幅●
-set tabstop=4
+" 改行時に前の行のインデントを継続する
+set autoindent
 
-" 指定した数のスペースを1回で削除できるようにする●
-set softtabstop=4
+" インデントの増減を自動で行う際のインデントする幅●
+" デフォルトは2､だがfiletypeによって変更しており､
+" .vim/after/ftpluginにそれぞれ個別に設定
+set shiftwidth=2
+
+" 改行時に入力された行の末尾に合わせて次の行のインデントを増減する
+set smartindent
 
 " Tab文字の代わりに半角スペースに
+" filetypeによって変更するのかは悩み中
 set expandtab
+
+" タブ文字の表示幅●
+" デフォルトは2､だがfiletypeによって変更しており､
+" .vim/after/ftpluginにそれぞれ個別に設定
+set tabstop=2
+
+" 指定した数のスペースを1回で削除できるようにする●
+" 0を設定するとtabstopの値を参照する
+" .vim/after/ftpluginに個別に設定してもいいかも
+set softtabstop=0
 
 " 行頭の余白内で Tab を打ち込むと、'shiftwidth' の数だけインデントする
 set smarttab
 
-" オートインデント時にインデントする幅
-set shiftwidth=4
-
-" 改行時に前の行のインデントを継続する
-set autoindent
-
-" 改行時に入力された行の末尾に合わせて次の行のインデントを増減する
-set smartindent
 
 
 """ 補完系
@@ -563,7 +571,7 @@ nmap <Esc><Esc> :nohlsearch<CR><Esc>
 
 
 
-""" キーマッピング
+""" キーマッピングorキーバインド系
 " デフォルトのキーマッピングは:help index.txtを確認する
 " 標準のキー操作を損なうことなくマップできるキーや、使われていないキーを探すには
 " |index.txt| を参照してください。":help {key}^D" を使用してそのキーが使われてい
@@ -692,21 +700,6 @@ nnoremap <Space>l <C-w>l
 let g:quickrun_config={'*': {'split': ''}}
 set splitbelow
 nnoremap <Space>r :QuickRun<CR><C-w>j
-
-" bpythonをvim内から素早く呼ぶ
-nnoremap <Space>bp :!bpython<CR>
-
-""" スクリプト起動ショートカット
-
-" F6でPythonを実行●
-" function内にちゃんとpython3と書かないとpython2gajikkousaretesimau
-command! Python call s:Python()
-nmap <F6> :Python<CR>
-
-function! s:Python()
-        :w
-	        :!python3 %
-		endfunction
 
 " C
 command! Gcc call s:Gcc()
