@@ -36,11 +36,11 @@ nnoremap <Space>bp :!bpython<CR>
 " ↓初めの2段落はvimのスクリプト?
 " 更に注意だけど､↓のvimのスクリプトにあるようにF6を実行すると
 " 自動で:wを行うので､勝手にバッファが保存されて:qでvimを抜けられてしまう…
-command! Python call s:Python()
-
 function! s:Python()
         :w
 	        :!python3 %
 		endfunction
+
+command! Python call s:Python()
 
 nmap <F6> :Python<CR>

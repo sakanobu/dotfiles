@@ -322,6 +322,8 @@ let g:autopep8_disable_show_diff=1
 augroup MyGroup
     autocmd!
     autocmd BufRead,BufNewFile *.py setfiletype python
+    autocmd BufRead,BufNewFile *.c setfiletype c
+    autocmd BufRead,BufNewFile *.cpp setfiletype c++
 augroup END
 
 
@@ -702,9 +704,6 @@ set splitbelow
 nnoremap <Space>r :QuickRun<CR><C-w>j
 
 " C
-command! Gcc call s:Gcc()
-nmap <F7> :Gcc<CR><CR><CR>
-
 function! s:Gcc()
 	:w
 		:!gcc % -o %.out
@@ -712,15 +711,21 @@ function! s:Gcc()
     :!rm -f ./%.out
 		endfunction
 
-" C++
-command! CPlus call s:CPlus()
+command! Gcc call s:Gcc()
+
+nmap <F7> :Gcc<CR><CR><CR>
+
+" " C++
+" function! s:CPlus()
+" 	:w
+" 		:!g++ % -o %.exe
+" 		:!./%.exe
+"     :!rm -f ./%.exe
+" 		endfunction
+"
+" command! CPlus call s:CPlus()
+
 nmap <F8> :CPlus<CR><CR><CR>
-function! s:CPlus()
-	:w
-		:!g++ % -o %.exe
-		:!./%.exe
-    :!rm -f ./%.exe
-		endfunction
 
 " 他のvim内でのPython実行方法
 " autocmd BufNewFile,BufRead *.py nnoremap <C-e> :!python %
