@@ -2,6 +2,7 @@
 " C++
 function! s:CPlus()
 	:w
+  :!clear
 		:!g++ % -o %.exe
 		:!./%.exe
     :!rm -f ./%.exe
@@ -9,5 +10,4 @@ function! s:CPlus()
 
 command! CPlus call s:CPlus()
 
-nmap <F6> :CPlus<CR><CR><CR>
-
+nmap <F6> :CPlus<CR><CR><CR><CR>
