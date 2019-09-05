@@ -670,6 +670,9 @@ nnoremap <silent> k gk
 " nnoremap <Space>k 9<up>
 " nnoremap <Space>l 9<right>
 
+" ウィンドウのプレフィックスが押しにくいので変更
+nnoremap <Space>w <c-w>
+
 " TABにて対応ペアにジャンプ
 nnoremap &lt;Tab&gt; %
 vnoremap &lt;Tab&gt; %
