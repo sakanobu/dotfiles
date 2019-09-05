@@ -126,6 +126,18 @@ Plug 'ervandew/supertab'
 " .でのリピートを強化
 Plug 'tpope/vim-repeat'
 
+" ファイルを保存したときに追加で.vimrcに記述したもので文法を自動チェック
+" 2019_09_05､えぇ!これの改良版が↓なのでこれはもう使えないのか…
+" Plug 'scrooloose/syntastic'
+
+" 構文チェックをしてくれるプラグイン
+" flake8とかちゃんとインストールしておかないとダメだよ
+" :syntasticInfoをvim内で打てば現在使われているチェッカーを確認できる
+" :SynstaicCheckや:Errorsなど使い方の説明は↓
+" https://wonderwall.hatenablog.com/entry/2017/02/05/214004
+" pythonに関してはvim-flake8という↓にあるプラグインでいいかなって感じ
+Plug 'vim-syntastic/syntastic'
+
 " ソースコードを実行し、その結果をVim上で表示することができる
 " デフォルトでは実行結果が編集領域の上または左に表示されるため
 " 以下で変更した方がよいかもしれない
@@ -151,7 +163,11 @@ Plug 'sjl/badwolf'
 " カラースキーム Twilight
 Plug 'vim-scripts/twilight'
 
-" pythonのコーディングスタイルチェック
+" flake8のプラグイン
+" 追記設定でキーバインドなどを変更している(デフォルトだとF7で実行されちゃう)
+Plug 'nvie/vim-flake8'
+
+" pythonのコーディングスタイルチェックどころか自動で修正してくれる
 " 事前にpip3 install autopep8をしておこうね
 Plug 'tell-k/vim-autopep8'
 
@@ -183,10 +199,6 @@ Plug 'tell-k/vim-autopep8'
 " REPLをvimで
 " Plug 'ujihisa/repl.vim'
 
-" 構文チェックをしてくれるプラグイン
-" これをonにしちゃうとpytyonでオプション引数の=に疑問を投げかけてきちゃう
-" Plug 'vim-syntastic/syntastic'
-
 " vimを開いたままgitのコマンドを実行
 Plug 'tpope/vim-fugitive'
 
@@ -203,28 +215,39 @@ call plug#end()
 
 
 """ プラグインとの併用系
+" 記述の順番は↑のプラグインを書いた順番に準拠､GitHubとかでウィンドウ出してた
 
 " rhysd/accelerated-jkというプラグインの追加設定
 " j/kによる移動を速くする
 nmap j <Plug>(accelerated_jk_gj)
 nmap k <Plug>(accelerated_jk_gk)
 
+" vim-indent-guidesというプラグインの追加設定
+let g:indent_guides_enable_on_vim_startup = 1
+
 " Shougo/neocomplete.vimというプラグインの追加設定
 " 自動補完機能を有効にする
 let g:neocomplete#enable_at_startup = 1
 
-" vim-monsterというプラグインの追加設定
-" neocomplete.vimとあわせて導入
-let g:neocomplete#sources#omni#input_patterns = {
-\  'ruby': '[^. *¥t]\.\w*\|\h\w*::'
-\}
+" supertabの設定1(タブキーを押しても補完できない場合)
+" let g:SuperTabContextDefaultCompletionType = "context"
 
-" ctrlpvim/ctrlp.vimというプラグインの追加設定
-" 検索モードを開く
-nmap <Leader>f :CtrlP<CR>
+" supertabの設定2(補完の順番が逆になる場合)
+" let g:SuperTabDefaultCompletionType = "<c-n>"
 
-" vim-indent-guidesというプラグインの追加設定
-let g:indent_guides_enable_on_vim_startup = 1
+" shyntasticの設定
+let g:syntastic_python_checkers = ['flake8']
+
+" vim-flake8の設定
+" ファイル保存時に実行､だが重くなるのでコメントアウト
+" autocmd BufWritePost *.py call Flake8()
+" キーバインド変更､そもそもfiletypeがpythonじゃないとF7でも実行されないぽい
+autocmd FileType python map <buffer> <Space>f8 :call Flake8()<CR>
+" Quickfixの位置､デフォルトにすると下にQuickFixを開いてくれるのでコメントアウト
+" let g:flake8_quickfix_location="topleft"
+let g:flake8_quickfix_height=7 " Quickfixの高さ
+let g:flake8_show_in_gutter=1  " 左端にシンボルを表示
+let g:flake8_show_in_file=1  " ファイル内にマークを表示
 
 " autopep8の補助設定1
 let g:autopep8_max_line_length=99
@@ -255,12 +278,6 @@ let g:autopep8_disable_show_diff=1
 " function! Autopep8()
 "     call Preserve(':silent %!autopep8 -')
 " endfunction
-
-" supertabの設定1(タブキーを押しても補完できない場合)
-" let g:SuperTabContextDefaultCompletionType = "context"
-
-" supertabの設定2(補完の順番が逆になる場合)
-" let g:SuperTabDefaultCompletionType = "<c-n>"
 
 " jedi-vimの設定
 " 参考サイトは
@@ -309,6 +326,16 @@ let g:autopep8_disable_show_diff=1
 " Macだと↓でエラーを吐いてる
 " ↓をコメントアウトしたらもっとエラー吐いた…
 " let g:NERDTreeDirArrowCollapsible = '▼'
+
+" vim-monsterというプラグインの追加設定
+" neocomplete.vimとあわせて導入←よく分からない…
+let g:neocomplete#sources#omni#input_patterns = {
+\  'ruby': '[^. *¥t]\.\w*\|\h\w*::'
+\}
+
+" ctrlpvim/ctrlp.vimというプラグインの追加設定
+" 検索モードを開く
+nmap <Leader>f :CtrlP<CR>
 
 
 
