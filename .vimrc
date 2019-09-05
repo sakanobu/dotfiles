@@ -1,6 +1,7 @@
 " 2019_08_14_Mac本体のvim(vim-plug)の設定.txt
 
 
+
 """ メモ
 
 " Karabiner-Elementsのようにvimライクなbashなどを↓
@@ -10,6 +11,7 @@
 " というか､何かが邪魔してるのか?
 
 " インサートモードに戻ったら､かな入力から半角英数字入力になってほしい
+
 
 
 """ エンコードなど
@@ -56,6 +58,7 @@ set fileformats=unix,dos,mac
 " というわけで､vim-gnomeを持ってこよう!
 " sudo apt-get install vim-gnome
 " Macの場合はhomebrewでごちゃごちゃやる
+
 
 
 """ vim-plugの本文
@@ -198,6 +201,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 call plug#end()
 
 
+
 """ プラグインとの併用系
 
 " rhysd/accelerated-jkというプラグインの追加設定
@@ -273,7 +277,6 @@ let g:autopep8_disable_show_diff=1
 "   autocmd FileType python setlocal omnifunc=jedi#completions   " 補完エンジンはjediを使う
 " endfunction
 
-
 """ NERDTree設定
 " MacだとNERDTeeでまるごとエラー吐いちゃう
 " Ctrl+nでNERDTreeを表示
@@ -308,6 +311,7 @@ let g:autopep8_disable_show_diff=1
 " let g:NERDTreeDirArrowCollapsible = '▼'
 
 
+
 """ FileType定義
 " FileTypeと.vim/ftpluginの活用
 " https://qiita.com/s_of_p/items/b61e4c3a0c7ee279848a
@@ -325,6 +329,7 @@ augroup MyGroup
     autocmd BufRead,BufNewFile *.c setfiletype c
     autocmd BufRead,BufNewFile *.cpp setfiletype c++
 augroup END
+
 
 
 """ システム系
@@ -358,6 +363,7 @@ set visualbell
 " 試したところダメでした､ubuntuで"*yは諦めるか
 " 一応､VirtualBoxのクリップボード共有云々も双方と設定したんだけどなぁ
 " set clipboard=unnamedplus
+
 
 
 """ 見た目系
@@ -454,6 +460,7 @@ set statusline+=%{fugitive#statusline()}
 " endfunction
 
 
+
 """ カラースキーム系
 
 " set background=dark
@@ -481,6 +488,7 @@ colorscheme solarized
 " let g:solarized_visibility='normal'
 
 
+
 """ 入力系
 
 " 行末の1文字先までカーソルを移動できるように
@@ -491,6 +499,11 @@ set whichwrap=b,s,h,l,<,>,[,]
 
 " インサートモードから抜けるときにpasteモードをやめる
 autocmd InsertLeave * set nopaste
+
+" インサートモードから抜ける際に日本語入力を解除する
+" https://teratail.com/questions/90348
+" inoremap <ESC> <ESC>:set iminsert=0<CR>
+" autocmd InsertLeave * set iminsert=0 imsearch=0
 
 " 改行時に前の行のインデントを継続する
 set autoindent
@@ -523,6 +536,8 @@ set smarttab
 
 
 """ 補完系
+" 自動補完のプラグインを入れているので↓の{ +
+" <Enter>とかコメントアウトしていいかも
 
 " コマンドラインモードで<Tab>キーによるファイル名補完を有効にする
 set wildmenu
@@ -542,6 +557,7 @@ inoremap (<Enter> ()<Left><CR><ESC><S-o>
 
 " コマンドラインの補完
 set wildmode=list:longest
+
 
 
 """ 検索系
@@ -578,6 +594,8 @@ nmap <Esc><Esc> :nohlsearch<CR><Esc>
 " 標準のキー操作を損なうことなくマップできるキーや、使われていないキーを探すには
 " |index.txt| を参照してください。":help {key}^D" を使用してそのキーが使われてい
 " るかどうかを調べることもできます ({key}は調べたいキー、^DはCTRL-Dの入力)。
+
+" ハイライト消すなどの一部のキーマッピングはこの段落以外の場所に入れている
 
 " LeaderキーをSpaceキーに
 " vimfilerとぶつかって結局,にした人もいるらしい
@@ -712,8 +730,8 @@ set splitbelow
 nnoremap <Space>r :QuickRun<CR><C-w>j
 
 
-""" 新しく追加したい
 
+""" 新しく追加したい
 " vimshell設定
 " ,sh: シェルを起動
 " nnoremap <silent> ,sh :VimShell<CR>
