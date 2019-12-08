@@ -73,3 +73,10 @@ PROMPT_COMMAND='add_line'
 # 2._やg_の挙動がおかしい…ほかの便利キーバインドになってるっぽい
 set -o vi
 bind '"jj": vi-movement-mode'
+
+# chromeをコマンドラインから開くエイリアス､引数としてhtmlを指定する｡
+alias chromeopen='open -a "Google Chrome"'
+
+# tmux限定ではないけど､C-dでログアウトするのを防ぐやつ
+# https://superuser.com/questions/479600/how-can-i-prevent-tmux-exiting-with-ctrl-d
+set -o ignoreeof
