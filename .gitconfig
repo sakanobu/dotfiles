@@ -5,3 +5,13 @@
 	ui = auto
 [alias]
 	st = status
+[core]
+	excludesfile = /Users/tyobi0913/.gitignore_global
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Users/tyobi0913/Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[commit]
+	template = /Users/tyobi0913/.stCommitMsg
