@@ -91,6 +91,18 @@ Plug 'nathanaelkane/vim-indent-guides'
 "  自動補完機能を有効にする
 " Plug 'Shougo/neocomplete.vim'
 
+" neocomplete.vimに変わる自動補完機能
+" https://githubja.com/shougo/deoplete-nvim
+" エラーには､pip install pyvim で対処
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+let g:deoplete#enable_at_startup = 1
+
 " html閉じタグを自動挿入する
 Plug 'alvan/vim-closetag'
 
