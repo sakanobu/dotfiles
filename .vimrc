@@ -172,8 +172,10 @@ Plug 'nvie/vim-flake8'
 Plug 'tell-k/vim-autopep8'
 
 " pythonの補完､ジェダイ
-" エラー…
-" Plug 'davidhalter/jedi-vim'
+" .を押すと補完候補が現れる｡
+" 詳しくは↓
+" https://wonderwall.hatenablog.com/entry/2017/01/29/213052
+Plug 'davidhalter/jedi-vim'
 
 " Rubyのコード補完機能を提供
 " Plug 'osyo-manga/vim-monster'
@@ -396,10 +398,10 @@ set visualbell
 """ 見た目系
 
 " Windowの縦幅を指定
-set lines=51
+set lines=52
 
 " Windowの横幅を指定
-set columns=96
+set columns=99
 
 " 構文ごとに文字色を変化
 syntax enable
