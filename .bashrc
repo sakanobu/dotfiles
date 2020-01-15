@@ -1,19 +1,6 @@
-# 2019_09_02_.bashrcの設定
-
 ### 導入
 
-# git-prompt.shが無いとエラーを吐くので以下をやる
-# https://qiita.com/varmil/items/9b0aeafa85975474e9b6
-# wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -O ~/.git-prompt.sh
-# chmod a+x ~/.git-prompt.sh
-
 # source ~/.bashrcで反映
-
-# bashの補完に関しては以下のサイトを参照
-# https://qiita.com/notakaos/items/d44a4c2b72625746de25
-# https://rcmdnk.com/blog/2015/05/14/computer-linux-mac-bash/
-
-### 注意
 
 # .bash_profileは基本的に環境変数について書く
 # それ以外の
@@ -21,20 +8,37 @@
 # 2.エイリアスを定義する
 # 3.シェル関数を定義する
 # といった設定は.bashrcへ
+# ※ただ､このファイルにあるbashのGit云々にexport含まれていて…うーん
 
-# ターミナルのウィンドウサイズについては
-# Macだとターミナル→環境設定→プロファイル→ウィンドウサイズ→ウィンドウサイズ
-# で列:90､行:35にする｡
+# git-prompt.shが無いとエラーを吐くので以下をやる
+# https://qiita.com/varmil/items/9b0aeafa85975474e9b6
+# wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -O ~/.git-prompt.sh
+# chmod a+x ~/.git-prompt.sh
 
-# ubuntuに元からある.bashrcはコメントアウトしちゃって､
-# 共有フォルダから持ってきた.bashrcをcat xx >> 〇〇みたいに追記しちゃう
+# bashの補完に関しては以下のサイトを参照
+# https://qiita.com/notakaos/items/d44a4c2b72625746de25
+# https://rcmdnk.com/blog/2015/05/14/computer-linux-mac-bash/
+
 
 
 ### 本編
 
-# utf-8
-export LANG=ja_JP.UTF-8
+# ターミナルでの入力をviライクのキーバインドに&jjでノーマルモードへ
+# ターミナルに入った直後ではインサートモードから始まる
+# もしいま現在がインサートなのかノーマルなのかを表示するには↓を参照
+# https://www.trhrkmk.com/posts/setting-vi-mode-in-bash-comfortable/
+# 注意なのは
+# 1.インサートモード時には1つ上の履歴をみる<Ctrl+p>が使えないからノーマルモードへ
+# 2._やg_の挙動がおかしい…ほかの便利キーバインドになってるっぽい
+set -o vi
+# viライクターミナルでもjjでノーマルモードへ､キーマッピング
+bind '"jj": vi-movement-mode'
 
+# tmux限定ではないけど､C-dでログアウトするのを防ぐやつ
+# https://superuser.com/questions/479600/how-can-i-prevent-tmux-exiting-with-ctrl-d
+set -o ignoreeof
+
+## bashの見た目改造
 # gitのブランチ名をターミナルに表示
 # https://qiita.com/hmmrjn/items/60d2a64c9e5bf7c0fe60
 # Gitブランチ名を表示
@@ -64,19 +68,12 @@ function add_line {
 }
 PROMPT_COMMAND='add_line'
 
-# ターミナルでの入力をviライクのキーバインドに&jjでノーマルモードへ
-# ターミナルに入った直後ではインサートモードから始まる
-# もしいま現在がインサートなのかノーマルなのかを表示するには↓を参照
-# https://www.trhrkmk.com/posts/setting-vi-mode-in-bash-comfortable/
-# 注意なのは
-# 1.インサートモード時には1つ上の履歴をみる<Ctrl+p>が使えないからノーマルモードへ
-# 2._やg_の挙動がおかしい…ほかの便利キーバインドになってるっぽい
-set -o vi
-bind '"jj": vi-movement-mode'
+
+
+### エイリアス
 
 # chromeをコマンドラインから開くエイリアス､引数としてhtmlを指定する｡
 alias chromeopen='open -a "Google Chrome"'
 
-# tmux限定ではないけど､C-dでログアウトするのを防ぐやつ
-# https://superuser.com/questions/479600/how-can-i-prevent-tmux-exiting-with-ctrl-d
-set -o ignoreeof
+# git
+alias st='git status'
