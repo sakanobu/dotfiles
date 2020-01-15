@@ -103,6 +103,9 @@ else
 endif
 let g:deoplete#enable_at_startup = 1
 
+" deopleteのpython3用スニペット
+Plug 'deoplete-plugins/deoplete-jedi'
+
 " html閉じタグを自動挿入する
 Plug 'alvan/vim-closetag'
 
