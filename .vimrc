@@ -83,13 +83,13 @@ Plug 'nathanaelkane/vim-indent-guides'
 
 " スニペット入力サポート
 " neocomplete.vimや次のスニペット集と合わせて導入
-Plug 'Shougo/neosnippet.vim'
+" Plug 'Shougo/neosnippet.vim'
 
 " neosnippet.vimのためのスニペット集
-Plug 'Shougo/neosnippet-snippets'
+" Plug 'Shougo/neosnippet-snippets'
 
 "  自動補完機能を有効にする
-Plug 'Shougo/neocomplete.vim'
+" Plug 'Shougo/neocomplete.vim'
 
 " html閉じタグを自動挿入する
 Plug 'alvan/vim-closetag'
