@@ -18,11 +18,13 @@
     - 1行下に空行は \<Space>o
     - 1行上に空行は \<Space>\<S-o>
     - 行固定して見た目位置変更はHigh,Middle,Lowの順で zh,zm,zl
-    - 多めのカーソル移動は \<Space> → h,j,k,l
     - 対応ペアにジャンプは tab
+    - 行の最初の文字へ移動は \<Space>a
+    - 行末へ移動は \<Space>e
+    - 多めのカーソル移動は \<Space> → h,j,k,l
     - vimのウィンドウ操作プリフィックスは \<Space>w
     - vimのウィンドウの水平分割は \<Space>-
-    - vimのウィンドウの垂直分割は \<Space>\ (\\なのは|のShift押さない版だから)
+    - vimのウィンドウの垂直分割は \<Space>|
     - vim-quickrunの実行は \<Space>r
   - インサートモード
     - ノーマルモードのショトカは jj
@@ -32,10 +34,26 @@
   - ヴィジュアルモード
     - カーソルから行末まで選択は v (つまり行頭でvvすると一行全部選択)
     - ブラウザで即ペーストできるようにレジスタ\*レジスタ登録は z
-
 - プラグインのマッピング
+  - bronson/vim-trailing-whitespace
+    - 自動削除は :FixWhitespace
+  - mattn/emmet-vim
+    - \<C-y> → ,
+  - tpope/vim-surround
+    - あああ
+  - tomtom/tcomment_vim
+    - gcc
+  - vim-syntastic/syntastic
+    - 現在使われているチェッカーを確認は :syntasticInfo
+    - :SynstaicChec
+    - :Errors
+  - nvie/vim-flake8
+    - デフォルトでは F7
+  - ctrlpvim/ctrlp.vim
+    - ファイルの捜索の実行は \<C-p>
 
 ### 忘れやすいプラグイン
+- 後ほど追加
 
 
 
