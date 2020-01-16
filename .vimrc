@@ -230,6 +230,7 @@ call plug#end()
 
 
 """ プラグインとの併用系
+
 " 記述の順番は↑のプラグインを書いた順番に準拠､GitHubとかでウィンドウ出してた
 
 " rhysd/accelerated-jkというプラグインの追加設定
@@ -566,17 +567,20 @@ nnoremap g# g#zz
 
 
 """ キーマッピングorキーバインド系
-" デフォルトのキーマッピングは:help index.txtを確認する
-" 標準のキー操作を損なうことなくマップできるキーや、使われていないキーを探すには
-" |index.txt| を参照してください。":help {key}^D" を使用してそのキーが使われてい
-" るかどうかを調べることもできます ({key}は調べたいキー、^DはCTRL-Dの入力)。
 
-" ハイライト消すなどの一部のキーマッピングはこの段落以外の場所に入れている
+" デフォルトのキーマッピングは:help index.txtを確認
+" 現在のキーマッピングの状況の確認は:map :imap :vmap
+" また､:verbose nmap とするとマッピングを定義したファイルも表示される
+
+" 特殊なキーをマッピングは↓
+" https://vim.jp.net/stepuptonovice_input_mappings_keynotations.html
 
 " Leaderキーは設定してない
 " その代わり擬似的なプリフィックスキーとしてSpaceを使用
 " もし<Space>じゃなくて<Leader>にしたかったら↓
 " let mapleader = "\<Space>"
+
+" ハイライト消すなどの一部のキーマッピングはこの段落以外の場所に入れている
 
 
 "" ノーマルモード用
@@ -618,18 +622,24 @@ nnoremap zh zt
 nnoremap zm zz
 nnoremap zl z-
 
+" TABにて対応ペアにジャンプ
+nnoremap <Tab> %
+vnoremap <Tab> %
+
+" 行の最初の文字へ移動
+nnoremap <Space>a ^
+
+" 行末へ移動
+nnoremap <Space>e $
+
 " <Space> → jkhlのどれかで多めに移動
 nmap <Space>h 7h
 nmap <Space>j 10j
 nmap <Space>k 10k
 nmap <Space>l 7l
 
-" TABにて対応ペアにジャンプ
-nnoremap &lt;Tab&gt; %
-vnoremap &lt;Tab&gt; %
-
 " ウィンドウのプレフィックスが押しにくいので変更
-nnoremap <Space>w <c-w>
+nnoremap <Space>w <C-w>
 
 " ウィンドウの移動の簡略化
 " これやると､<Space>jとかできなくなるのでやめた
@@ -641,7 +651,7 @@ nnoremap <Space>w <c-w>
 " ウィンドウの水平分割と垂直分割の簡略化
 " \にしたのは|のShiftを押さないバージョンだから
 nnoremap <Space>- :split<CR>
-nnoremap <Space>\ :vsplit<CR>
+nnoremap <Space><Bar> :vsplit<CR>
 
 " vim-quickrunの実行簡略化
 " また､ここに書いていいのか微妙だが↓
@@ -677,19 +687,19 @@ set ttimeoutlen=150
 autocmd InsertLeave * call Fcitx2en()
 
 " インサートモード時にカーソル左の1文字削除(ノーマルモードでの…どれだ…?)
-inoremap <c-b> <BS>
+inoremap <C-b> <BS>
 
 " インサートモード時にカーソル位置の1文字削除(ノーマルモードでのx)
-inoremap <c-d> <delete>
+inoremap <C-d> <delete>
 
 " インサートモード時の移動
-" <c-h>はbackspaceキーと連動しているので、
+" <C-h>はbackspaceキーと連動しているので、
 " インサートモードでのbackspaceを用いた前の1文字削除が出来なくなることに注意
 " 2個上のキーマッピングで左1文字を消すキーを設定
-inoremap <c-h> <left>
-inoremap <c-j> <down>
-inoremap <c-k> <up>
-inoremap <c-l> <right>
+inoremap <C-h> <left>
+inoremap <C-j> <down>
+inoremap <C-k> <up>
+inoremap <C-l> <right>
 
 
 "" ヴィジュアルモード用
