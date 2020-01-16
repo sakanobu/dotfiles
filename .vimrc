@@ -1,7 +1,3 @@
-" 2019_08_14_Mac本体のvim(vim-plug)の設定.txt
-
-
-
 """ メモ
 
 " Karabiner-Elementsのようにvimライクなbashなどを↓
@@ -12,13 +8,21 @@
 
 " インサートモードに戻ったら､かな入力から半角英数字入力になってほしい
 
+" JavaScriptとかのFileTypeの追記や.vimフォルダの編集
 
 
-""" エンコードなど
 
-" 本当は1つ下の段落の導入を先に書きたかったが､
-" 先にエンコード読み込んだほうがいいかなと上に書いた
+""" 導入
 
+" ubuntuのデフォルトのvimはクリップボード連携ができない最小機能のvim-tiny
+" というわけで､vim-gnomeを持ってこよう!
+" sudo apt-get install vim-gnome
+" Macの場合はhomebrewでごちゃごちゃやる
+
+" .vimrcの内容を変更した時に再度vim起動するのを焼灼
+" :source ~/.vimrc
+
+" エンコードなど
 set encoding=utf-8
 set fileencoding=utf-8
 set fileformats=unix,dos,mac
@@ -30,7 +34,7 @@ set fileformats=unix,dos,mac
 
 
 
-""" 導入
+""" vim-plug導入
 
 " まずは↓をターミナルで実行してvim-plugを持ってくる
 " ↓のは一行だよ｡行末の¥は\じゃないとダメかも
@@ -53,11 +57,6 @@ set fileformats=unix,dos,mac
 "     call system('git clone https://github.com/junegunn/vim-plug.git ~/.vim/plugged/vim-plug/autoload')
 "   end
 " endif
-
-" ubuntuのデフォルトのvimはクリップボード連携ができない最小機能のvim-tiny
-" というわけで､vim-gnomeを持ってこよう!
-" sudo apt-get install vim-gnome
-" Macの場合はhomebrewでごちゃごちゃやる
 
 
 
@@ -93,7 +92,7 @@ Plug 'nathanaelkane/vim-indent-guides'
 
 " neocomplete.vimに変わる自動補完機能
 " https://githubja.com/shougo/deoplete-nvim
-" エラーには､pip install pyvim で対処
+" エラーには､pip install pyvim で対処した
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
@@ -139,7 +138,7 @@ Plug 'tomtom/tcomment_vim'
 Plug 'ervandew/supertab'
 
 " .でのリピートを強化
-Plug 'tpope/vim-repeat'
+" Plug 'tpope/vim-repeat'
 
 " ファイルを保存したときに追加で.vimrcに記述したもので文法を自動チェック
 " 2019_09_05､えぇ!これの改良版が↓なのでこれはもう使えないのか…
@@ -170,13 +169,13 @@ Plug 'thinca/vim-quickrun'
 Plug 'altercation/vim-colors-solarized'
 
 " カラースキーム molokai
-Plug 'tomasr/molokai'
+" Plug 'tomasr/molokai'
 
 " カラースキーム badwolf
-Plug 'sjl/badwolf'
+" Plug 'sjl/badwolf'
 
 " カラースキーム Twilight
-Plug 'vim-scripts/twilight'
+" Plug 'vim-scripts/twilight'
 
 " flake8のプラグイン
 " 追記設定でキーバインドなどを変更している(デフォルトだとF7で実行されちゃう)
@@ -223,8 +222,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
 
 " プロジェクト内のファイルやバッファ、履歴からファイルを検索
-" 検索モードを開く
-" nmap <Leader>f :CtrlP<CR>と併用
+" https://qiita.com/oahiroaki/items/d71337fb9d28303a54a8
 Plug 'ctrlpvim/ctrlp.vim'
 
 call plug#end()
@@ -244,7 +242,7 @@ let g:indent_guides_enable_on_vim_startup = 1
 
 " Shougo/neocomplete.vimというプラグインの追加設定
 " 自動補完機能を有効にする
-let g:neocomplete#enable_at_startup = 1
+" let g:neocomplete#enable_at_startup = 1
 
 " supertabの設定1(タブキーを押しても補完できない場合)
 " let g:SuperTabContextDefaultCompletionType = "context"
@@ -346,9 +344,9 @@ let g:autopep8_disable_show_diff=1
 
 " vim-monsterというプラグインの追加設定
 " neocomplete.vimとあわせて導入←よく分からない…
-let g:neocomplete#sources#omni#input_patterns = {
-\  'ruby': '[^. *¥t]\.\w*\|\h\w*::'
-\}
+" let g:neocomplete#sources#omni#input_patterns = {
+" \  'ruby': '[^. *¥t]\.\w*\|\h\w*::'
+" \}
 
 " ctrlpvim/ctrlp.vimというプラグインの追加設定
 " 検索モードを開く
@@ -471,65 +469,12 @@ set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V
 " ステータス行に現在のgitブランチを表示する
 set statusline+=%{fugitive#statusline()}
 
-" 挿入モード時、ステータスラインの色を変更
-" MacではStatusLineがE492となる…
-" let g:hi_insert = 'highlight StatusLine guifg=darkblue guibg=darkyellow gui=none ctermfg=blue ctermbg=yellow cterm=none'
-"
-" if has('syntax')
-  " augroup InsertHook
-    " autocmd!
-    " autocmd InsertEnter * call s:StatusLine('Enter')
-    " autocmd InsertLeave * call s:StatusLine('Leave')
-  " augroup END
-" endif
-"
-" let s:slhlcmd = ''
-" function! s:StatusLine(mode)
-  " if a:mode == 'Enter'
-    " silent! let s:slhlcmd = 'highlight ' . s:GetHighlight('StatusLine')
-    " silent exec g:hi_insert
-  " else
-    " highlight clear StatusLine
-    " silent exec s:slhlcmd
-  " endif
-" endfunction
-
-" function! s:GetHighlight(hi)
-  " redir => hl
-  " exec 'highlight '.a:hi
-  " redir END
-  " let hl = substitute(hl, '[¥r¥n]', '', 'g')
-  " let hl = substitute(hl, 'xxx', '', '')
-  " return hl
-" endfunction
-
 
 
 """ カラースキーム系
 
-" set background=dark
-
-"" molokai関連
-" colorscheme molokai
-" let g:molokai_original = 1
-" let g:rehash256 = 1
-
-" colorscheme badwolf
-
-" let g:badwolf_darkgutter = 1
-
-" colorscheme desert
-
 "" solarized関連
 colorscheme solarized
-" let g:solarized_termcolors=256
-" let g:solarized_termtrans=1
-" let g:solarized_degrade=0
-" let g:solarized_bold=1
-" let g:solarized_underline=1
-" let g:solarized_italic=1
-" let g:solarized_contrast='low'
-" let g:solarized_visibility='normal'
 
 
 
@@ -540,6 +485,10 @@ set virtualedit=onemore
 
 " カーソルを行頭、行末で止まらないようにする
 set whichwrap=b,s,h,l,<,>,[,]
+
+" 折り返し時に表示行単位での移動
+nnoremap <silent> j gj
+nnoremap <silent> k gk
 
 " インサートモードから抜けるときにpasteモードをやめる
 autocmd InsertLeave * set nopaste
@@ -580,24 +529,9 @@ set smarttab
 
 
 """ 補完系
-" 自動補完のプラグインを入れているので↓の{ +
-" <Enter>とかコメントアウトしていいかも
 
 " コマンドラインモードで<Tab>キーによるファイル名補完を有効にする
 set wildmenu
-
-" 括弧の自動補完
-" call lexima#add_rule({'char': '「', 'input_after': '」', 'at': '¥%#$'})
-
-" { + Enter を押せば
-inoremap {<Enter> {}<Left><CR><ESC><S-o>
-inoremap [<Enter> []<Left><CR><ESC><S-o>
-inoremap (<Enter> ()<Left><CR><ESC><S-o>
-
-" 自動的に閉じ括弧を入力する(あまり賢くないらしい)
-"imap { {}<LEFT>
-"imap [ []<LEFT>
-"imap ( ()<LEFT>
 
 " コマンドラインの補完
 set wildmode=list:longest
@@ -621,15 +555,13 @@ set wrapscan
 " 検索結果をハイライト表示
 set hlsearch
 
-" ESC連打でハイライト解除
-nmap <Esc><Esc> :nohlsearch<CR><Esc>
-
-" ↓はE109やE15というエラーの原因だったので使わない
-" /{pattern}の入力中は「/」をタイプすると自動で「¥/」が、
-" ?{pattern}の入力中は「?」をタイプすると自動で「¥?」が、
-" 入力されるようになる
-" cnoremap <expr> / getcmdtype() == '/' ? '¥/' : '/'
-" cnoremap <expr> ? getcmdtype() == '?' ? '¥?' : '?'
+" 検索後にジャンプした際に検索単語を画面中央に持ってくる
+nnoremap n nzz
+nnoremap N Nzz
+nnoremap * *zz
+nnoremap # #zz
+nnoremap g* g*zz
+nnoremap g# g#zz
 
 
 
@@ -641,10 +573,86 @@ nmap <Esc><Esc> :nohlsearch<CR><Esc>
 
 " ハイライト消すなどの一部のキーマッピングはこの段落以外の場所に入れている
 
-" LeaderキーをSpaceキーに
-" vimfilerとぶつかって結局,にした人もいるらしい
-" いや､別に<Space>って毎回書けばいいのでは?
+" Leaderキーは設定してない
+" その代わり擬似的なプリフィックスキーとしてSpaceを使用
+" もし<Space>じゃなくて<Leader>にしたかったら↓
 " let mapleader = "\<Space>"
+
+
+"" ノーマルモード用
+
+" :qを<Space>qで
+nnoremap <Space>q :q<CR>
+
+" .vimrcの再読み込み
+" 最後のESCは何故かハイライトされるのを消すため
+" うーん､不具合…
+" ①これ使ったあとにインサートモードで入力すると
+" 改行がおかしくなるな…
+" ②変更前の設定が残っちゃう…コンソールに戻ってから入れば無くなるが…
+nmap <Space>:s :w<CR>:source<Space>~/.vimrc<CR><ESC><ESC>
+
+" :set numberと:set nonumberのキーバインド
+nnoremap <Space>sny :set number<CR>
+nnoremap <Space>snn :set nonumber<CR>
+
+" ESC連打でハイライト解除
+nmap <Esc><Esc> :nohlsearch<CR><Esc>
+
+" Plug 'tomtom/tcomment_vim'のコメントアウトを短く
+nmap <Space>c gcc
+
+" 1行下に空行
+nnoremap <Space>o o<ESC>k
+
+" 1行下に空行(しかし挙動遅い)
+" nnoremap <Space>o o<ESC><ESC>
+
+" 1行上に空行
+nnoremap <Space><S-o> <S-o><ESC>j
+
+" ztやzzやz-などの再描画をspaceをプリフィックスにして
+" Shift+Hみたいな挙動と似せて(語彙力
+" zhはz<Left>だしzlはz<Right>で代替可能､zmは上書きされます
+nnoremap zh zt
+nnoremap zm zz
+nnoremap zl z-
+
+" <Space> → jkhlのどれかで多めに移動
+nmap <Space>h 7h
+nmap <Space>j 10j
+nmap <Space>k 10k
+nmap <Space>l 7l
+
+" TABにて対応ペアにジャンプ
+nnoremap &lt;Tab&gt; %
+vnoremap &lt;Tab&gt; %
+
+" ウィンドウのプレフィックスが押しにくいので変更
+nnoremap <Space>w <c-w>
+
+" ウィンドウの移動の簡略化
+" これやると､<Space>jとかできなくなるのでやめた
+" nnoremap <Space>h <C-w>h
+" nnoremap <Space>j <C-w>j
+" nnoremap <Space>k <C-w>k
+" nnoremap <Space>l <C-w>l
+
+" ウィンドウの水平分割と垂直分割の簡略化
+nnoremap <Space>sp :split<CR>
+nnoremap <Space>vsp :vsplit<CR>
+
+" vim-quickrunの実行簡略化
+" また､ここに書いていいのか微妙だが↓
+" 1.自動で実行(悩みどころ)2.結果を水平分割かつ下の窓に表示する3.自動でしたの窓に移動
+" 加えて､:QuickRun python3や:QuickRun -args fooや:QuickRun -args "foo bar baz"
+" などの設定もね｡
+let g:quickrun_config={'*': {'split': ''}}
+set splitbelow
+nnoremap <Space>r :QuickRun<CR><C-w>j
+
+
+"" インサートモード用
 
 " jjでESC、つまりインサートモードからノーマルモードへ
 " ちなみに日本語入力の大きなｊｊはjjに変換すればいい
@@ -667,51 +675,11 @@ endfunction
 set ttimeoutlen=150
 autocmd InsertLeave * call Fcitx2en()
 
-" 検索後にジャンプした際に検索単語を画面中央に持ってくる
-nnoremap n nzz
-nnoremap N Nzz
-nnoremap * *zz
-nnoremap # #zz
-nnoremap g* g*zz
-nnoremap g# g#zz
+" インサートモード時にカーソル左の1文字削除(ノーマルモードでの…どれだ…?)
+inoremap <c-b> <BS>
 
-" 折り返し時に表示行単位での移動
-nnoremap <silent> j gj
-nnoremap <silent> k gk
-
-" <Space> → jkhlのどれかで9個分移動
-" しかし､エラー…
-" そもそも<Space>j <down>が効かない時点でよく分からない…
-" nnoremap <Space><left> 9<left>
-" nnoremap <Space>j <down>
-" nnoremap <Space>k 9<up>
-" nnoremap <Space>l 9<right>
-
-" ウィンドウのプレフィックスが押しにくいので変更
-nnoremap <Space>w <c-w>
-
-" TABにて対応ペアにジャンプ
-nnoremap &lt;Tab&gt; %
-vnoremap &lt;Tab&gt; %
-
-" ノーマルモード中のztやzzやz-などの再描画をspaceをプリフィックスにして
-" Shift+Hみたいな挙動と似せて(語彙力
-" nnoremap <Space>zh zt
-" nnoremap <Space>zm zz
-" nnoremap <Space>zl z-
-" zhはz<Left>だしzlはz<Right>で代替可能､zmは上書きされます
-nnoremap zh zt
-nnoremap zm zz
-nnoremap zl z-
-
-" ノーマルモード時にSpaceキーとoで空行を挿入しつつノーマルモードのまま
-nnoremap <Space>o o<ESC>k
-
-" vを二回で行末まで選択
-vnoremap v $h
-
-" ビジュアルモード中の"*yをzの一押しに
-vnoremap z "*y
+" インサートモード時にカーソル位置の1文字削除(ノーマルモードでのx)
+inoremap <c-d> <delete>
 
 " インサートモード時の移動
 " <c-h>はbackspaceキーと連動しているので、
@@ -722,123 +690,10 @@ inoremap <c-j> <down>
 inoremap <c-k> <up>
 inoremap <c-l> <right>
 
-" インサートモード時の移動(旧版)
-" Shift + Enterで下に、Shift + Ctrl + Enterで上に空行を挿入
-" https://qiita.com/itmammoth/items/312246b4b7688875d023
-" ただし、↓だけではうごかない可能性大なので↑のurlを参考に
-" imap <S-CR> <End><CR>
-" imap <C-S-CR> <Up><End><CR>
-" nnoremap <S-CR> mzo<ESC>`z
-" nnoremap <C-S-CR> mzO<ESC>`z
 
-" インサートモード時にカーソル左の1文字削除(ノーマルモードでの?)
-inoremap <c-b> <BS>
+"" ヴィジュアルモード用
+" vを二回で行末まで選択
+vnoremap v $h
 
-" インサートモード時にカーソル位置の1文字削除(ノーマルモードでのx)
-inoremap <c-d> <delete>
-
-" インサートモード中での文頭や末尾への移動へのキーバインド
-" インサートモード中にC-o → A とかC-o → Iとかでもいいんだけど､一応作った
-inoremap <Space><S-i>i <C-o>^
-inoremap <Space><S-a>a <C-o>$
-
-" :qを<Space>qで
-nnoremap <Space>q :q<CR>
-
-" :set numberと:set nonumberのキーバインド
-nnoremap <Space>snu :set number<CR>
-nnoremap <Space>sno :set nonumber<CR>
-
-" ウィンドウの水平分割と垂直分割の簡略化
-nnoremap <Space>sp :split<CR>
-nnoremap <Space>vsp :vsplit<CR>
-
-" Shift + 矢印でウィンドウサイズを変更
-" 2019_08_07時点で縦方向のサイズ変更が効かない…
-" でも20<C-w>+とかやれば回数分をやってくれるのか
-nnoremap <S-Left>  <C-w><
-nnoremap <S-Right> <C-w>>
-" nnoremap <S-Up>    <C-w>+
-" nnoremap <S-Down>  <C-w>-
-
-" ウィンドウの移動の簡略化
-nnoremap <Space>h <C-w>h
-nnoremap <Space>j <C-w>j
-nnoremap <Space>k <C-w>k
-nnoremap <Space>l <C-w>l
-
-" vim-quickrunの実行簡略化
-" また､ここに書いていいのか微妙だが↓
-" 1.自動で実行(悩みどころ)2.結果を水平分割かつ下の窓に表示する3.自動でしたの窓に移動
-" 加えて､:QuickRun python3や:QuickRun -args fooや:QuickRun -args "foo bar baz"
-" などの設定もね｡
-let g:quickrun_config={'*': {'split': ''}}
-set splitbelow
-nnoremap <Space>r :QuickRun<CR><C-w>j
-
-
-
-""" 新しく追加したい
-" vimshell設定
-" ,sh: シェルを起動
-" nnoremap <silent> ,sh :VimShell<CR>
-" ,spy: pythonを非同期で起動
-" nnoremap <silent> ,spy :VimShellInteractive python<CR>
-" ,irb: irbを非同期で起動
-" nnoremap <silent> ,irb :VimShellInteractive irb<CR>
-" ,ss: 非同期で開いたインタプリタに現在の行を評価させる
-" vmap <silent> ,ss :VimShellSendString<CR>
-" 選択中に,ss: 非同期で開いたインタプリタに選択行を評価させる
-" nnoremap <silent> ,ss <S-v>:VimShellSendString<CR>
-" grep検索の実行後にQuickFix Listを表示する
-" autocmd QuickFixCmdPost *grep* cwindow
-" w!! でスーパーユーザーとして保存（sudoが使える環境限定）
-" cmap w!! w !sudo tee > /dev/null %
-" カーソル下の単語を * で検索
-" vnoremap <silent> * "vy/¥V<C-r>=substitute(escape(@v, '¥/'), "¥n", '¥¥n', 'g')<CR><CR>
-" Ctrl + hjkl でウィンドウ間を移動
-" nnoremap <C-h> <C-w>h
-" nnoremap <C-j> <C-w>j
-" nnoremap <C-k> <C-w>k
-" nnoremap <C-l> <C-w>l
-" T + ? で各種設定をトグル
-" nnoremap [toggle] <Nop>
-" nmap T [toggle]
-" nnoremap <silent> [toggle]s :setl spell!<CR>:setl spell?<CR>
-" nnoremap <silent> [toggle]l :setl list!<CR>:setl list?<CR>
-" nnoremap <silent> [toggle]t :setl expandtab!<CR>:setl expandtab?<CR>
-" nnoremap <silent> [toggle]w :setl wrap!<CR>:setl wrap?<CR>
-" colorscheme solarized
-" :e などでファイルを開く際にフォルダが存在しない場合は自動作成
-" function! s:mkdir(dir, force)
-"   if !isdirectory(a:dir) && (a:force ||
-"         ¥ input(printf('"%s" does not exist. Create? [y/N]', a:dir)) =~? '^y¥%[es]$')
-"     call mkdir(iconv(a:dir, &encoding, &termencoding), 'p')
-"   endif
-" endfunction
-" vim 起動時のみカレントディレクトリを開いたファイルの親ディレクトリに指定
-" function! s:ChangeCurrentDir(directory, bang)
-"     if a:directory == ''
-"         lcd %:p:h
-"     else
-"         execute 'lcd' . a:directory
-"     endif
-"     if a:bang == ''
-"         pwd
-"     endif
-" endfunction
-" ~/.vimrc.localが存在する場合のみ設定を読み込む
-" let s:local_vimrc = expand('~/.vimrc.local')
-" if filereadable(s:local_vimrc)
-"     execute 'source ' . s:local_vimrc
-" endif
-"画面切り替え
-" nnoremap <c-j> <c-w>j
-" nnoremap <c-k> <c-w>k
-" nnoremap <c-l> <c-w>l
-" nnoremap <c-h> <c-w>h
-"<space>j, <space>kで画面送り
-" noremap [Prefix]j <c-f><cr><cr>
-" noremap [Prefix]k <c-b><cr><cr>
-" 文字がない場所にもカーソルを移動できるようにする"
-" set virtualedit=all
+" ビジュアルモード中の"*yをzの一押しに､その後ブラウザに即ペースト可能
+vnoremap z "*y
