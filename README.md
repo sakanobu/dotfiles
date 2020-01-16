@@ -9,7 +9,7 @@
 ### キーマッピング
 - 自作マッピング
   - ノーマルモード
-    - :qは <Space>q
+    - :qは &ltSpace>q
     - .vimrcの再読み込みは <Space>:s
     - :setは <Space>sny
     - :set nonumberは <Space>snn
