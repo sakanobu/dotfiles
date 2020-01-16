@@ -639,8 +639,9 @@ nnoremap <Space>w <c-w>
 " nnoremap <Space>l <C-w>l
 
 " ウィンドウの水平分割と垂直分割の簡略化
-nnoremap <Space>sp :split<CR>
-nnoremap <Space>vsp :vsplit<CR>
+" \にしたのは|のShiftを押さないバージョンだから
+nnoremap <Space>- :split<CR>
+nnoremap <Space>\ :vsplit<CR>
 
 " vim-quickrunの実行簡略化
 " また､ここに書いていいのか微妙だが↓
