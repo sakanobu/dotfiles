@@ -649,7 +649,6 @@ nnoremap <Space>w <C-w>
 " nnoremap <Space>l <C-w>l
 
 " ウィンドウの水平分割と垂直分割の簡略化
-" \にしたのは|のShiftを押さないバージョンだから
 nnoremap <Space>- :split<CR>
 nnoremap <Space><Bar> :vsplit<CR>
 
