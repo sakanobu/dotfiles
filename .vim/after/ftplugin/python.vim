@@ -49,16 +49,13 @@ nnoremap <Space>bp :!bpython<CR>
 
 " F6でPythonを実行
 " function内にちゃんとpython3と書かないとpython2が実行されるので注意
-" ↓初めの2段落はvimのスクリプト?
-" 更に注意だけど､↓のvimのスクリプトにあるようにF6を実行すると
-" 自動で:wを行うので､勝手にバッファが保存されて:qでvimを抜けられてしまう…
-" 2019_09_05に､s:Python内に:!clearを追加し､nmap <F6>の最後に<CR>を追加した
+" :!python3 % の%が何なのか分からん…VimScriptの特殊文字ではないらしいが…
 function! s:Python()
-        :w
-        :!clear
-	        :!python3 %
-		endfunction
+  write
+  !clear
+  !python3 %
+endfunction
 
-command! Python call s:Python()
+command! Python :call s:Python()
 
 nmap <F6> :Python<CR><CR>
