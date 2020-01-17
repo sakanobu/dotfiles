@@ -10,6 +10,7 @@
 
 " JavaScriptとかのFileTypeの追記や.vimフォルダの編集
 
+" .vim/after/ftpluginの中にある拡張子毎の個別設定を忘れないで…
 
 
 """ 導入
@@ -229,47 +230,75 @@ call plug#end()
 
 
 
-""" プラグインとの併用系
+""" プラグインの追加設定
 
 " 記述の順番は↑のプラグインを書いた順番に準拠､GitHubとかでウィンドウ出してた
 
-" rhysd/accelerated-jkというプラグインの追加設定
+
+"" rhysd/accelerated-jk
+
 " j/kによる移動を速くする
 nmap j <Plug>(accelerated_jk_gj)
 nmap k <Plug>(accelerated_jk_gk)
 
-" vim-indent-guidesというプラグインの追加設定
+
+"" vim-indent-guides
+
+" 謎
 let g:indent_guides_enable_on_vim_startup = 1
 
-" Shougo/neocomplete.vimというプラグインの追加設定
+
+"" Shougo/neocomplete.vim
+
 " 自動補完機能を有効にする
 " let g:neocomplete#enable_at_startup = 1
 
-" supertabの設定1(タブキーを押しても補完できない場合)
+
+"" supertab
+
+" 謎
 " let g:SuperTabContextDefaultCompletionType = "context"
 
-" supertabの設定2(補完の順番が逆になる場合)
+" 謎
 " let g:SuperTabDefaultCompletionType = "<c-n>"
 
-" shyntasticの設定
+
+"" shyntastic
+
+" 謎
 let g:syntastic_python_checkers = ['flake8']
 
-" vim-flake8の設定
+
+"" vim-flake8
+
 " ファイル保存時に実行､だが重くなるのでコメントアウト
 " autocmd BufWritePost *.py call Flake8()
+
 " キーバインド変更､そもそもfiletypeがpythonじゃないとF7でも実行されないぽい
+" → え､そもそもF8じゃ実行されないんですが…<F8>にしてないから?
 autocmd FileType python map <buffer> <Space>f8 :call Flake8()<CR>
+
 " Quickfixの位置､デフォルトにすると下にQuickFixを開いてくれるのでコメントアウト
 " let g:flake8_quickfix_location="topleft"
-let g:flake8_quickfix_height=7 " Quickfixの高さ
-let g:flake8_show_in_gutter=1  " 左端にシンボルを表示
-let g:flake8_show_in_file=1  " ファイル内にマークを表示
 
-" autopep8の補助設定1
+" Quickfixの高さ
+let g:flake8_quickfix_height=7
+
+" 左端にシンボルを表示
+let g:flake8_show_in_gutter=1
+
+" ファイル内にマークを表示
+let g:flake8_show_in_file=1
+
+
+"" autopep8
+
+" 謎
 let g:autopep8_max_line_length=99
+
+" 謎
 let g:autopep8_disable_show_diff=1
 
-" autopep8の補助設定2
 " original http://stackoverflow.com/questions/12374200/using-uncrustify-with-vim/15513829#15513829
 " function! Preserve(command)
 "     " Save the last search.
@@ -290,40 +319,68 @@ let g:autopep8_disable_show_diff=1
 "     " Restore the previous cursor position.
 "     call setpos('.', cursor_position)
 " endfunction
-"
+
+" 謎
 " function! Autopep8()
 "     call Preserve(':silent %!autopep8 -')
 " endfunction
 
-" jedi-vimの設定
+
+"" jedi-vim
+
 " 参考サイトは
 " https://kashewnuts.github.io/2018/08/22/jedivim_memo.html
 " https://wonderwall.hatenablog.com/entry/2017/01/29/213052
-" set completeopt=menuone                        " 補完候補を呼び出すとき常にポップアップメニューを使う
-" autocmd! User jedi-vim call s:jedivim_hook()   " vim-plugの遅延ロード呼び出し
-" function! s:jedivim_hook()              " jedi-vimを使うときだけ呼び出す処理を関数化
-"   let g:jedi#auto_initialization    = 0 " 自動で実行される初期化処理を無効
-"   let g:jedi#auto_vim_configuration = 0 " 'completeopt' オプションを上書きしない
-"   let g:jedi#popup_on_dot           = 0 " ドット(.)を入力したとき自動で補完しない
-"   let g:jedi#popup_select_first     = 0 " 補完候補の1番目を選択しない
-"   let g:jedi#show_call_signatures   = 0 " 関数の引数表示を無効(ポップアップのバグを踏んだことがあるため)
-"   autocmd FileType python setlocal omnifunc=jedi#completions   " 補完エンジンはjediを使う
+"
+" 補完候補を呼び出すとき常にポップアップメニューを使う
+" set completeopt=menuone
+
+" vim-plugの遅延ロード呼び出し
+" autocmd! User jedi-vim call s:jedivim_hook()
+
+" jedi-vimを使うときだけ呼び出す処理を関数化
+" function! s:jedivim_hook()
+  " 自動で実行される初期化処理を無効
+  " let g:jedi#auto_initialization    = 0
+
+  " 'completeopt' オプションを上書きしない
+  " let g:jedi#auto_vim_configuration = 0
+
+  " ドット(.)を入力したとき自動で補完しない
+  " let g:jedi#popup_on_dot           = 0
+
+  " 補完候補の1番目を選択しない
+  " let g:jedi#popup_select_first     = 0
+
+  " 関数の引数表示を無効(ポップアップのバグを踏んだことがあるため)
+  " let g:jedi#show_call_signatures   = 0
+
+  " 補完エンジンはjediを使う
+  " autocmd FileType python setlocal omnifunc=jedi#completions
 " endfunction
 
-""" NERDTree設定
+
+"" NERDTree
+
 " MacだとNERDTeeでまるごとエラー吐いちゃう
+"
 " Ctrl+nでNERDTreeを表示
 " map <C-n> :NERDTreeToggle<CR>
+"
 " 隠しファイルをデフォルトで表示させる
 " let NERDTreeShowHidden = 1
+
 " デフォルトでツリーを表示させる
 " autocmd StdinReadPre * let s:std_in=1
 " autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
 " 拡張子のHighlight設定
 " function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
 "  exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
 "  exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^¥s¥+.*'. a:extension .'$#'
 " endfunction
+
+" 着色
 " call NERDTreeHighlightFile('py', 'yellow', 'none', 'yellow', '#151515')
 " call NERDTreeHighlightFile('md', 'blue', 'none', '#3366FF', '#151515')
 " call NERDTreeHighlightFile('yml', 'yellow', 'none', 'yellow', '#151515')
@@ -336,26 +393,33 @@ let g:autopep8_disable_show_diff=1
 " call NERDTreeHighlightFile('rb', 'Red', 'none', 'red', '#151515')
 " call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
 " call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
+
 " ディレクトリ表示記号を変更する
 " let g:NERDTreeDirArrows = 1
 " let g:NERDTreeDirArrowExpandable = '?'
+
 " Macだと↓でエラーを吐いてる
 " ↓をコメントアウトしたらもっとエラー吐いた…
 " let g:NERDTreeDirArrowCollapsible = '▼'
 
-" vim-monsterというプラグインの追加設定
+
+"" vim-monster
+
 " neocomplete.vimとあわせて導入←よく分からない…
 " let g:neocomplete#sources#omni#input_patterns = {
 " \  'ruby': '[^. *¥t]\.\w*\|\h\w*::'
 " \}
 
-" ctrlpvim/ctrlp.vimというプラグインの追加設定
+
+"" ctrlpvim/ctrlp.vim
+
 " 検索モードを開く
 nmap <Leader>f :CtrlP<CR>
 
 
 
 """ FileType定義
+
 " FileTypeと.vim/ftpluginの活用
 " https://qiita.com/s_of_p/items/b61e4c3a0c7ee279848a
 " Filetypeの設定はftdetectにauto~ と書いたほうがいい?
