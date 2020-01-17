@@ -426,16 +426,35 @@ set number
 " 行番号の色
 highlight LineNr ctermfg=darkyellow
 
+" 画面の上下に余裕をもたせてスクロール
+set scrolloff=5
+
+" 画面の左右に余裕をもたせてスクロール
+" ただ､macのコンソール画面幅の環境設定によって自動折返し入ってるから意味ない…
+set sidescrolloff=16
+
+" 画面の左右スクロールは1文字ずつ行う
+" 同上の注意
+set sidescroll=1
+
 " カーソルが何行目の何列目に置かれているかを表示
 set ruler
 
-" タブと行の続きを可視化する
-set listchars=tab:>\ ,extends:<
+" カーソル行の背景色を変える
+set cursorline
 
-" タブ、空白、改行を可視化
+" カーソル位置のカラムの背景色を変える
+set cursorcolumn
+
+" タブ、改行などをset listcharsで設定した文字で可視化
 set list
 
-" 全角スペースの表示
+" タブと行の続きを可視化
+" ①tabなどは他人のファイルで空白とtabがゴッチャになってるのを見抜くため
+" ②extendsなどは自分用
+set listchars=tab:>-,extends:>,precedes:<,nbsp:%
+
+" 全角スペースの可視化(listcharsでは対応不可能だったので)
 function! ZenkakuSpace()
     highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=darkgray
 endfunction
@@ -593,8 +612,9 @@ nnoremap <Space>q :q<CR>
 " うーん､不具合…
 " ①これ使ったあとにインサートモードで入力すると
 " 改行がおかしくなるな…
+" → これやったあとに､再度iモードnモードと遷移すると直るのでijjを付け足し
 " ②変更前の設定が残っちゃう…コンソールに戻ってから入れば無くなるが…
-nmap <Space>:s :w<CR>:source<Space>~/.vimrc<CR><ESC><ESC>
+nmap <Space>:s :w<CR>:source<Space>~/.vimrc<CR><ESC><ESC>ijj
 
 " :set numberと:set nonumberのキーバインド
 nnoremap <Space>sny :set number<CR>
