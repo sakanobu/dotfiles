@@ -678,7 +678,12 @@ nnoremap <Space>q :q<CR>
 " 改行がおかしくなるな…
 " → これやったあとに､再度iモードnモードと遷移すると直るのでijjを付け足し
 " ②変更前の設定が残っちゃう…コンソールに戻ってから入れば無くなるが…
-nmap <Space>:s :w<CR>:source<Space>~/.vimrc<CR><ESC><ESC>ijj
+" nmap <Space>:s :w<CR>:source<Space>~/.vimrc<CR><ESC><ESC>ijj
+" .vimrcの再読み込み(ネットにあったver)
+nmap <Space>:s :<C-u>source<Space>$MYVIMRC<CR><ESC><ESC>ijj
+
+" どこのファイルからでもすぐ.vimrcを編集
+nnoremap <Space>:e :<C-u>edit $MYVIMRC<CR>
 
 " :set numberと:set nonumberのキーバインド
 nnoremap <Space>sny :set number<CR>
