@@ -92,3 +92,11 @@
 ### エイリアス
 - git
   - alias st='git status'
+
+
+
+## その他
+
+### python
+- bpython
+  - dotfiles/bpython/configにコピーしてるのでそれ参照
