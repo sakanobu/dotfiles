@@ -269,6 +269,22 @@ let g:indent_guides_enable_on_vim_startup = 1
 let g:syntastic_python_checkers = ['flake8']
 
 
+"" vim-quickrun
+
+" 今後対応
+" ①::QuickRun -args foo
+" ②::QuickRun -args "foo bar baz"
+
+" 結果は水平分割で表示
+let g:quickrun_config={'*': {'split': ''}}
+
+" 水平分割の際に結果を下のウィンドウに
+set splitbelow
+
+" pythonの実行時にはpython3を使用
+let g:quickrun_config.python = {'command' : 'python3'}
+
+
 "" vim-flake8
 
 " ファイル保存時に実行､だが重くなるのでコメントアウト
@@ -742,12 +758,6 @@ nnoremap <Space>- :split<CR>
 nnoremap <Space><Bar> :vsplit<CR>
 
 " vim-quickrunの実行簡略化
-" また､ここに書いていいのか微妙だが↓
-" 1.自動で実行(悩みどころ)2.結果を水平分割かつ下の窓に表示する3.自動でしたの窓に移動
-" 加えて､:QuickRun python3や:QuickRun -args fooや:QuickRun -args "foo bar baz"
-" などの設定もね｡
-let g:quickrun_config={'*': {'split': ''}}
-set splitbelow
 nnoremap <Space>r :QuickRun<CR><C-w>j
 
 
