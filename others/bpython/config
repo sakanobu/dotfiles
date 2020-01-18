@@ -93,12 +93,13 @@ save = F4
 # pastebin = F8
 # last_output = F9
 # copy_clipboard = F10
-# exit = C-d ※空行
+# exit = C-d ※行に文字が無い場合
 # edit_current_block ~ C-x
 # undo = C-r
 # clear_screen = C-l
 # left = C-b
 # right = C-f
+# C-pやC-nは履歴を遡るだけでなく､入力した文字を補うように探索してくれる
 # up_one_line = C-p
 # down_one_line = C-n
 # beginning_of_line = C-a
