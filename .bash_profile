@@ -38,10 +38,17 @@ export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 # utf-8
 export LANG=ja_JP.UTF-8
 
+# gitのdiffなどでの文字化け防止
+export GIT_PAGER="LESSCHARSET=utf-8 less"
+
+# nodeのやつ?
+export PATH=$HOME/.nodebrew/current/bin:$PATH
+
 # なんかのバス
 export PATH="$HOME/.rbenv/bin:$PATH"
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 # なんかのパス
 export PATH=$PATH:/usr/local/bin
-export PATH=$HOME/.nodebrew/current/bin:$PATH
+
+# 未分類
