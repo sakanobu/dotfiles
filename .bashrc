@@ -77,3 +77,4 @@ alias chromeopen='open -a "Google Chrome"'
 
 # git
 alias st='git status'
+alias co='git commit'
