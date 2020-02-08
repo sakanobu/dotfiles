@@ -8,6 +8,7 @@
 [core]
 	excludesfile = /Users/tyobi0913/.gitignore_global
 	pager = less -cm
+  quotepath = false
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
