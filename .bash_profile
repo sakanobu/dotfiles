@@ -44,3 +44,4 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 # なんかのパス
 export PATH=$PATH:/usr/local/bin
+export PATH=$HOME/.nodebrew/current/bin:$PATH
