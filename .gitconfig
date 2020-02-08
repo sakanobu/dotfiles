@@ -5,6 +5,7 @@
 	ui = auto
 [alias]
 	st = status
+	co = commit
 [core]
 	excludesfile = /Users/tyobi0913/.gitignore_global
 	pager = less -cm
