@@ -72,6 +72,9 @@ PROMPT_COMMAND='add_line'
 
 ### エイリアス
 
+# homebrewの一括アップデート
+alias brewupdate='brew update && brew upgrade && brew cleanup'
+
 # chromeをコマンドラインから開くエイリアス､引数としてhtmlを指定する｡
 alias chromeopen='open -a "Google Chrome"'
 
@@ -79,3 +82,5 @@ alias chromeopen='open -a "Google Chrome"'
 alias st='git status'
 alias co='git commit'
 alias ad='git add'
+
+### 未分類
