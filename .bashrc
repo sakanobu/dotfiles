@@ -15,7 +15,7 @@
 # https://rcmdnk.com/blog/2015/05/14/computer-linux-mac-bash/
 #
 #いや､やっぱり↓を参照するようにした
-# https://kosukeblog.com/2017/04/completion/
+# https://qiita.com/Canon11/items/e9efae4966f0d71217f8
 
 ## git-prompt.shが無いとエラーを吐くので以下をやる
 # https://qiita.com/varmil/items/9b0aeafa85975474e9b6
@@ -39,6 +39,11 @@ set -o vi
 #
 # viライクターミナルでもjjでノーマルモードへ､キーマッピング
 bind '"jj": vi-movement-mode'
+
+## bash補完
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  source $(brew --prefix)/etc/bash_completion
+fi
 
 ## bashの見た目改造
 # gitのブランチ名をターミナルに表示
