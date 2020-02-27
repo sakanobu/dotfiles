@@ -90,6 +90,10 @@ set -o ignoreeof
 
 ### エイリアス
 
+## エイリアス確認
+# git
+alias galias='git config --global --list | grep ^alias\.'
+
 ## homebrew
 #一括アップデート
 alias brewupdate='brew update && brew upgrade && brew cleanup'
