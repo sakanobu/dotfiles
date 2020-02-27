@@ -107,6 +107,7 @@ alias ginit='git commit --allow-empty'
 # 空コミットのciスキップver
 # https://yulii.github.io/git-wip-alias-20160206.html
 # alias ginit='git commit --allow-empty "[ci skip] wip commit"'
+alias glogr='git log --date=short --pretty=format:"%C(Yellow)%h %C(Cyan)%cd %C(Reset)%s %C(Blue)[%cn]%C(Red)%d" --graph'
 
 ## chromeをコマンドラインから開くエイリアス､引数としてhtmlを指定する｡
 alias chromeopen='open -a "Google Chrome"'
