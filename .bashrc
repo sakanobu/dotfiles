@@ -92,9 +92,10 @@ set -o ignoreeof
 alias brewupdate='brew update && brew upgrade && brew cleanup'
 
 ## git
+alias g='git'
 alias st='git status -bs'
-alias co='git commit'
 alias ad='git add'
+alias co='git commit'
 
 ## chromeをコマンドラインから開くエイリアス､引数としてhtmlを指定する｡
 alias chromeopen='open -a "Google Chrome"'
