@@ -103,6 +103,10 @@ alias g='git'
 alias st='git status -bs'
 alias ad='git add'
 alias co='git commit'
+alias ginit='git commit --allow-empty'
+# 空コミットのciスキップver
+# https://yulii.github.io/git-wip-alias-20160206.html
+# alias ginit='git commit --allow-empty "[ci skip] wip commit"'
 
 ## chromeをコマンドラインから開くエイリアス､引数としてhtmlを指定する｡
 alias chromeopen='open -a "Google Chrome"'
