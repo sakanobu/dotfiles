@@ -79,7 +79,7 @@ alias brewupdate='brew update && brew upgrade && brew cleanup'
 alias chromeopen='open -a "Google Chrome"'
 
 # git
-alias st='git status'
+alias st='git status -bs'
 alias co='git commit'
 alias ad='git add'
 
