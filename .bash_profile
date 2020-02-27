@@ -38,6 +38,12 @@ export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 # utf-8
 export LANG=ja_JP.UTF-8
 
+# historyコマンド設定色々
+export HISTSIZE=10000
+export HISTFILESIZE=10000
+export HISTIGNORE=ls:history*:pwd:clear
+export HISTTIMEFORMAT='%Y/%m/%d %H:%M:%S '
+
 # gitのdiffなどでの文字化け防止
 export GIT_PAGER="LESSCHARSET=utf-8 less"
 
