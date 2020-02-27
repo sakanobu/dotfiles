@@ -40,10 +40,14 @@ set -o vi
 # viライクターミナルでもjjでノーマルモードへ､キーマッピング
 bind '"jj": vi-movement-mode'
 
-## bash補完
+## bashでの補完
+# bash-completion
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
   source $(brew --prefix)/etc/bash_completion
 fi
+#
+# git-completion
+source ~/.git-completion.bash
 
 ## bashの見た目改造
 # gitのブランチ名をターミナルに表示
