@@ -48,6 +48,9 @@ fi
 #
 # git-completion
 source ~/.git-completion.bash
+# gというbashのエイリアスからgitの補完を動かせるように
+# https://r17n.page/2019/09/24/git-completion-with-bash-alias/
+if [ -f ~/.git-completion.bash ]; then source ~/.git-completion.bash; __git_complete g __git_main; fi
 
 ## bashの見た目改造
 # gitのブランチ名をターミナルに表示
