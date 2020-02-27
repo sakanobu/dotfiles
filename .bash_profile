@@ -31,21 +31,12 @@ test -r ~/.bashrc && . ~/.bashrc
 
 ### 環境変数
 
-# MacPorts Installer addition on 2018-11-25_at_10:59:31: adding an appropriate PATH variable for use with MacPorts.
-export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
-# Finished adapting your PATH environment variable for use with MacPorts.
-
 # utf-8
 export LANG=ja_JP.UTF-8
 
-# historyコマンド設定色々
-export HISTSIZE=10000
-export HISTFILESIZE=10000
-export HISTIGNORE=ls:history*:pwd:clear
-export HISTTIMEFORMAT='%Y/%m/%d %H:%M:%S '
-
-# gitのdiffなどでの文字化け防止
-export GIT_PAGER="LESSCHARSET=utf-8 less"
+# MacPorts Installer addition on 2018-11-25_at_10:59:31: adding an appropriate PATH variable for use with MacPorts.
+export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+# Finished adapting your PATH environment variable for use with MacPorts.
 
 # nodeのやつ?
 export PATH=$HOME/.nodebrew/current/bin:$PATH
@@ -56,5 +47,18 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 # なんかのパス
 export PATH=$PATH:/usr/local/bin
+
+# 環境変数PATHの重複をなくす
+# https://qastack.jp/unix/40749/remove-duplicate-path-entries-with-awk-command
+export PATH=`printf %s "$PATH" | awk -v RS=: '{ if (!arr[$0]++) {printf("%s%s",!ln++?"":":",$0)}}'`
+
+# historyコマンド設定色々
+export HISTSIZE=10000
+export HISTFILESIZE=10000
+export HISTIGNORE=ls:history*:pwd:clear
+export HISTTIMEFORMAT='%Y/%m/%d %H:%M:%S '
+
+# gitのdiffなどでの文字化け防止
+export GIT_PAGER="LESSCHARSET=utf-8 less"
 
 # 未分類
