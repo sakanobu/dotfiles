@@ -81,31 +81,6 @@ Plug 'bronson/vim-trailing-whitespace'
 " インデントに色を付けて見やすくする
 Plug 'nathanaelkane/vim-indent-guides'
 
-" スニペット入力サポート
-" neocomplete.vimや次のスニペット集と合わせて導入
-" Plug 'Shougo/neosnippet.vim'
-
-" neosnippet.vimのためのスニペット集
-" Plug 'Shougo/neosnippet-snippets'
-
-"  自動補完機能を有効にする
-" Plug 'Shougo/neocomplete.vim'
-
-" neocomplete.vimに変わる自動補完機能
-" https://githubja.com/shougo/deoplete-nvim
-" エラーには､pip install pyvim で対処した
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-let g:deoplete#enable_at_startup = 1
-
-" deopleteのpython3用スニペット
-Plug 'deoplete-plugins/deoplete-jedi'
-
 " html閉じタグを自動挿入する
 Plug 'alvan/vim-closetag'
 
@@ -145,14 +120,6 @@ Plug 'ervandew/supertab'
 " 2019_09_05､えぇ!これの改良版が↓なのでこれはもう使えないのか…
 " Plug 'scrooloose/syntastic'
 
-" 構文チェックをしてくれるプラグイン
-" flake8とかちゃんとインストールしておかないとダメだよ
-" :syntasticInfoをvim内で打てば現在使われているチェッカーを確認できる
-" :SynstaicCheckや:Errorsなど使い方の説明は↓
-" https://wonderwall.hatenablog.com/entry/2017/02/05/214004
-" pythonに関してはvim-flake8という↓にあるプラグインでいいかなって感じ
-Plug 'vim-syntastic/syntastic'
-
 " ソースコードを実行し、その結果をVim上で表示することができる
 " デフォルトでは実行結果が編集領域の上または左に表示されるため
 " 以下で変更した方がよいかもしれない
@@ -178,6 +145,37 @@ Plug 'altercation/vim-colors-solarized'
 " カラースキーム Twilight
 " Plug 'vim-scripts/twilight'
 
+" スニペット入力サポート
+" neocomplete.vimや次のスニペット集と合わせて導入
+" Plug 'Shougo/neosnippet.vim'
+
+" neosnippet.vimのためのスニペット集
+" Plug 'Shougo/neosnippet-snippets'
+
+"  自動補完機能を有効にする
+" Plug 'Shougo/neocomplete.vim'
+
+" neocomplete.vimに変わる自動補完機能
+" https://githubja.com/shougo/deoplete-nvim
+" エラーには､pip install pyvim で対処した
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+let g:deoplete#enable_at_startup = 1
+
+" deopleteのpython3用スニペット
+Plug 'deoplete-plugins/deoplete-jedi'
+
+" pythonの補完､ジェダイ
+" .を押すと補完候補が現れる｡
+" 詳しくは↓
+" https://wonderwall.hatenablog.com/entry/2017/01/29/213052
+Plug 'davidhalter/jedi-vim'
+
 " flake8のプラグイン
 " 追記設定でキーバインドなどを変更している(デフォルトだとF7で実行されちゃう)
 Plug 'nvie/vim-flake8'
@@ -185,12 +183,6 @@ Plug 'nvie/vim-flake8'
 " pythonのコーディングスタイルチェックどころか自動で修正してくれる
 " 事前にpip3 install autopep8をしておこうね
 Plug 'tell-k/vim-autopep8'
-
-" pythonの補完､ジェダイ
-" .を押すと補完候補が現れる｡
-" 詳しくは↓
-" https://wonderwall.hatenablog.com/entry/2017/01/29/213052
-Plug 'davidhalter/jedi-vim'
 
 " Rubyのコード補完機能を提供
 " Plug 'osyo-manga/vim-monster'
@@ -225,6 +217,14 @@ Plug 'scrooloose/nerdtree'
 " プロジェクト内のファイルやバッファ、履歴からファイルを検索
 " https://qiita.com/oahiroaki/items/d71337fb9d28303a54a8
 Plug 'ctrlpvim/ctrlp.vim'
+
+" 構文チェックをしてくれるプラグイン
+" flake8とかちゃんとインストールしておかないとダメだよ
+" :syntasticInfoをvim内で打てば現在使われているチェッカーを確認できる
+" :SynstaicCheckや:Errorsなど使い方の説明は↓
+" https://wonderwall.hatenablog.com/entry/2017/02/05/214004
+" pythonに関してはvim-flake8という↓にあるプラグインでいいかなって感じ
+Plug 'vim-syntastic/syntastic'
 
 call plug#end()
 
