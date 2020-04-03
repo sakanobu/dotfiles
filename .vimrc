@@ -145,6 +145,13 @@ Plug 'altercation/vim-colors-solarized'
 " カラースキーム Twilight
 " Plug 'vim-scripts/twilight'
 
+" vim-lspまとめ
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+
 " スニペット入力サポート
 " neocomplete.vimや次のスニペット集と合わせて導入
 " Plug 'Shougo/neosnippet.vim'
@@ -174,7 +181,7 @@ Plug 'deoplete-plugins/deoplete-jedi'
 " .を押すと補完候補が現れる｡
 " 詳しくは↓
 " https://wonderwall.hatenablog.com/entry/2017/01/29/213052
-Plug 'davidhalter/jedi-vim'
+" Plug 'davidhalter/jedi-vim'
 
 " flake8のプラグイン
 " 追記設定でキーバインドなどを変更している(デフォルトだとF7で実行されちゃう)
@@ -248,12 +255,6 @@ nmap k <Plug>(accelerated_jk_gk)
 let g:indent_guides_enable_on_vim_startup = 1
 
 
-"" Shougo/neocomplete.vim
-
-" 自動補完機能を有効にする
-" let g:neocomplete#enable_at_startup = 1
-
-
 "" supertab
 
 " 謎
@@ -261,12 +262,6 @@ let g:indent_guides_enable_on_vim_startup = 1
 
 " 謎
 " let g:SuperTabDefaultCompletionType = "<c-n>"
-
-
-"" shyntastic
-
-" 謎
-let g:syntastic_python_checkers = ['flake8']
 
 
 "" vim-quickrun
@@ -283,6 +278,65 @@ set splitbelow
 
 " pythonの実行時にはpython3を使用
 let g:quickrun_config.python = {'command' : 'python3'}
+
+
+"" Shougo/neocomplete.vim
+
+" 自動補完機能を有効にする
+" let g:neocomplete#enable_at_startup = 1
+
+
+"" prabirshrestha/vim-lsp
+
+" 参考にしたサイト
+" https://mattn.kaoriya.net/software/vim/20191231213507.htm
+
+" 定義元ジャンプ
+nmap <buffer> gd <plug>(lsp-definition)
+
+" オムニ補完､つまりオブジェクトの後の.で補完候補表示
+setlocal omnifunc=lsp#complete
+
+" 自動エラー検出及びその表示方法
+let g:lsp_diagnostics_enabled = 1
+let g:lsp_diagnostics_echo_cursor = 1
+" let g:lsp_diagnostics_echo_delay = 1000
+" let g:lsp_diagnostics_float_cursor = 1
+" let g:lsp_diagnostics_echo_delay = 200
+
+
+"" jedi-vim
+
+" 参考サイトは
+" https://kashewnuts.github.io/2018/08/22/jedivim_memo.html
+" https://wonderwall.hatenablog.com/entry/2017/01/29/213052
+"
+" 補完候補を呼び出すとき常にポップアップメニューを使う
+" set completeopt=menuone
+
+" vim-plugの遅延ロード呼び出し
+" autocmd! User jedi-vim call s:jedivim_hook()
+
+" jedi-vimを使うときだけ呼び出す処理を関数化
+" function! s:jedivim_hook()
+  " 自動で実行される初期化処理を無効
+  " let g:jedi#auto_initialization    = 0
+
+  " 'completeopt' オプションを上書きしない
+  " let g:jedi#auto_vim_configuration = 0
+
+  " ドット(.)を入力したとき自動で補完しない
+  " let g:jedi#popup_on_dot           = 0
+
+  " 補完候補の1番目を選択しない
+  " let g:jedi#popup_select_first     = 0
+
+  " 関数の引数表示を無効(ポップアップのバグを踏んだことがあるため)
+  " let g:jedi#show_call_signatures   = 0
+
+  " 補完エンジンはjediを使う
+  " autocmd FileType python setlocal omnifunc=jedi#completions
+" endfunction
 
 
 "" vim-flake8
@@ -342,38 +396,12 @@ let g:autopep8_disable_show_diff=1
 " endfunction
 
 
-"" jedi-vim
+"" vim-monster
 
-" 参考サイトは
-" https://kashewnuts.github.io/2018/08/22/jedivim_memo.html
-" https://wonderwall.hatenablog.com/entry/2017/01/29/213052
-"
-" 補完候補を呼び出すとき常にポップアップメニューを使う
-" set completeopt=menuone
-
-" vim-plugの遅延ロード呼び出し
-" autocmd! User jedi-vim call s:jedivim_hook()
-
-" jedi-vimを使うときだけ呼び出す処理を関数化
-" function! s:jedivim_hook()
-  " 自動で実行される初期化処理を無効
-  " let g:jedi#auto_initialization    = 0
-
-  " 'completeopt' オプションを上書きしない
-  " let g:jedi#auto_vim_configuration = 0
-
-  " ドット(.)を入力したとき自動で補完しない
-  " let g:jedi#popup_on_dot           = 0
-
-  " 補完候補の1番目を選択しない
-  " let g:jedi#popup_select_first     = 0
-
-  " 関数の引数表示を無効(ポップアップのバグを踏んだことがあるため)
-  " let g:jedi#show_call_signatures   = 0
-
-  " 補完エンジンはjediを使う
-  " autocmd FileType python setlocal omnifunc=jedi#completions
-" endfunction
+" neocomplete.vimとあわせて導入←よく分からない…
+" let g:neocomplete#sources#omni#input_patterns = {
+" \  'ruby': '[^. *¥t]\.\w*\|\h\w*::'
+" \}
 
 
 "" NERDTree
@@ -419,18 +447,16 @@ let g:autopep8_disable_show_diff=1
 " let g:NERDTreeDirArrowCollapsible = '▼'
 
 
-"" vim-monster
-
-" neocomplete.vimとあわせて導入←よく分からない…
-" let g:neocomplete#sources#omni#input_patterns = {
-" \  'ruby': '[^. *¥t]\.\w*\|\h\w*::'
-" \}
-
-
 "" ctrlpvim/ctrlp.vim
 
 " 検索モードを開く
 nmap <Leader>f :CtrlP<CR>
+
+
+"" shyntastic
+
+" 謎
+let g:syntastic_python_checkers = ['flake8']
 
 
 
