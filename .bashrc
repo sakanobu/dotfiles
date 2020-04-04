@@ -90,13 +90,15 @@ set -o ignoreeof
 
 ### エイリアス
 
-## エイリアス確認
-# git
+## 全般
+# gitのエイリアス確認
 alias galias='git config --global --list | grep ^alias\.'
 
-## homebrew
-#一括アップデート
+# homebrew一括アップデート
 alias brewupdate='brew update && brew upgrade && brew cleanup'
+
+# chromeをコマンドラインから開くエイリアス､引数としてhtmlを指定する｡
+alias chromeopen='open -a "Google Chrome"'
 
 ## git
 alias g='git'
@@ -109,8 +111,6 @@ alias ginit='git commit --allow-empty'
 # alias ginit='git commit --allow-empty "[ci skip] wip commit"'
 alias glogr='git log --date=short --pretty=format:"%C(Yellow)%h %C(Cyan)%cd %C(Reset)%s %C(Blue)[%cn]%C(Red)%d" --graph'
 
-## chromeをコマンドラインから開くエイリアス､引数としてhtmlを指定する｡
-alias chromeopen='open -a "Google Chrome"'
 
 
 
