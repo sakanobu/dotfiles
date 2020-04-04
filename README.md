@@ -58,6 +58,25 @@
 
 
 
+## .bashrc
+
+### 注意
+
+### エイリアス
+- general
+  - alias galias='git config --global --list | grep ^alias\.'
+  - alias brewupdate='brew update && brew upgrade && brew cleanup'
+  - alias chromeopen='open -a "Google Chrome"'
+- git
+  - alias g='git'
+  - alias st='git status -bs'
+  - alias ad='git add'
+  - alias co='git commit'
+  - alias ginit='git commit --allow-empty'
+  - alias glogr='git log --date=short --pretty=format:"%C(Yellow)%h %C(Cyan)%cd %C(Reset)%s %C(Blue)[%cn]%C(Red)%d" --graph'
+
+
+
 ## .tmux.conf
 
 ### 注意
@@ -82,16 +101,7 @@
 
 ### エイリアス
 - st = status
-
-
-
-## .bashrc
-
-### 注意
-
-### エイリアス
-- git
-  - alias st='git status'
+- co = commit
 
 
 
