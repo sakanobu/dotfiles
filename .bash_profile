@@ -38,8 +38,9 @@ export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 #
 # pipでpip-reviewをインストールした時にPATHが設定されてないよと怒られたので
-export PATH=$PATH:/usr/local/Cellar/python/3.7.6_1/Frameworks/Python.framework/Versions/3.7/bin
+export PATH=$PATH:/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/bin
 #
+export PATH=$PATH:/usr/local/lib/python3.7/site-packages
 # なんかのバス
 export PATH="$HOME/.rbenv/bin:$PATH"
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
