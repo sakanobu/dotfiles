@@ -85,7 +85,8 @@
 
 # help = F1
 # show_source = F2
-# edit_config = F3
+# edit_config = F3 # bpythonのコンフィグ(つまりこのファイル)をvimで編集
+# 今まで打ったコマンドとその結果に名前をつけてファイルとして保存｡
 save = F4
 # toggle_file_watch = F5
 # reimport = F6
@@ -93,22 +94,21 @@ save = F4
 # pastebin = F8
 # last_output = F9
 # copy_clipboard = F10
-# exit = C-d ※行に文字が無い場合
-# edit_current_block ~ C-x
+# exit = C-d ※ 行に文字が無い場合､linuxのEOFとなり標準入力の終了に
+# edit_current_block ~ C-x # 現在記述中のブロックだけ抽出してvimで編集
 # undo = C-r
 # clear_screen = C-l
 # left = C-b
 # right = C-f
-# C-pやC-nは履歴を遡るだけでなく､入力した文字を補うように探索してくれる
-# up_one_line = C-p
+# up_one_line = C-p # C-pやC-nは履歴を遡るだけでなく､入力した文字を補うように探索してくれる
 # down_one_line = C-n
-# beginning_of_line = C-a
-# end_of_line = C-e
-# backspace = C-h
-# delete = C-d ※行に文字ある場合
-# clear_word = C-w
-# clear_line = C-u
-# cut_to_buffer = C-k
+# beginning_of_line = C-a # 行頭へ
+# end_of_line = C-e # 行末へ
+# backspace = C-h # カーソル1つ前の文字を消去(左を消去)
+# delete = C-d ※ 行に文字ある場合､カーソル上の1文字を消去
+# clear_word = C-w # 空白からカーソル1つ前の文字まで一連の単語を消去(左を消去)
+# clear_line = C-u # 行頭からカーソル1つ前の文字までズバッと消去(左を消去)
+# cut_to_buffer = C-k # カーソル上の文字を含めつつ行末までズバッと消去(右を消去)
 # yank_from_buffer = C-y
 # search = C-o
 # incremental_search = M-s
