@@ -100,6 +100,9 @@ alias brewupdate='brew update && brew upgrade && brew cleanup'
 # chromeをコマンドラインから開くエイリアス､引数としてhtmlを指定する｡
 alias chromeopen='open -a "Google Chrome"'
 
+# bpythonを少しでも短く
+alias bp='bpython'
+
 ## git
 alias g='git'
 alias st='git status -bs'
