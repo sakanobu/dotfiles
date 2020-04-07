@@ -61,6 +61,8 @@ export HISTTIMEFORMAT='%Y/%m/%d %H:%M:%S '
 ## gitのdiffなどでの文字化け防止
 export GIT_PAGER="LESSCHARSET=utf-8 less"
 
+## pipenvの.venvをプロジェクトディレクトリに作成
+export PIPENV_VENV_IN_PROJECT=true
 
 
 ### 未分類
