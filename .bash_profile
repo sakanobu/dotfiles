@@ -28,30 +28,6 @@ test -r ~/.bashrc && . ~/.bashrc
 ## utf-8
 export LANG=ja_JP.UTF-8
 
-## PATH
-# なんか知らないうちに設定されてたPATH
-# MacPorts Installer addition on 2018-11-25_at_10:59:31: adding an appropriate PATH variable for use with MacPorts.
-export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
-# Finished adapting your PATH environment variable for use with MacPorts.
-#
-# nodeのやつ?
-export PATH=$HOME/.nodebrew/current/bin:$PATH
-#
-# pipでpip-reviewをインストールした時にPATHが設定されてないよと怒られたので
-export PATH=$PATH:/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7/bin
-#
-export PATH=$PATH:/usr/local/lib/python3.7/site-packages
-# なんかのバス
-export PATH="$HOME/.rbenv/bin:$PATH"
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-#
-# なんかのパス
-export PATH=$PATH:/usr/local/bin
-#
-# 環境変数PATHの重複をなくす
-# https://qastack.jp/unix/40749/remove-duplicate-path-entries-with-awk-command
-export PATH=`printf %s "$PATH" | awk -v RS=: '{ if (!arr[$0]++) {printf("%s%s",!ln++?"":":",$0)}}'`
-
 ## historyコマンド設定色々
 export HISTSIZE=10000
 export HISTFILESIZE=10000
@@ -61,8 +37,34 @@ export HISTTIMEFORMAT='%Y/%m/%d %H:%M:%S '
 ## gitのdiffなどでの文字化け防止
 export GIT_PAGER="LESSCHARSET=utf-8 less"
 
+## pyenv
+# pyenvさんに~/.pyenvではなく、/usr/loca/var/pyenvを使うようにお願いする
+export PYENV_ROOT=/usr/local/var/pyenv
+#
+# pyenvさんに自動補完機能を提供してもらう
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+
 ## pipenvの.venvをプロジェクトディレクトリに作成
 export PIPENV_VENV_IN_PROJECT=true
 
+
+## PATH
+# なんか知らないうちに設定されてたPATH
+# MacPorts Installer addition on 2018-11-25_at_10:59:31: adding an appropriate PATH variable for use with MacPorts.
+export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+# Finished adapting your PATH environment variable for use with MacPorts.
+#
+# nodeのやつ?
+export PATH=$HOME/.nodebrew/current/bin:$PATH
+#
+# pyenvのパス
+export PATH="$PYENV_ROOT/shims:$PATH"
+#
+# なんかのパス
+export PATH=$PATH:/usr/local/bin
+#
+# 環境変数PATHの重複をなくす
+# https://qastack.jp/unix/40749/remove-duplicate-path-entries-with-awk-command
+export PATH=`printf %s "$PATH" | awk -v RS=: '{ if (!arr[$0]++) {printf("%s%s",!ln++?"":":",$0)}}'`
 
 ### 未分類
