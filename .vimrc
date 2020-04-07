@@ -342,7 +342,7 @@ let g:lsp_diagnostics_echo_cursor = 1
 "" vim-flake8
 
 " ファイル保存時に実行､だが重くなるのでコメントアウト
-" autocmd BufWritePost *.py call Flake8()
+autocmd BufWritePost *.py call Flake8()
 
 " キーバインド変更､そもそもfiletypeがpythonじゃないとF7でも実行されないぽい
 " → え､そもそもF8じゃ実行されないんですが…<F8>にしてないから?
