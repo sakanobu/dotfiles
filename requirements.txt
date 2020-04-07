@@ -28,7 +28,7 @@ pip-autoremove==0.9.1
 pip-review==1.1.0
 pipdeptree==0.13.2
 prompt-toolkit==3.0.5
-protobuf==3.11.4
+protobuf==3.11.3
 ptyprocess==0.6.0
 pudb==2019.2
 pycodestyle==2.5.0
