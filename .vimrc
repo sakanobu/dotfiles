@@ -823,11 +823,18 @@ inoremap <C-d> <delete>
 " <C-h>はbackspaceキーと連動しているので、
 " インサートモードでのbackspaceを用いた前の1文字削除が出来なくなることに注意
 " 2個上のキーマッピングで左1文字を消すキーを設定
-inoremap <C-h> <left>
-inoremap <C-j> <down>
-inoremap <C-k> <up>
-inoremap <C-l> <right>
-
+" inoremap <C-h> <left>
+" inoremap <C-j> <down>
+" inoremap <C-k> <up>
+" inoremap <C-l> <right>
+"
+" emacsキーバインド方式に
+imap <C-p> <Up>
+imap <C-n> <Down>
+imap <C-b> <Left>
+imap <C-f> <Right>
+imap <C-a> <ESC>^i
+imap <C-e> <End>
 
 "" ヴィジュアルモード用
 " vを二回で行末まで選択
