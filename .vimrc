@@ -80,6 +80,10 @@ Plug 'bronson/vim-trailing-whitespace'
 " インデントに色を付けて見やすくする
 Plug 'nathanaelkane/vim-indent-guides'
 
+" ()の表示をカラフルに
+" デフォルトの設定では見にくいので変更しようとしたけどそれが分からず放置
+" Plug 'luochen1990/rainbow'
+
 " html閉じタグを自動挿入する
 Plug 'alvan/vim-closetag'
 
@@ -253,6 +257,14 @@ nmap k <Plug>(accelerated_jk_gk)
 " 謎
 let g:indent_guides_enable_on_vim_startup = 1
 
+
+"" luochen1990/rainbow
+
+" :RainbowToggle無しでの自動実行
+" let g:rainbow_active = 1
+
+" config
+" ?
 
 "" supertab
 
