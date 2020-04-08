@@ -1,5 +1,4 @@
 """ メモ
-
 " Karabiner-Elementsのようにvimライクなbashなどを↓
 " https://mrsekut.site/?p=3266
 
@@ -615,6 +614,10 @@ set whichwrap=b,s,h,l,<,>,[,]
 " 折り返し時に表示行単位での移動
 nnoremap <silent> j gj
 nnoremap <silent> k gk
+
+" visulaモードでインデント調整後に選択範囲を開放しない
+vnoremap > >gv
+vnoremap < <gv
 
 " インサートモードから抜けるときにpasteモードをやめる
 autocmd InsertLeave * set nopaste
