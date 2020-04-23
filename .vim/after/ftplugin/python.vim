@@ -41,12 +41,6 @@ set softtabstop=0
 
 """ キーマッピングorキーバインド系
 
-" Autopep8のキーバインド
-autocmd FileType python nnoremap <Space>pep :call Autopep8()<CR>
-
-" bpythonをvim内から素早く呼ぶ
-nnoremap <Space>bp :!bpython<CR>
-
 " F6でPythonを実行
 " function内にちゃんとpython3と書かないとpython2が実行されるので注意
 " :!python3 % の%が何なのか分からん…VimScriptの特殊文字ではないらしいが…
@@ -59,3 +53,10 @@ endfunction
 command! Python :call s:Python()
 
 nmap <F6> :Python<CR><CR>
+" Autopep8のキーバインド
+" autocmd FileType python nnoremap <Space><F8> :call Autopep8()<CR>
+" noremap <Space><F8> :call Autopep8()<CR>
+
+
+" bpythonをvim内から素早く呼ぶ
+nnoremap <Space>bp :!bpython<CR>
