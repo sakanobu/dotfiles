@@ -466,9 +466,39 @@ nmap <Leader>f :CtrlP<CR>
 
 "" shyntastic
 
-" 謎
+" README.mdの推奨設定
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+" ロケーションリストの永続表示､README.mdの4.6
+let g:syntastic_always_populate_loc_list = 1
+
+" 構文エラーリストを表示
+let g:syntastic_auto_loc_list = 1
+
+" ファイルを開いた時に構文エラーチェックを実行する
+let g:syntastic_check_on_open = 1
+
+" 「:wq」で終了する時には構文エラーチェックをしない
+let g:syntastic_check_on_wq = 0
+
+" 複数のツールの解析結果をまとめて表示､README.mdの4.4
+let g:syntastic_aggregate_errors = 1
+
+" .py時に行われるツール､flake8から行われる
+" pylintは厳しすぎるし､flake8にはflake8-docstrings,flake8-import-order,
+" hackingなどのFlake8プラグインがあり､ また自動フォーマッタのblackや
+" isortとの相性もOK!とする記事もあったので､flake8だけにしました
+" https://blog.hirokiky.org/entry/2019/06/03/202745
 let g:syntastic_python_checkers = ['flake8']
 
+" Javascript以外は構文エラーチェックをしない
+" let g:syntastic_mode_map = {
+"       \ 'mode': 'passive',
+"       \ 'active_filetypes': ['javascript'],
+"       \ 'passive_filetypes': []
+"       \ }
 
 
 """ FileType定義
