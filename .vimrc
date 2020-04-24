@@ -565,11 +565,11 @@ set visualbell
 
 """ 見た目系
 
-" Windowの縦幅を指定
-set lines=52
+" Windowの縦を指定
+set lines=53
 
 " Windowの横幅を指定
-set columns=99
+set columns=87
 
 " 構文ごとに文字色を変化
 syntax enable
