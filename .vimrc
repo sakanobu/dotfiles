@@ -773,11 +773,17 @@ nnoremap <Space>q :q<CR>
 " → これやったあとに､再度iモードnモードと遷移すると直るのでijjを付け足し
 " ②変更前の設定が残っちゃう…コンソールに戻ってから入れば無くなるが…
 " nmap <Space>:s :w<CR>:source<Space>~/.vimrc<CR><ESC><ESC>ijj
+" ③ここに書くべきではないかもしれないが､tmuxで単純に:source $MYVIMRCとやっても
+" 描画が崩れてしまう｡↑の対策同様一旦iモード入ってからnモードに戻るor
+" コンソールのウィンドウの大きさをマウスで変更する､と直る
 " .vimrcの再読み込み(ネットにあったver)
-nmap <Space>:s :<C-u>source<Space>$MYVIMRC<CR><ESC><ESC>ijj
+" ④え､っていうかこのコマンドでしっかり更新されてない!?
+" いや､キーマッピングの追加後に削除して:sourceしても
+" キーマッピングはこのバッファに残ってるだけか
+nmap <Space>so :<C-u>source<Space>$MYVIMRC<CR><ESC><ESC>ijj
 
 " どこのファイルからでもすぐ.vimrcを編集
-nnoremap <Space>:e :<C-u>edit $MYVIMRC<CR>
+nnoremap <Space>ed :<C-u>edit $MYVIMRC<CR>
 
 " :set numberと:set nonumberのキーバインド
 nnoremap <Space>sny :set number<CR>
