@@ -53,6 +53,17 @@ endfunction
 command! Python :call s:Python()
 
 nmap <F6> :Python<CR><CR>
+
+
+" python自動フォーマッタをF7で
+" マップの<CR>を3つ以上にすると整形の最中にコマンドが割り込み酷いことに
+" ただ､Enterを押す回数は多くなってる状態…
+" Vim scriptのfeedkeys()でもダメなんだよな…CLIで<CR>だから…
+command! PyAutoFormat :call ft#pyscript#pyformat#PyAutoFormat()
+
+nmap <F7> :PyAutoFormat<CR><CR>
+
+
 " Autopep8のキーバインド
 " autocmd FileType python nnoremap <Space><F8> :call Autopep8()<CR>
 " noremap <Space><F8> :call Autopep8()<CR>
