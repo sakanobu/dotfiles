@@ -119,9 +119,6 @@ Plug 'ervandew/supertab'
 " .でのリピートを強化
 " Plug 'tpope/vim-repeat'
 
-" ファイルを保存したときに追加で.vimrcに記述したもので文法を自動チェック
-" 2019_09_05､えぇ!これの改良版が↓なのでこれはもう使えないのか…
-" Plug 'scrooloose/syntastic'
 
 " ソースコードを実行し、その結果をVim上で表示することができる
 " デフォルトでは実行結果が編集領域の上または左に表示されるため
@@ -155,6 +152,9 @@ Plug 'mattn/vim-lsp-settings'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
+"  自動補完機能を有効にする
+" Plug 'Shougo/neocomplete.vim'
+
 " スニペット入力サポート
 " neocomplete.vimや次のスニペット集と合わせて導入
 " Plug 'Shougo/neosnippet.vim'
@@ -162,10 +162,7 @@ Plug 'prabirshrestha/asyncomplete-lsp.vim'
 " neosnippet.vimのためのスニペット集
 " Plug 'Shougo/neosnippet-snippets'
 
-"  自動補完機能を有効にする
-" Plug 'Shougo/neocomplete.vim'
-
-" neocomplete.vimに変わる自動補完機能
+" neocomplete.vimに変わる自動補完機能､deoplete.nvim
 " https://githubja.com/shougo/deoplete-nvim
 " エラーには､pip install pyvim で対処した
 if has('nvim')
@@ -175,7 +172,6 @@ else
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
-let g:deoplete#enable_at_startup = 1
 
 " deopleteのpython3用スニペット
 Plug 'deoplete-plugins/deoplete-jedi'
@@ -228,6 +224,10 @@ Plug 'scrooloose/nerdtree'
 " https://qiita.com/oahiroaki/items/d71337fb9d28303a54a8
 Plug 'ctrlpvim/ctrlp.vim'
 
+" ファイルを保存したときに追加で.vimrcに記述したもので文法を自動チェック
+" 2019_09_05､えぇ!これの改良版が↓なのでこれはもう使えないのか…
+" Plug 'scrooloose/syntastic'
+"
 " 構文チェックをしてくれるプラグイン
 " flake8とかちゃんとインストールしておかないとダメだよ
 " :syntasticInfoをvim内で打てば現在使われているチェッカーを確認できる
@@ -291,12 +291,6 @@ set splitbelow
 let g:quickrun_config.python = {'command' : 'python3'}
 
 
-"" Shougo/neocomplete.vim
-
-" 自動補完機能を有効にする
-" let g:neocomplete#enable_at_startup = 1
-
-
 "" prabirshrestha/vim-lsp
 
 " 参考にしたサイト
@@ -314,6 +308,18 @@ let g:lsp_diagnostics_echo_cursor = 1
 " let g:lsp_diagnostics_echo_delay = 1000
 " let g:lsp_diagnostics_float_cursor = 1
 " let g:lsp_diagnostics_echo_delay = 200
+
+
+"" Shougo/neocomplete.vim
+
+" 自動補完機能を有効にする
+" let g:neocomplete#enable_at_startup = 1
+
+
+"" Shougo/deoplete.nvim
+
+" 謎
+let g:deoplete#enable_at_startup = 1
 
 
 "" jedi-vim
