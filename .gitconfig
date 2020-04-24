@@ -19,3 +19,4 @@
 	trustExitCode = true
 [commit]
 	template = /Users/tyobi0913/.stCommitMsg
+	verbose = true
