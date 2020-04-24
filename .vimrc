@@ -184,11 +184,12 @@ Plug 'deoplete-plugins/deoplete-jedi'
 
 " flake8のプラグイン
 " 追記設定でキーバインドなどを変更している(デフォルトだとF7で実行されちゃう)
-Plug 'nvie/vim-flake8'
+" Plug 'nvie/vim-flake8'
 
 " pythonのコーディングスタイルチェックどころか自動で修正してくれる
 " 事前にpip3 install autopep8をしておこうね
-Plug 'tell-k/vim-autopep8'
+" :Autopep8で実行､
+" Plug 'tell-k/vim-autopep8'
 
 " Rubyのコード補完機能を提供
 " Plug 'osyo-manga/vim-monster'
@@ -359,11 +360,11 @@ let g:deoplete#enable_at_startup = 1
 "" vim-flake8
 
 " ファイル保存時に実行､だが重くなるのでコメントアウト
-autocmd BufWritePost *.py call Flake8()
+" autocmd BufWritePost *.py call Flake8()
 
 " キーバインド変更､そもそもfiletypeがpythonじゃないとF7でも実行されないぽい
-" → え､そもそもF8じゃ実行されないんですが…<F8>にしてないから?
-autocmd FileType python map <buffer> <Space>f8 :call Flake8()<CR>
+" デフォルトは<F7>､↓の設定は過去の自分が錯綜して設定
+" autocmd FileType python map <buffer> <Space>f8 :call Flake8()<CR>
 
 " Quickfixの位置､デフォルトにすると下にQuickFixを開いてくれるのでコメントアウト
 " let g:flake8_quickfix_location="topleft"
