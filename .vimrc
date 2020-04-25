@@ -222,7 +222,7 @@ Plug 'scrooloose/nerdtree'
 
 " プロジェクト内のファイルやバッファ、履歴からファイルを検索
 " https://qiita.com/oahiroaki/items/d71337fb9d28303a54a8
-Plug 'ctrlpvim/ctrlp.vim'
+" Plug 'ctrlpvim/ctrlp.vim'
 
 " ファイルを保存したときに追加で.vimrcに記述したもので文法を自動チェック
 " 2019_09_05､えぇ!これの改良版が↓なのでこれはもう使えないのか…
