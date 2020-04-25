@@ -218,6 +218,7 @@ Plug 'deoplete-plugins/deoplete-jedi'
 Plug 'tpope/vim-fugitive'
 
 " ディレクトリツリーを一覧で表示したりファイルの追加削除したり
+" https://qiita.com/zwirky/items/0209579a635b4f9c95ee
 Plug 'scrooloose/nerdtree'
 
 " プロジェクト内のファイルやバッファ、履歴からファイルを検索
