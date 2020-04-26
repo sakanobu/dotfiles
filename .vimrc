@@ -244,6 +244,8 @@ call plug#end()
 """ プラグインの追加設定
 
 " 記述の順番は↑のプラグインを書いた順番に準拠､GitHubとかでウィンドウ出してた
+" 基本的にキーマッピングは.vimrcの最下層に書いてるが､
+" プラグインのマッピングだけはここに書くという例外
 
 
 "" rhysd/accelerated-jk
@@ -267,6 +269,12 @@ let g:indent_guides_enable_on_vim_startup = 1
 " config
 " ?
 
+
+"" tomtom/tcomment_vim
+" コメントアウトまでのタイピングを少なく
+nmap <Space>c gcc
+
+
 "" ervandew/supertab
 
 " 謎
@@ -281,6 +289,9 @@ let g:indent_guides_enable_on_vim_startup = 1
 " 今後対応
 " ①::QuickRun -args foo
 " ②::QuickRun -args "foo bar baz"
+
+" vim-quickrunの実行簡略化
+nnoremap <Space>r :QuickRun<CR><C-w>j
 
 " 結果は水平分割で表示
 let g:quickrun_config={'*': {'split': ''}}
@@ -661,21 +672,8 @@ set virtualedit=onemore
 " カーソルを行頭、行末で止まらないようにする
 set whichwrap=b,s,h,l,<,>,[,]
 
-" 折り返し時に表示行単位での移動
-nnoremap <silent> j gj
-nnoremap <silent> k gk
-
-" visulaモードでインデント調整後に選択範囲を開放しない
-vnoremap > >gv
-vnoremap < <gv
-
 " インサートモードから抜けるときにpasteモードをやめる
 autocmd InsertLeave * set nopaste
-
-" インサートモードから抜ける際に日本語入力を解除する
-" https://teratail.com/questions/90348
-" inoremap <ESC> <ESC>:set iminsert=0<CR>
-" autocmd InsertLeave * set iminsert=0 imsearch=0
 
 " 改行時に前の行のインデントを継続する
 set autoindent
@@ -734,17 +732,11 @@ set wrapscan
 " 検索結果をハイライト表示
 set hlsearch
 
-" 検索後にジャンプした際に検索単語を画面中央に持ってくる
-nnoremap n nzz
-nnoremap N Nzz
-nnoremap * *zz
-nnoremap # #zz
-nnoremap g* g*zz
-nnoremap g# g#zz
-
 
 
 """ キーマッピングorキーバインド系
+
+"" 注意事項
 
 " デフォルトのキーマッピングは:help index.txtを確認
 " 現在のキーマッピングの状況の確認は:map :imap :vmap
@@ -762,9 +754,6 @@ nnoremap g# g#zz
 
 
 "" ノーマルモード用
-
-" :qを<Space>qで
-nnoremap <Space>q :q<CR>
 
 " .vimrcの再読み込み
 " 最後のESCは何故かハイライトされるのを消すため
@@ -786,6 +775,9 @@ nmap <Space>so :<C-u>source<Space>$MYVIMRC<CR><ESC><ESC>ijj
 " どこのファイルからでもすぐ.vimrcを編集
 nnoremap <Space>ed :<C-u>edit $MYVIMRC<CR>
 
+" :qを<Space>qで
+nnoremap <Space>q :q<CR>
+
 " :set numberと:set nonumberのキーバインド
 nnoremap <Space>sny :set number<CR>
 nnoremap <Space>snn :set nonumber<CR>
@@ -793,8 +785,13 @@ nnoremap <Space>snn :set nonumber<CR>
 " ESC連打でハイライト解除
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
 
-" Plug 'tomtom/tcomment_vim'のコメントアウトを短く
-nmap <Space>c gcc
+" 検索後にジャンプした際に検索単語を画面中央に持ってくる
+nnoremap n nzz
+nnoremap N Nzz
+nnoremap * *zz
+nnoremap # #zz
+nnoremap g* g*zz
+nnoremap g# g#zz
 
 " 1行下に空行
 nnoremap <Space>o o<ESC>k
@@ -814,13 +811,16 @@ nnoremap zl z-
 
 " TABにて対応ペアにジャンプ
 nnoremap <Tab> %
-vnoremap <Tab> %
 
 " 行の最初の文字へ移動
 nnoremap <Space>a ^
 
 " 行末へ移動
 nnoremap <Space>e $
+
+" 折り返し時に表示行単位での移動
+nnoremap <silent> j gj
+nnoremap <silent> k gk
 
 " <Space> → jkhlのどれかで多めに移動
 nmap <Space>h 7h
@@ -841,9 +841,6 @@ nnoremap <Space>w <C-w>
 " ウィンドウの水平分割と垂直分割の簡略化
 nnoremap <Space>- :split<CR>
 nnoremap <Space><Bar> :vsplit<CR>
-
-" vim-quickrunの実行簡略化
-nnoremap <Space>r :QuickRun<CR><C-w>j
 
 
 "" インサートモード用
@@ -869,13 +866,12 @@ endfunction
 set ttimeoutlen=150
 autocmd InsertLeave * call Fcitx2en()
 
-" インサートモード時にカーソル左の1文字削除(ノーマルモードでの…どれだ…?)
-inoremap <C-b> <BS>
+" インサートモードから抜ける際に日本語入力を解除する
+" https://teratail.com/questions/90348
+" inoremap <ESC> <ESC>:set iminsert=0<CR>
+" autocmd InsertLeave * set iminsert=0 imsearch=0
 
-" インサートモード時にカーソル位置の1文字削除(ノーマルモードでのx)
-inoremap <C-d> <delete>
-
-" インサートモード時の移動
+" インサートモード時の移動を変更
 " <C-h>はbackspaceキーと連動しているので、
 " インサートモードでのbackspaceを用いた前の1文字削除が出来なくなることに注意
 " 2個上のキーマッピングで左1文字を消すキーを設定
@@ -884,7 +880,7 @@ inoremap <C-d> <delete>
 " inoremap <C-k> <up>
 " inoremap <C-l> <right>
 "
-" emacsキーバインド方式に
+" インサートモード時の移動をemacsキーバインド方式に
 imap <C-p> <Up>
 imap <C-n> <Down>
 imap <C-b> <Left>
@@ -892,9 +888,24 @@ imap <C-f> <Right>
 imap <C-a> <ESC>^i
 imap <C-e> <End>
 
+" インサートモード時にカーソル左の1文字削除(ノーマルモードでの…どれだ…?)
+inoremap <C-b> <BS>
+
+" インサートモード時にカーソル位置の1文字削除(ノーマルモードでのx)
+inoremap <C-d> <delete>
+
+
 "" ヴィジュアルモード用
+
+" visulaモードでインデント調整後に選択範囲を開放しない
+vnoremap > >gv
+vnoremap < <gv
+
 " vを二回で行末まで選択
 vnoremap v $h
 
 " ビジュアルモード中の"*yをzの一押しに､その後ブラウザに即ペースト可能
 vnoremap z "*y
+
+" TABにて対応ペアにジャンプ
+vnoremap <Tab> %
