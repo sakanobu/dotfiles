@@ -253,7 +253,7 @@ nmap j <Plug>(accelerated_jk_gj)
 nmap k <Plug>(accelerated_jk_gk)
 
 
-"" vim-indent-guides
+""nathanaelkane/vim-indent-guides
 
 " 謎
 let g:indent_guides_enable_on_vim_startup = 1
@@ -267,7 +267,7 @@ let g:indent_guides_enable_on_vim_startup = 1
 " config
 " ?
 
-"" supertab
+"" ervandew/supertab
 
 " 謎
 " let g:SuperTabContextDefaultCompletionType = "context"
@@ -276,7 +276,7 @@ let g:indent_guides_enable_on_vim_startup = 1
 " let g:SuperTabDefaultCompletionType = "<c-n>"
 
 
-"" vim-quickrun
+"" thinca/vim-quickrun
 
 " 今後対応
 " ①::QuickRun -args foo
@@ -323,7 +323,7 @@ let g:lsp_diagnostics_echo_cursor = 1
 let g:deoplete#enable_at_startup = 1
 
 
-"" jedi-vim
+"" davidhalter/jedi-vim
 
 " 参考サイトは
 " https://kashewnuts.github.io/2018/08/22/jedivim_memo.html
@@ -357,7 +357,7 @@ let g:deoplete#enable_at_startup = 1
 " endfunction
 
 
-"" vim-flake8
+"" nvie/vim-flake8
 
 " ファイル保存時に実行､だが重くなるのでコメントアウト
 " autocmd BufWritePost *.py call Flake8()
@@ -379,7 +379,7 @@ let g:flake8_show_in_gutter=1
 let g:flake8_show_in_file=1
 
 
-"" autopep8
+"" tell-k/autopep8
 
 " 謎
 let g:autopep8_max_line_length=99
@@ -414,7 +414,7 @@ let g:autopep8_disable_show_diff=1
 " endfunction
 
 
-"" vim-monster
+"" osyo-manga/vim-monster
 
 " neocomplete.vimとあわせて導入←よく分からない…
 " let g:neocomplete#sources#omni#input_patterns = {
@@ -422,7 +422,7 @@ let g:autopep8_disable_show_diff=1
 " \}
 
 
-"" NERDTree
+"" scrooloose/nerdtree
 
 " MacだとNERDTeeでまるごとエラー吐いちゃう
 "
@@ -471,7 +471,7 @@ let g:autopep8_disable_show_diff=1
 nmap <Leader>f :CtrlP<CR>
 
 
-"" shyntastic
+"" vim-shyntastic/syntastic
 
 " README.mdの推奨設定
 set statusline+=%#warningmsg#
@@ -506,6 +506,7 @@ let g:syntastic_python_checkers = ['flake8']
 "       \ 'active_filetypes': ['javascript'],
 "       \ 'passive_filetypes': []
 "       \ }
+
 
 
 """ FileType定義
