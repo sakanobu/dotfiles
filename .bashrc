@@ -103,6 +103,9 @@ alias chromeopen='open -a "Google Chrome"'
 # bpythonを少しでも短く
 alias bp='bpython'
 
+# Macにある既存のではなくbrewでダウンロードしたctagsを利用
+alias ctags="`brew --prefix`/bin/ctags"
+
 ## git
 alias g='git'
 alias st='git status -bs'

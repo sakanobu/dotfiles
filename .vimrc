@@ -240,6 +240,9 @@ Plug 'scrooloose/nerdtree'
 " pythonに関してはvim-flake8という↓にあるプラグインでいいかなって感じ
 Plug 'vim-syntastic/syntastic'
 
+" ctagsを利用した
+Plug 'majutsushi/tagbar'
+
 call plug#end()
 
 
@@ -435,6 +438,7 @@ let g:autopep8_disable_show_diff=1
 " \  'ruby': '[^. *¥t]\.\w*\|\h\w*::'
 " \}
 
+
 "" airblade/vim-gitgutter
 
 " 変更の時間を4秒から0.2秒へ
@@ -528,6 +532,12 @@ let g:syntastic_python_checkers = ['flake8']
 "       \ 'active_filetypes': ['javascript'],
 "       \ 'passive_filetypes': []
 "       \ }
+
+
+"" majutsushi/tagbar
+
+" F4で実行
+nmap <Space>tag :TagbarToggle<CR>
 
 
 
