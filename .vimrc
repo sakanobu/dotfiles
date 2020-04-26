@@ -217,6 +217,9 @@ Plug 'deoplete-plugins/deoplete-jedi'
 " vimを開いたままgitのコマンドを実行
 Plug 'tpope/vim-fugitive'
 
+" gitの差分をファイルの左に表示
+Plug 'airblade/vim-gitgutter'
+
 " ディレクトリツリーを一覧で表示したりファイルの追加削除したり
 " https://qiita.com/zwirky/items/0209579a635b4f9c95ee
 Plug 'scrooloose/nerdtree'
@@ -431,6 +434,14 @@ let g:autopep8_disable_show_diff=1
 " let g:neocomplete#sources#omni#input_patterns = {
 " \  'ruby': '[^. *¥t]\.\w*\|\h\w*::'
 " \}
+
+"" airblade/vim-gitgutter
+
+" 変更の時間を4秒から0.2秒へ
+set updatetime=200
+
+" 左端の記号だけでなく行の強調表示も
+let g:gitgutter_highlight_lines = 1
 
 
 "" scrooloose/nerdtree
