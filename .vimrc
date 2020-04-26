@@ -828,6 +828,13 @@ nmap <Space>j 10j
 nmap <Space>k 10k
 nmap <Space>l 7l
 
+" xやXやsで消した内容を無名レジスタに登録しない
+" ※一文字消しただけで無名レジスタが上書きされることを妨害する代わりに
+" 5xでちょうどよく切り取りペーストするのは諦める
+nnoremap x "_x
+nnoremap X "_X
+nnoremap s "_s
+
 " ウィンドウのプレフィックスが押しにくいので変更
 nnoremap <Space>w <C-w>
 
