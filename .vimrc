@@ -227,6 +227,25 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
 " ?
 
 
+"" terryma/vim-multiple-cursors
+
+" deopleteによって動作が重くなるのを回避
+" ※いや…重いまんまなんだが…
+func! Multiple_cursors_before()
+  if deoplete#is_enabled()
+    call deoplete#disable()
+    let g:deoplete_is_enable_before_multi_cursors = 1
+  else
+    let g:deoplete_is_enable_before_multi_cursors = 0
+  endif
+endfunc
+func! Multiple_cursors_after()
+  if g:deoplete_is_enable_before_multi_cursors
+    call deoplete#enable()
+  endif
+endfunc
+
+
 "" tomtom/tcomment_vim
 " コメントアウトまでのタイピングを少なく
 nmap <Space>c gcc
