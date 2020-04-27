@@ -125,22 +125,8 @@ Plug 'ervandew/supertab'
 " set splitright
 Plug 'thinca/vim-quickrun'
 
-" 選択した文字列をコマンドで上下左右に移動したり、コピーしたりできる
-" 詳細は以下のURLで確認
-" https://vim-jp.org/vim-users-jp/2011/07/18/Hack-223.html
-" Plug 't9md/vim-textmanip'
-
 " カラースキーム solarized
 Plug 'altercation/vim-colors-solarized'
-
-" カラースキーム molokai
-" Plug 'tomasr/molokai'
-
-" カラースキーム badwolf
-" Plug 'sjl/badwolf'
-
-" カラースキーム Twilight
-" Plug 'vim-scripts/twilight'
 
 " vim-lspまとめ
 Plug 'prabirshrestha/async.vim'
@@ -148,16 +134,6 @@ Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
-
-"  自動補完機能を有効にする
-" Plug 'Shougo/neocomplete.vim'
-
-" スニペット入力サポート
-" neocomplete.vimや次のスニペット集と合わせて導入
-" Plug 'Shougo/neosnippet.vim'
-
-" neosnippet.vimのためのスニペット集
-" Plug 'Shougo/neosnippet-snippets'
 
 " neocomplete.vimに変わる自動補完機能､deoplete.nvim
 " https://githubja.com/shougo/deoplete-nvim
@@ -173,45 +149,6 @@ endif
 " deopleteのpython3用スニペット
 Plug 'deoplete-plugins/deoplete-jedi'
 
-" pythonの補完､ジェダイ
-" .を押すと補完候補が現れる｡
-" 詳しくは↓
-" https://wonderwall.hatenablog.com/entry/2017/01/29/213052
-" Plug 'davidhalter/jedi-vim'
-
-" flake8のプラグイン
-" 追記設定でキーバインドなどを変更している(デフォルトだとF7で実行されちゃう)
-" Plug 'nvie/vim-flake8'
-
-" pythonのコーディングスタイルチェックどころか自動で修正してくれる
-" 事前にpip3 install autopep8をしておこうね
-" :Autopep8で実行､
-" Plug 'tell-k/vim-autopep8'
-
-" Rubyのコード補完機能を提供
-" Plug 'osyo-manga/vim-monster'
-
-" Ruby向けにendを自動挿入(本採用)
-" Plug 'tpope/vim-endwise'
-
-" Rubyのendキーワードを自動挿入part2
-" Plug 'cohama/vim-smartinput-endwise'
-
-" Ruby のシンタックスプラグインやその他便利機能が色々入ってる
-" Plug 'vim-ruby/vim-ruby'
-
-" Rubyのローカル変数をハイライト表示
-" なぜかエラー吐いちゃう
-" もうちょい詳しくなるまで放置 ↓の記事は使えそう
-" https://pocke.hatenablog.com/entry/2014/06/22/113012
-" Plug 'todesking/ruby_hl_lvar.vim'
-
-" %を押せばendに飛べる(Ruby?)
-" Plug 'vim-scripts/ruby-matchit'
-
-" REPLをvimで
-" Plug 'ujihisa/repl.vim'
-
 " vimを開いたままgitのコマンドを実行
 Plug 'tpope/vim-fugitive'
 
@@ -226,10 +163,6 @@ Plug 'scrooloose/nerdtree'
 " https://qiita.com/oahiroaki/items/d71337fb9d28303a54a8
 " Plug 'ctrlpvim/ctrlp.vim'
 
-" ファイルを保存したときに追加で.vimrcに記述したもので文法を自動チェック
-" 2019_09_05､えぇ!これの改良版が↓なのでこれはもう使えないのか…
-" Plug 'scrooloose/syntastic'
-"
 " 構文チェックをしてくれるプラグイン
 " flake8とかちゃんとインストールしておかないとダメだよ
 " :syntasticInfoをvim内で打てば現在使われているチェッカーを確認できる
@@ -326,115 +259,10 @@ let g:lsp_diagnostics_echo_cursor = 1
 " let g:lsp_diagnostics_echo_delay = 200
 
 
-"" Shougo/neocomplete.vim
-
-" 自動補完機能を有効にする
-" let g:neocomplete#enable_at_startup = 1
-
-
 "" Shougo/deoplete.nvim
 
 " 謎
 let g:deoplete#enable_at_startup = 1
-
-
-"" davidhalter/jedi-vim
-
-" 参考サイトは
-" https://kashewnuts.github.io/2018/08/22/jedivim_memo.html
-" https://wonderwall.hatenablog.com/entry/2017/01/29/213052
-"
-" 補完候補を呼び出すとき常にポップアップメニューを使う
-" set completeopt=menuone
-
-" vim-plugの遅延ロード呼び出し
-" autocmd! User jedi-vim call s:jedivim_hook()
-
-" jedi-vimを使うときだけ呼び出す処理を関数化
-" function! s:jedivim_hook()
-  " 自動で実行される初期化処理を無効
-  " let g:jedi#auto_initialization    = 0
-
-  " 'completeopt' オプションを上書きしない
-  " let g:jedi#auto_vim_configuration = 0
-
-  " ドット(.)を入力したとき自動で補完しない
-  " let g:jedi#popup_on_dot           = 0
-
-  " 補完候補の1番目を選択しない
-  " let g:jedi#popup_select_first     = 0
-
-  " 関数の引数表示を無効(ポップアップのバグを踏んだことがあるため)
-  " let g:jedi#show_call_signatures   = 0
-
-  " 補完エンジンはjediを使う
-  " autocmd FileType python setlocal omnifunc=jedi#completions
-" endfunction
-
-
-"" nvie/vim-flake8
-
-" ファイル保存時に実行､だが重くなるのでコメントアウト
-" autocmd BufWritePost *.py call Flake8()
-
-" キーバインド変更､そもそもfiletypeがpythonじゃないとF7でも実行されないぽい
-" デフォルトは<F7>､↓の設定は過去の自分が錯綜して設定
-" autocmd FileType python map <buffer> <Space>f8 :call Flake8()<CR>
-
-" Quickfixの位置､デフォルトにすると下にQuickFixを開いてくれるのでコメントアウト
-" let g:flake8_quickfix_location="topleft"
-
-" Quickfixの高さ
-let g:flake8_quickfix_height=7
-
-" 左端にシンボルを表示
-let g:flake8_show_in_gutter=1
-
-" ファイル内にマークを表示
-let g:flake8_show_in_file=1
-
-
-"" tell-k/autopep8
-
-" 謎
-let g:autopep8_max_line_length=99
-
-" 謎
-let g:autopep8_disable_show_diff=1
-
-" original http://stackoverflow.com/questions/12374200/using-uncrustify-with-vim/15513829#15513829
-" function! Preserve(command)
-"     " Save the last search.
-"     let search = @/
-"     " Save the current cursor position.
-"     let cursor_position = getpos('.')
-"     " Save the current window position.
-"     normal! H
-"     let window_position = getpos('.')
-"     call setpos('.', cursor_position)
-"     " Execute the command.
-"     execute a:command
-"     " Restore the last search.
-"     let @/ = search
-"     " Restore the previous window position.
-"     call setpos('.', window_position)
-"     normal! zt
-"     " Restore the previous cursor position.
-"     call setpos('.', cursor_position)
-" endfunction
-
-" 謎
-" function! Autopep8()
-"     call Preserve(':silent %!autopep8 -')
-" endfunction
-
-
-"" osyo-manga/vim-monster
-
-" neocomplete.vimとあわせて導入←よく分からない…
-" let g:neocomplete#sources#omni#input_patterns = {
-" \  'ruby': '[^. *¥t]\.\w*\|\h\w*::'
-" \}
 
 
 "" airblade/vim-gitgutter
@@ -444,49 +272,6 @@ set updatetime=200
 
 " 左端の記号だけでなく行の強調表示も
 let g:gitgutter_highlight_lines = 1
-
-
-"" scrooloose/nerdtree
-
-" MacだとNERDTeeでまるごとエラー吐いちゃう
-"
-" Ctrl+nでNERDTreeを表示
-" map <C-n> :NERDTreeToggle<CR>
-"
-" 隠しファイルをデフォルトで表示させる
-" let NERDTreeShowHidden = 1
-
-" デフォルトでツリーを表示させる
-" autocmd StdinReadPre * let s:std_in=1
-" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
-" 拡張子のHighlight設定
-" function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
-"  exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
-"  exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^¥s¥+.*'. a:extension .'$#'
-" endfunction
-
-" 着色
-" call NERDTreeHighlightFile('py', 'yellow', 'none', 'yellow', '#151515')
-" call NERDTreeHighlightFile('md', 'blue', 'none', '#3366FF', '#151515')
-" call NERDTreeHighlightFile('yml', 'yellow', 'none', 'yellow', '#151515')
-" call NERDTreeHighlightFile('config', 'yellow', 'none', 'yellow', '#151515')
-" call NERDTreeHighlightFile('conf', 'yellow', 'none', 'yellow', '#151515')
-" call NERDTreeHighlightFile('json', 'yellow', 'none', 'yellow', '#151515')
-" call NERDTreeHighlightFile('html', 'yellow', 'none', 'yellow', '#151515')
-" call NERDTreeHighlightFile('styl', 'cyan', 'none', 'cyan', '#151515')
-" call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', '#151515')
-" call NERDTreeHighlightFile('rb', 'Red', 'none', 'red', '#151515')
-" call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
-" call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
-
-" ディレクトリ表示記号を変更する
-" let g:NERDTreeDirArrows = 1
-" let g:NERDTreeDirArrowExpandable = '?'
-
-" Macだと↓でエラーを吐いてる
-" ↓をコメントアウトしたらもっとエラー吐いた…
-" let g:NERDTreeDirArrowCollapsible = '▼'
 
 
 "" ctrlpvim/ctrlp.vim
