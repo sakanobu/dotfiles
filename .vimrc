@@ -19,7 +19,7 @@
 " sudo apt-get install vim-gnome
 " Macの場合はhomebrewでごちゃごちゃやる
 
-" .vimrcの内容を変更した時に再度vim起動するのを焼灼
+" .vimrcの内容を変更した時に再度vimが起動するのを省略
 " :source ~/.vimrc
 
 " エンコードなど
@@ -44,7 +44,7 @@ set fileformats=unix,dos,mac
 " vim-plugをダウンロードできたら↓を忘れずに続行
 " :PlugInstall
 " :PlugStatus  で確認
-
+"
 " vim-plugがインストールされていなかったら自動インストール
 " だが､この自動化はなんかうまくいかない…
 " centOSで設定した内容をubuntuにコピペしたらこの下でエラー吐くな…
@@ -67,7 +67,8 @@ call plug#begin('~/.vim/plugged')
 "  j/kによる移動を速くする
 Plug 'rhysd/accelerated-jk'
 
-" 謎
+" 常にカーソル上下に少なくとも1行表示するなど､vimの挙動を変えてる
+" 詳しくはREADME.md
 Plug 'tpope/vim-sensible'
 
 " ステータスライン表示をおしゃれに
@@ -102,9 +103,7 @@ Plug 'cohama/lexima.vim'
 " 2.ysから始めるとヴィジュアルモードを経由せずにテキストオブジェクトで指定できる
 Plug 'tpope/vim-surround'
 
-" SublimeTextでの複数カーソルもどき
-" 詳細は以下のurlで確認
-" https://github.com/terryma/vim-multiple-cursors
+" vimの矩形選択で一括挿入みたいなやつをもっと強力に
 Plug 'terryma/vim-multiple-cursors'
 
 "  Ctrl + / (/は2回押す)でコメントのON/OFF、gccでも可
@@ -194,7 +193,7 @@ nmap k <Plug>(accelerated_jk_gk)
 
 ""nathanaelkane/vim-indent-guides
 
-" 謎
+" vim-indent-guidesの有効化
 let g:indent_guides_enable_on_vim_startup = 1
 
 
@@ -261,7 +260,7 @@ let g:lsp_diagnostics_echo_cursor = 1
 
 "" Shougo/deoplete.nvim
 
-" 謎
+" deopleteを有効に
 let g:deoplete#enable_at_startup = 1
 
 
@@ -277,7 +276,7 @@ let g:gitgutter_highlight_lines = 1
 "" ctrlpvim/ctrlp.vim
 
 " 検索モードを開く
-nmap <Leader>f :CtrlP<CR>
+" nmap <Leader>f :CtrlP<CR>
 
 
 "" vim-shyntastic/syntastic
@@ -319,7 +318,7 @@ let g:syntastic_python_checkers = ['flake8']
 
 "" majutsushi/tagbar
 
-" F4で実行
+" デフォルトはF8だったけど以下のコマンドで実行
 nmap <Space>tag :TagbarToggle<CR>
 
 
