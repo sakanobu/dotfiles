@@ -191,6 +191,22 @@ nmap j <Plug>(accelerated_jk_gj)
 nmap k <Plug>(accelerated_jk_gk)
 
 
+"" itchyny/lightline.vim
+
+" ステータスバーの表示内容変更
+
+let g:lightline = {
+      \ 'colorscheme': 'default',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'FugitiveHead',
+      \ },
+      \ }
+
+
 ""nathanaelkane/vim-indent-guides
 
 " vim-indent-guidesの有効化
