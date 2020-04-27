@@ -92,11 +92,9 @@ Plug 'alvan/vim-closetag'
 " http://motw.mods.jp/Vim/emmet-vim.html
 Plug 'mattn/emmet-vim'
 
-" カッコ（(や{など）を入力すると、自動で閉じカッコを補完
-Plug 'Townk/vim-autoclose'
-
 " () や {} の自動入力
-Plug 'kana/vim-smartinput'
+" Townk/vim-autocloseとkana/vim-smartinputの代替
+Plug 'cohama/lexima.vim'
 
 " 文字列を囲っている引用符や括弧を編集
 " http://vimblog.hatenablog.com/entry/vim_plugin_surround_vim
