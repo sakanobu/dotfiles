@@ -9,8 +9,10 @@ bpython = "*"
 flake8 = "*"
 isort = "*"
 ipdb = "*"
+mypy = "*"
 pylint = "*"
 pynvim = "*"
+pipfile = "*"
 
 [packages]
 
