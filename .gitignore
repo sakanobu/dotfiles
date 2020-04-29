@@ -18,3 +18,4 @@
 # 個人的に無視したいの
 aaa*
 get-pip.py
+.venv
