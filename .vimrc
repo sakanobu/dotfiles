@@ -349,7 +349,7 @@ let g:syntastic_aggregate_errors = 1
 " hackingなどのFlake8プラグインがあり､ また自動フォーマッタのblackや
 " isortとの相性もOK!とする記事もあったので､flake8だけにしました
 " https://blog.hirokiky.org/entry/2019/06/03/202745
-let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_python_checkers = ['flake8', 'mypy']
 
 " Javascript以外は構文エラーチェックをしない
 " let g:syntastic_mode_map = {
