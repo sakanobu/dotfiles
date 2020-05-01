@@ -335,8 +335,8 @@ let g:syntastic_always_populate_loc_list = 1
 " 構文エラーリストを表示
 let g:syntastic_auto_loc_list = 1
 
-" ファイルを開いた時に構文エラーチェックを実行する
-let g:syntastic_check_on_open = 1
+" ファイルを開いた時に構文エラーチェックを実行しない
+let g:syntastic_check_on_open = 0
 
 " 「:wq」で終了する時には構文エラーチェックをしない
 let g:syntastic_check_on_wq = 0
