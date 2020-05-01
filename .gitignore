@@ -19,3 +19,4 @@
 aaa*
 get-pip.py
 .venv
+.mypy_cache*
