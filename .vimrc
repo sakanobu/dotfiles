@@ -94,8 +94,13 @@ Plug 'alvan/vim-closetag'
 Plug 'mattn/emmet-vim'
 
 " () や {} の自動入力
-" Townk/vim-autocloseとkana/vim-smartinputの代替
-Plug 'cohama/lexima.vim'
+" ※注意
+" Plug 'cohama/lexima.vim'に乗り換えようとしたが､
+" 1.カーソルの1つ右に文字がある場合は自動補完しない
+" 2.{}の補完でインデントした新たな行を間にはさむ
+" という2つの条件を満たすにはこの↓の2つのプラグインを同時に使うことだった!
+Plug 'Townk/vim-autoclose'
+Plug 'kana/vim-smartinput'
 
 " 文字列を囲っている引用符や括弧を編集
 " http://vimblog.hatenablog.com/entry/vim_plugin_surround_vim
