@@ -429,7 +429,7 @@ set visualbell
 """ 見た目系
 
 " Windowの縦を指定
-set lines=53
+set lines=56
 
 " Windowの横幅を指定
 set columns=87
