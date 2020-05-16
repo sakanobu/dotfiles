@@ -53,18 +53,29 @@ export PIPENV_VENV_IN_PROJECT=true
 # MacPorts Installer addition on 2018-11-25_at_10:59:31: adding an appropriate PATH variable for use with MacPorts.
 export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 # Finished adapting your PATH environment variable for use with MacPorts.
-#
+
 # nodeのやつ?
 export PATH=$HOME/.nodebrew/current/bin:$PATH
-#
+
 # pyenvのパス
 export PATH="$PYENV_ROOT/shims:$PATH"
-#
+
+# 数ヶ月ぶりにMacのアップデートをしてvimのdeopleteにエラーが出た際､
+# それを直すために使ったもの
+# ※pythonのバージョンが3.8から変化したら､また対処しないとかもか…
+# ※というか､pyenvのせいでvimがpynvimをインストールしたディレクトリを
+# 探せなくなったせいかなって今思えてきた…
+# pythonとpython3､pipとpip3の挙動や組み合わせが違うとかもそのせいだし…
+# https://github.com/roxma/vim-hug-neovim-rpc/issues/47
+export PATH="/usr/local/opt/python@3.8/bin:$PATH"
+
 # なんかのパス
 export PATH=$PATH:/usr/local/bin
-#
+
 # 環境変数PATHの重複をなくす
 # https://qastack.jp/unix/40749/remove-duplicate-path-entries-with-awk-command
 export PATH=`printf %s "$PATH" | awk -v RS=: '{ if (!arr[$0]++) {printf("%s%s",!ln++?"":":",$0)}}'`
+
+
 
 ### 未分類
