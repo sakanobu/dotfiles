@@ -432,7 +432,7 @@ set visualbell
 set lines=56
 
 " Windowの横幅を指定
-set columns=87
+set columns=187
 
 " 構文ごとに文字色を変化
 syntax enable
