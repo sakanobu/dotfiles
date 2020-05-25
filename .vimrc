@@ -356,6 +356,12 @@ let g:syntastic_aggregate_errors = 1
 " https://blog.hirokiky.org/entry/2019/06/03/202745
 let g:syntastic_python_checkers = ['flake8', 'mypy']
 
+" JavaScript用
+let g:syntastic_javascript_checkers = ['eslint']
+
+" TypeScript用
+let g:syntastic_typescript_checkers = ['eslint']
+
 " Javascript以外は構文エラーチェックをしない
 " let g:syntastic_mode_map = {
 "       \ 'mode': 'passive',
