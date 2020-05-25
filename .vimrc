@@ -392,6 +392,8 @@ nmap <Space>tag :TagbarToggle<CR>
 augroup MyGroup
     autocmd!
     autocmd BufRead,BufNewFile *.py setfiletype python
+    autocmd BufRead,BufNewFile *.js setfiletype javascript
+    autocmd BufRead,BufNewFile *.ts setfiletype typescript
     autocmd BufRead,BufNewFile *.c setfiletype c
     autocmd BufRead,BufNewFile *.cpp setfiletype c++
 augroup END
