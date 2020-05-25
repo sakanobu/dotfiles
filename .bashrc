@@ -111,6 +111,8 @@ alias g='git'
 alias st='git status -bs'
 alias ad='git add'
 alias co='git commit'
+alias gdw='git diff'
+alias gds='git diff --cached'
 alias ginit='git commit --allow-empty'
 # 空コミットのciスキップver
 # https://yulii.github.io/git-wip-alias-20160206.html
