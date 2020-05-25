@@ -645,6 +645,10 @@ nnoremap <Space>snn :set nonumber<CR>
 " ESC連打でハイライト解除
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
 
+" ↑のハイライトを消すマッピング利用の為にescキーや<C-[>を押すのが辛いので代用
+" ※他のマッピングで nmap ~ ~<Space><Space>~ とかになると当然バグるので注意
+nmap <Space><Space> <ESC><ESC>
+
 " 検索後にジャンプした際に検索単語を画面中央に持ってくる
 nnoremap n nzz
 nnoremap N Nzz
