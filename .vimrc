@@ -450,7 +450,8 @@ set number
 highlight LineNr ctermfg=darkyellow
 
 " 画面の上下に余裕をもたせてスクロール
-set scrolloff=5
+" ※数字の数だけ余分に見える
+set scrolloff=2
 
 " 画面の左右に余裕をもたせてスクロール
 " ただ､macのコンソール画面幅の環境設定によって自動折返し入ってるから意味ない…
