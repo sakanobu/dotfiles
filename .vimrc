@@ -373,7 +373,7 @@ let g:syntastic_typescript_checkers = ['eslint']
 "" majutsushi/tagbar
 
 " デフォルトはF8だったけど以下のコマンドで実行
-nmap <Space>tag :TagbarToggle<CR>
+nnoremap <Space>tag :TagbarToggle<CR>
 
 
 
@@ -630,7 +630,8 @@ set hlsearch
 " ④え､っていうかこのコマンドでしっかり更新されてない!?
 " いや､キーマッピングの追加後に削除して:sourceしても
 " キーマッピングはこのバッファに残ってるだけか
-nmap <Space>so :<C-u>source<Space>$MYVIMRC<CR><ESC><ESC>ijj
+" ⑤nmapをnnoremapに変える作業中についでに②から↓に変更したら①の懸念無くなってる…
+nnoremap <Space>so :<C-u>source<Space>$MYVIMRC<CR><ESC><ESC>
 
 " どこのファイルからでもすぐ.vimrcを編集
 nnoremap <Space>ed :<C-u>edit $MYVIMRC<CR>
@@ -643,7 +644,7 @@ nnoremap <Space>sny :set number<CR>
 nnoremap <Space>snn :set nonumber<CR>
 
 " ESC連打でハイライト解除
-nmap <Esc><Esc> :nohlsearch<CR><Esc>
+nnoremap <Esc><Esc> :nohlsearch<CR><Esc>
 
 " ↑のハイライトを消すマッピング利用の為にescキーや<C-[>を押すのが辛いので代用
 " ※他のマッピングで nmap ~ ~<Space><Space>~ とかになると当然バグるので注意
@@ -752,17 +753,15 @@ autocmd InsertLeave * call Fcitx2en()
 " inoremap <C-l> <right>
 "
 " インサートモード時の移動をemacsキーバインド方式に
-imap <C-p> <Up>
-imap <C-n> <Down>
-imap <C-b> <Left>
-imap <C-f> <Right>
-imap <C-a> <ESC>^i
-imap <C-e> <End>
+inoremap <C-p> <Up>
+inoremap <C-n> <Down>
+inoremap <C-b> <Left>
+inoremap <C-f> <Right>
+inoremap <C-a> <ESC>^i
+inoremap <C-e> <End>
 
-" インサートモード時にカーソル左の1文字削除(ノーマルモードでの…どれだ…?)
-inoremap <C-b> <BS>
-
-" インサートモード時にカーソル位置の1文字削除(ノーマルモードでのx)
+" インサートモード時にカーソル位置の1文字削除をemacsキーバインド方式に
+" カーソルの1つ左削除はvimのデフォルトで既に<C-h>でok
 inoremap <C-d> <delete>
 
 " インサートモード時のインデントの字下げ削除
