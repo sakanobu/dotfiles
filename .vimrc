@@ -700,7 +700,7 @@ nnoremap x "_x
 nnoremap X "_X
 nnoremap s "_s
 
-" ウィンドウのプレフィックスが押しにくいので変更
+" ウィンドウのプレフィックスが押しにくいので代替
 nnoremap <Space>w <C-w>
 
 " ウィンドウの移動の簡略化
