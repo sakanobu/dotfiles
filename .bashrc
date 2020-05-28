@@ -114,6 +114,7 @@ alias co='git commit'
 alias gdw='git diff'
 alias gds='git diff --cached'
 alias ginit='git commit --allow-empty'
+alias pushf='git push --force-with-lease'
 # 空コミットのciスキップver
 # https://yulii.github.io/git-wip-alias-20160206.html
 # alias ginit='git commit --allow-empty "[ci skip] wip commit"'

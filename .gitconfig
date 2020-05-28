@@ -6,6 +6,7 @@
 [alias]
 	st = status
 	co = commit
+	pushf = push --force-with-lease
 [core]
 	excludesfile = /Users/tyobi0913/.gitignore_global
 	pager = less -cm
