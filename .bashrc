@@ -109,6 +109,7 @@ alias ctags="`brew --prefix`/bin/ctags"
 ## git
 alias g='git'
 alias st='git status -bs'
+alias co='git checkout'
 alias ad='git add'
 alias cm='git commit'
 alias gdw='git diff'

@@ -5,6 +5,7 @@
 	ui = auto
 [alias]
 	st = status
+	co = checkout
 	cm = commit
 	pushf = push --force-with-lease
 [core]
