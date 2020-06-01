@@ -94,6 +94,9 @@ set -o ignoreeof
 alias cl='clear'
 alias ..2='cd ../..'
 alias ..3='cd ../../..'
+alias mv='mv -i'
+alias cp='cp -i'
+alias rm='rm -i'
 # http://mironal-memo.blogspot.com/2012/09/macosx-ls.htmlより､MacとLinux対応
 case "${OSTYPE}" in
 darwin*)
