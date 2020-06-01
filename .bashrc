@@ -90,6 +90,8 @@ set -o ignoreeof
 
 ### エイリアス
 
+## 基本コマンド
+alias cl='clear'
 
 ## git
 alias g='git'
