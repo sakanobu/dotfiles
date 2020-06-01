@@ -90,21 +90,6 @@ set -o ignoreeof
 
 ### エイリアス
 
-## 全般
-# gitのエイリアス確認
-alias galias='git config --global --list | grep ^alias\.'
-
-# homebrew一括アップデート
-alias brewupdate='brew update && brew upgrade && brew cleanup'
-
-# chromeをコマンドラインから開くエイリアス､引数としてhtmlを指定する｡
-alias chromeopen='open -a "Google Chrome"'
-
-# bpythonを少しでも短く
-alias bp='bpython'
-
-# Macにある既存のではなくbrewでダウンロードしたctagsを利用
-alias ctags="`brew --prefix`/bin/ctags"
 
 ## git
 alias g='git'
@@ -121,6 +106,21 @@ alias pushf='git push --force-with-lease'
 # alias ginit='git commit --allow-empty "[ci skip] wip commit"'
 alias glogr='git log --date=short --pretty=format:"%C(Yellow)%h %C(Cyan)%cd %C(Reset)%s %C(Blue)[%cn]%C(Red)%d" --graph'
 
+## その他
+# gitのエイリアス確認
+alias galias='git config --global --list | grep ^alias\.'
+
+# homebrew一括アップデート
+alias brewupdate='brew update && brew upgrade && brew cleanup'
+
+# chromeをコマンドラインから開くエイリアス､引数としてhtmlを指定する｡
+alias chromeopen='open -a "Google Chrome"'
+
+# bpythonを少しでも短く
+alias bp='bpython'
+
+# Macにある既存のではなくbrewでダウンロードしたctagsを利用
+alias ctags="`brew --prefix`/bin/ctags"
 
 
 
