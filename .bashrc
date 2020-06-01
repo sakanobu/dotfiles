@@ -92,6 +92,8 @@ set -o ignoreeof
 
 ## 基本コマンド
 alias cl='clear'
+alias ..2='cd ../..'
+alias ..3='cd ../../..'
 # http://mironal-memo.blogspot.com/2012/09/macosx-ls.htmlより､MacとLinux対応
 case "${OSTYPE}" in
 darwin*)
