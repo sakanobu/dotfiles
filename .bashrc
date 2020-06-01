@@ -92,6 +92,15 @@ set -o ignoreeof
 
 ## 基本コマンド
 alias cl='clear'
+# http://mironal-memo.blogspot.com/2012/09/macosx-ls.htmlより､MacとLinux対応
+case "${OSTYPE}" in
+darwin*)
+  alias ls="ls -GF"
+  ;;
+linux*)
+  alias ls='ls --color=auto -F'
+  ;;
+esac
 
 ## git
 alias g='git'
