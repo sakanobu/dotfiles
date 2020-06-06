@@ -22,5 +22,7 @@
 [commit]
 	template = /Users/tyobi0913/.stCommitMsg
 	verbose = true
+[pull]
+	rebase = true
 [fetch]
 	prune = true
