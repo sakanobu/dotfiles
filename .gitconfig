@@ -24,5 +24,8 @@
 	verbose = true
 [pull]
 	rebase = true
+	ff = only
+[merge]
+	ff = false
 [fetch]
 	prune = true
