@@ -8,7 +8,9 @@
 # 2.エイリアスを定義する
 # 3.シェル関数を定義する
 # といった設定は.bashrcへ
-# ※ただ､このファイルにあるbashのGit云々にexport含まれていて…うーん
+# ※ ただ､このファイルにあるbashのGit云々にexport含まれていて…うーん
+
+## vimライクな挙動にする設定は.inputrcに書いてる
 
 ## bashの補完に関しては以下のサイトを参照
 # https://qiita.com/notakaos/items/d44a4c2b72625746de25
@@ -25,20 +27,6 @@
 
 
 ### 本編
-
-## ターミナルでの入力をviライクに
-set -o vi
-#
-# ターミナルに入った直後ではインサートモードから始まる
-# もしいま現在がインサートなのかノーマルなのかを表示するには↓を参照
-# https://www.trhrkmk.com/posts/setting-vi-mode-in-bash-comfortable/
-#
-# 注意なのは
-# 1.インサートモード時には1つ上の履歴をみる<Ctrl+p>が使えないからノーマルモードへ
-# 2._やg_の挙動がおかしい…ほかの便利キーバインドになってるっぽい
-#
-# viライクターミナルでもjjでノーマルモードへ､キーマッピング
-bind '"jj": vi-movement-mode'
 
 ## bashでの補完
 # bash-completion
