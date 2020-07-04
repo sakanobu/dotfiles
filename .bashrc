@@ -98,6 +98,9 @@ esac
 ## git
 alias g='git'
 alias st='git status -bs'
+# -avオプションを付与したことでgit branch featureのような操作が出来ないので､
+# .gitconfigに設定したg brでブランチ作成や消去を代用しましょう
+alias br='git branch -av'
 alias co='git checkout'
 alias ad='git add'
 alias cm='git commit'
