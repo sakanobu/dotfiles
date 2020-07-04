@@ -675,9 +675,6 @@ nnoremap zh zt
 nnoremap zm zz
 nnoremap zl z-
 
-" TABにて対応ペアにジャンプ
-nnoremap <Tab> %
-
 " 行の最初の文字へ移動
 nnoremap <Space>a ^
 
@@ -782,6 +779,3 @@ vnoremap v $h
 
 " ビジュアルモード中の"*yをzの一押しに､その後ブラウザに即ペースト可能
 vnoremap z "*y
-
-" TABにて対応ペアにジャンプ
-vnoremap <Tab> %
