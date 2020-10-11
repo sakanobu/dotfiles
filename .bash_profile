@@ -77,6 +77,9 @@ export PATH=$PATH:/usr/local/bin
 export PATH=`printf %s "$PATH" | awk -v RS=: '{ if (!arr[$0]++) {printf("%s%s",!ln++?"":":",$0)}}'`
 
 
+# mysql
+export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
+
 # node
 eval "$(anyenv init -)"
 
