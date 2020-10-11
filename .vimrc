@@ -333,7 +333,8 @@ let g:gitgutter_highlight_lines = 1
 "" vim-shyntastic/syntastic
 
 " README.mdの推奨設定
-set statusline+=%#warningmsg#
+" 最初のやつの+=を=だけにしてみた､下の方にあるstatuslineの追加設定との兼ね合い…
+set statusline=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
@@ -517,7 +518,8 @@ set cmdheight=2
 set laststatus=2
 
 " ステータス行に表示させる情報の指定(どこからかコピペしたので細かい意味はわかっていない)
-set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
+" あれ､ここ+無かったんだ｡追加した
+set statusline+=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
 
 " ステータス行に現在のgitブランチを表示する
 set statusline+=%{fugitive#statusline()}
