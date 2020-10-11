@@ -358,6 +358,7 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 "" airblade/vim-gitgutter
 
 " 変更の時間を4秒から0.2秒へ
+" これってvim-gitgutterだけの設定じゃない､coc.nvimの推奨設定にも記述あり
 set updatetime=200
 
 " 左端の記号だけでなく行の強調表示も
