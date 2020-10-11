@@ -132,12 +132,16 @@ Plug 'thinca/vim-quickrun'
 " カラースキーム solarized
 Plug 'altercation/vim-colors-solarized'
 
+" vimのLunguage Server Protocol
+" vim-lspもdeopleteも使わなくなってしまった
+
 " vim-lspまとめ
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
-Plug 'mattn/vim-lsp-settings'
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
+" Plug 'prabirshrestha/async.vim'
+" Plug 'prabirshrestha/vim-lsp'
+" Plug 'mattn/vim-lsp-settings'
+" GitHubにあったから↓2つもコピペしてたけど､これってdeopleteと競合してたのでは…
+" Plug 'prabirshrestha/asyncomplete.vim'
+" Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
 " neocomplete.vimに変わる自動補完機能､deoplete.nvim
 " https://githubja.com/shougo/deoplete-nvim
@@ -150,7 +154,13 @@ else
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
 
+" ある日､何故かJavaScriptのPromiseの補完ができていないことに気付き､
+" その兼ね合いで見つけたプラグイン…だが､入れたらエラー出まくってしまった…
+" Plug 'lighttiger2505/deoplete-vim-lsp'
+
 " deopleteのpython3用スニペット
+" Plug 'deoplete-plugins/deoplete-jedi'
+
 " ruby用のend閉じ､'Townk/vim-autoclose'や'kana/vim-smartinput'との競合怖い…
 " →やっぱり競合したわ…JavaScriptだと{打ってからのEnterキーでインデントしつつ真ん中で
 " ってやつが無効になってる…
@@ -296,14 +306,15 @@ let g:quickrun_config.python = {'command' : 'python3'}
 " https://mattn.kaoriya.net/software/vim/20191231213507.htm
 
 " 定義元ジャンプ
-nmap <buffer> gd <plug>(lsp-definition)
+" nmap <buffer> gd <plug>(lsp-definition)
 
 " オムニ補完､つまりオブジェクトの後の.で補完候補表示
-setlocal omnifunc=lsp#complete
+" setlocal omnifunc=lsp#complete
 
 " 自動エラー検出及びその表示方法
-let g:lsp_diagnostics_enabled = 1
-let g:lsp_diagnostics_echo_cursor = 1
+" 下3つはコメントアウトしてた
+" let g:lsp_diagnostics_enabled = 1
+" let g:lsp_diagnostics_echo_cursor = 1
 " let g:lsp_diagnostics_echo_delay = 1000
 " let g:lsp_diagnostics_float_cursor = 1
 " let g:lsp_diagnostics_echo_delay = 200
@@ -312,7 +323,7 @@ let g:lsp_diagnostics_echo_cursor = 1
 "" Shougo/deoplete.nvim
 
 " deopleteを有効に
-let g:deoplete#enable_at_startup = 1
+" let g:deoplete#enable_at_startup = 1
 
 
 "" airblade/vim-gitgutter
