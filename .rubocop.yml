@@ -1,0 +1,3 @@
+AllCops:
+  Rails:
+    Enabled: true
