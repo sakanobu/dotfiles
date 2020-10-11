@@ -1,13 +1,15 @@
 # dotfiles
 
-
+# F7でコードを整形した後に描画が崩れたら､lsコマンドを使え!
 
 ## .vimrc
 
 ### 注意
+
 - .vim/after/ftpluginの中にある拡張子毎の設定にもキーマッピングあるよ
 
 ### キーマッピング
+
 - 自作マッピング
   - ノーマルモード
     - :qは \<Space>q
@@ -54,6 +56,7 @@
     - ファイルの捜索の実行は \<C-p>
 
 ### 忘れやすいプラグイン
+
 - 後ほど追加
 
 
@@ -63,6 +66,7 @@
 ### 注意
 
 ### エイリアス
+
 - general
   - alias galias='git config --global --list | grep ^alias\.'
   - alias brewupdate='brew update && brew upgrade && brew cleanup'
@@ -80,9 +84,11 @@
 ## .tmux.conf
 
 ### 注意
+
 - prefixキーは \<C-s>
 
 ### キーマッピング
+
 - tmux内で.tmux_conf変更した際の即リロードは prefix + r
 - ペインの縦分割は prefix + |
 - ペインの横分割は prefix + -
@@ -97,9 +103,11 @@
 ## .gitconfig
 
 ### 注意
+
 - .bashrcにもstのエイリアスあって重複…
 
 ### エイリアス
+
 - st = status
 - co = commit
 
@@ -108,5 +116,6 @@
 ## その他
 
 ### python
+
 - bpython
   - dotfiles/bpython/configにコピーしてるのでそれ参照
