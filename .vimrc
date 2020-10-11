@@ -151,7 +151,10 @@ else
 endif
 
 " deopleteのpython3用スニペット
-Plug 'deoplete-plugins/deoplete-jedi'
+" ruby用のend閉じ､'Townk/vim-autoclose'や'kana/vim-smartinput'との競合怖い…
+" →やっぱり競合したわ…JavaScriptだと{打ってからのEnterキーでインデントしつつ真ん中で
+" ってやつが無効になってる…
+Plug 'tpope/vim-endwise'
 
 " vimを開いたままgitのコマンドを実行
 Plug 'tpope/vim-fugitive'
