@@ -41,3 +41,7 @@ set softtabstop=0
 
 """ キーマッピングorキーバインド系
 
+" Ruby自動フォーマッタをF7で
+command! RubyAutoFormat :call ft#rubyscript#rubyformat#RubyAutoFormat()
+
+nmap <F7> :RubyAutoFormat<CR>
