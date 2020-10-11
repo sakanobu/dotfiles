@@ -76,6 +76,9 @@ export PATH=$PATH:/usr/local/bin
 # https://qastack.jp/unix/40749/remove-duplicate-path-entries-with-awk-command
 export PATH=`printf %s "$PATH" | awk -v RS=: '{ if (!arr[$0]++) {printf("%s%s",!ln++?"":":",$0)}}'`
 
+# rbenv
+export PATH=~/.rbenv/bin:$PATH
+eval "$(rbenv init -)"
 
 # mysql
 export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
