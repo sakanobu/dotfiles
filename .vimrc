@@ -453,6 +453,10 @@ augroup END
 " バックアップファイルを作らない
 set nobackup
 
+" 上書き保存前の一時ファイルを作成しない
+" coc.nvimに無い方が良いかもってあったので追加
+set nowritebackup
+
 " スワップファイルを作らない
 set noswapfile
 
