@@ -77,5 +77,7 @@ export PATH=$PATH:/usr/local/bin
 export PATH=`printf %s "$PATH" | awk -v RS=: '{ if (!arr[$0]++) {printf("%s%s",!ln++?"":":",$0)}}'`
 
 
+# node
+eval "$(anyenv init -)"
 
 ### 未分類
