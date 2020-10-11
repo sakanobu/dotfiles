@@ -134,6 +134,11 @@ Plug 'altercation/vim-colors-solarized'
 
 " vimのLunguage Server Protocol
 " vim-lspもdeopleteも使わなくなってしまった
+" 入れたプラグイン､https://www.npmjs.com/search?q=keywords%3Acoc.nvim&page=0&perPage=20
+" coc-snippets coc-neosnippet coc-json coc-yaml coc-markdownlint coc-html
+" coc-css coc-emmet coc-sh coc-git coc-gitignore coc-sql coc-jedi
+" coc-tsserver coc-prettier  coc-eslint
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " vim-lspまとめ
 " Plug 'prabirshrestha/async.vim'
@@ -298,6 +303,30 @@ set splitbelow
 
 " pythonの実行時にはpython3を使用
 let g:quickrun_config.python = {'command' : 'python3'}
+
+
+"" neoclide/coc.nvim
+
+" GitHubのREADMEにある推奨設定のピックアップ
+
+" Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved.
+if has("patch-8.1.1564")
+  " Recently vim can merge signcolumn and number column into one
+  set signcolumn=number
+else
+  set signcolumn=yes
+endif
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
 
 
 "" prabirshrestha/vim-lsp
