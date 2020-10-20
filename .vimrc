@@ -137,7 +137,7 @@ Plug 'altercation/vim-colors-solarized'
 " 入れたプラグイン､https://www.npmjs.com/search?q=keywords%3Acoc.nvim&page=0&perPage=20
 " coc-snippets coc-neosnippet coc-json coc-yaml coc-markdownlint coc-html
 " coc-css coc-emmet coc-sh coc-git coc-gitignore coc-sql coc-jedi
-" coc-tsserver coc-prettier  coc-eslint
+" coc-tsserver coc-prettier  coc-eslint coc-python
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " vim-lspまとめ
