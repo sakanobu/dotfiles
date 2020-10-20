@@ -191,7 +191,7 @@ Plug 'scrooloose/nerdtree'
 " :SynstaicCheckや:Errorsなど使い方の説明は↓
 " https://wonderwall.hatenablog.com/entry/2017/02/05/214004
 " pythonに関してはvim-flake8という↓にあるプラグインでいいかなって感じ
-Plug 'vim-syntastic/syntastic'
+" Plug 'vim-syntastic/syntastic'
 
 " ctagsを利用した
 Plug 'majutsushi/tagbar'
@@ -389,48 +389,42 @@ let g:gitgutter_highlight_lines = 1
 "" vim-shyntastic/syntastic
 
 " README.mdの推奨設定
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
 
 " ロケーションリストの永続表示､README.mdの4.6
-let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_always_populate_loc_list = 1
 
 " 構文エラーリストを表示
-let g:syntastic_auto_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
 
 " ファイルを開いた時に構文エラーチェックを実行しない
-let g:syntastic_check_on_open = 0
+" let g:syntastic_check_on_open = 0
 
 " 「:wq」で終了する時には構文エラーチェックをしない
-let g:syntastic_check_on_wq = 0
+" let g:syntastic_check_on_wq = 0
 
 " 複数のツールの解析結果をまとめて表示､README.mdの4.4
-let g:syntastic_aggregate_errors = 1
+" let g:syntastic_aggregate_errors = 1
 
 " .py時に行われるツール､flake8から行われる
 " pylintは厳しすぎるし､flake8にはflake8-docstrings,flake8-import-order,
 " hackingなどのFlake8プラグインがあり､ また自動フォーマッタのblackや
 " isortとの相性もOK!とする記事もあったので､flake8だけにしました
 " https://blog.hirokiky.org/entry/2019/06/03/202745
-let g:syntastic_python_checkers = ['flake8']
+" let g:syntastic_python_checkers = ['flake8']
 " let g:syntastic_python_checkers = ['flake8', 'mypy']
 
 " Ruby用
-let g:syntastic_ruby_checkers = ['rubocop']
+" let g:syntastic_ruby_checkers = ['rubocop']
 
 " JavaScript用
-let g:syntastic_javascript_checkers = ['eslint']
+" let g:syntastic_javascript_checkers = ['eslint']
 
 " TypeScript用
-let g:syntastic_typescript_checkers = ['eslint']
+" let g:syntastic_typescript_checkers = ['eslint']
 
-" Javascript以外は構文エラーチェックをしない
-" let g:syntastic_mode_map = {
-"       \ 'mode': 'passive',
-"       \ 'active_filetypes': ['javascript'],
-"       \ 'passive_filetypes': []
-"       \ }
 
 
 "" majutsushi/tagbar
