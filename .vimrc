@@ -542,7 +542,13 @@ set visualbell
 " 一応､VirtualBoxのクリップボード共有云々も双方と設定したんだけどなぁ
 " set clipboard=unnamedplus
 
+" quickfixを自動で閉じる
+" https://hail2u.net/blog/software/vim-auto-close-quickfix-window.html
+augroup QfAutoCommands
+	autocmd!
 
+	autocmd WinEnter * if (winnr('$') == 1) && (getbufvar(winbufnr(0), '&buftype')) == 'quickfix' | quit | endif
+augroup END
 
 """ 見た目系
 
