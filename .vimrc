@@ -287,11 +287,9 @@ nmap <Space>c gcc
 
 "" ervandew/supertab
 
-" 謎
+" 補完候補を上から下に進んでいくように設定
 " let g:SuperTabContextDefaultCompletionType = "context"
-
-" 謎
-" let g:SuperTabDefaultCompletionType = "<c-n>"
+let g:SuperTabDefaultCompletionType = "<c-n>"
 
 
 "" thinca/vim-quickrun
