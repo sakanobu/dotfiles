@@ -389,8 +389,7 @@ let g:gitgutter_highlight_lines = 1
 "" vim-shyntastic/syntastic
 
 " README.mdの推奨設定
-" 最初のやつの+=を=だけにしてみた､下の方にあるstatuslineの追加設定との兼ね合い…
-set statusline=%#warningmsg#
+set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
