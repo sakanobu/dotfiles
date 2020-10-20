@@ -193,6 +193,9 @@ Plug 'scrooloose/nerdtree'
 " pythonに関してはvim-flake8という↓にあるプラグインでいいかなって感じ
 " Plug 'vim-syntastic/syntastic'
 
+" 構文チェックを非同期に行ってくれるプラグイン
+Plug 'dense-analysis/ale'
+
 " ctagsを利用した
 Plug 'majutsushi/tagbar'
 
@@ -426,6 +429,52 @@ let g:gitgutter_highlight_lines = 1
 " let g:syntastic_typescript_checkers = ['eslint']
 
 
+" 'dense-analysis/ale'
+
+" 拡張子ごとのリンターの指定
+" ※pythonの設定をしてるのは初期設定だとpylintとかmypyとかのエラーも同時に表示されるため
+let b:ale_linters = {'python': ['flake8']}
+
+" ファイル保存時以外のリンターの実行を抑止
+" ※僕のvimはバッファを開いてから色々読み込むのが遅く､
+"  その最中にタイプするとaleのエラーがずっとファイルに記述されたままになるなど辛いので
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_insert_leave = 0
+let g:ale_lint_on_enter = 0
+
+" 拡張子ごとの自動修正機能の設定
+let b:ale_fixers = {'javascript': ['prettier', 'eslint'], 'typescript': ['prettier', 'eslint']}
+
+" 保存時にファイルを自動的に修正
+let g:ale_fix_on_save = 1
+
+function! LinterStatus() abort
+    let l:counts = ale#statusline#Count(bufnr(''))
+
+    let l:all_errors = l:counts.error + l:counts.style_error
+    let l:all_non_errors = l:counts.total - l:all_errors
+
+    return l:counts.total == 0 ? 'OK' : printf(
+    \   '%dW %dE',
+    \   all_non_errors,
+    \   all_errors
+    \)
+endfunction
+
+" ステータスラインに関する推奨設定らしい…?
+set statusline+=%{LinterStatus()}
+
+" 警告やエラーなどをステータスラインだけでなくQuickFix表示
+let g:ale_set_quickfix = 1
+
+" 1つ上のやつではQuickFixそのものが開かれないので､
+" 警告やエラーがあれば自動的にQuickFixを開いてくれる
+let g:ale_open_list = 1
+
+" aleとcoc.nvimの連携の場所に書いてあったけど､もう1つの連携の設定はやめた(QuickFixが表示されなくなったので)
+" ただ､aleにlspの役割は不要なので↓を設定
+" このおかげでバッファ開いたときのaleの速度が改善したのでワンチャン上の保存時のみ実行への設定をなくしてもいいかも
+let g:ale_disable_lsp = 1
 
 "" majutsushi/tagbar
 
