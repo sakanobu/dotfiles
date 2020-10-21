@@ -446,7 +446,7 @@ let g:ale_lint_on_insert_leave = 0
 let g:ale_lint_on_enter = 0
 
 " 拡張子ごとの自動修正機能の設定
-let b:ale_fixers = {'javascript': ['prettier', 'eslint'], 'typescript': ['prettier', 'eslint']}
+let b:ale_fixers = {'javascript': ['prettier'], 'typescript': ['prettier'], 'javascriptreact': ['prettier'], 'typescriptreact': ['prettier']}
 
 " 保存時にファイルを自動的に修正
 let g:ale_fix_on_save = 1
