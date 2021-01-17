@@ -21,3 +21,4 @@ get-pip.py
 .venv
 .mypy_cache*
 .vim/sessions/default.vim
+.DS_Store
