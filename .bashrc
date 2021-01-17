@@ -57,7 +57,8 @@ GIT_PS1_SHOWUPSTREAM=auto
 # デフォルトは"\h:\W \u\$"
 # export PS1="\[\e[1;31m\][\h@\u:\W]\$ \[\e[1;30m\]"
 # gitのブランチ名表示パターン
-export PS1='\[\e[1;31m\][\h@\u:\W$(__git_ps1 "(%s)")]\$ \[\e[1;30m\]'
+# export PS1='\[\e[1;31m\][\h@\u:\W$(__git_ps1 "(%s)")]\$ \[\e[1;30m\]'
+export PS1='\[\e[1;31m\][\h@\u:\W$(__git_ps1 "(%s)")]\n\$ \[\e[1;30m\]'
 
 ## 出力の後に改行を入れる
 # https://qiita.com/hmmrjn/items/60d2a64c9e5bf7c0fe60
