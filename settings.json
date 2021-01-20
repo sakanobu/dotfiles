@@ -125,5 +125,6 @@
     "[shellscript]": {
         "editor.defaultFormatter": "shakram02.bash-beautify"
     },
-    "explorer.compactFolders": false
+    "explorer.compactFolders": false,
+    "terminal.integrated.shell.linux": "/bin/bash"
 }
