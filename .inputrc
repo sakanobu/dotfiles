@@ -1,66 +1,71 @@
+# ↓ Bash Reference Manual 8.3 Readline Init File
+# https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html#Readline-Init-File-Syntax
+# bind -f .inputrc
+
 $if Bash
-# Tab補完を2回ではなく1回押すだけで表示
-set show-all-if-ambiguous on
-
-# 補完時大文字小文字無視
-set completion-ignore-case on
-
 # ベル無
-set bell-style none
-
-# 入力候補リストのディレクトリや実行可能ファイルに印をつける
-set visible-stats on
-
-# ファイルタイプをカラフルに
-set colored-stats on
+  set bell-style none
 
 # 補完の接頭辞をカラフルに
-set colored-completion-prefix on
+  set colored-completion-prefix on
+
+# ファイルタイプをカラフルに
+  set colored-stats on
+
+# 補完時大文字小文字無視
+  set completion-ignore-case on
 
 # Mark symlinked directories
-set mark-symlinked-directories on
+  set mark-symlinked-directories on
 
 # Color the common prefix in menu-complete
-set menu-complete-display-prefix on
+  set menu-complete-display-prefix on
 
-# スペースで特殊変数がその場で展開
-# ※ 機能してない?
-space: magic-space
+# Tab補完を2回ではなく1回押すだけで表示
+  set show-all-if-ambiguous on
 
+# 入力候補リストのディレクトリや実行可能ファイルに印をつける
+  set visible-stats on
 
 # bashをvimライクな操作に変更
-set editing-mode vi
+  set editing-mode vi
 
 # 現在のモード表示
-# ※ よく分からない…↓2行の羅列はユーザ名とかのやつで僕用に設定し直しか…
-# https://www.trhrkmk.com/posts/setting-vi-mode-in-bash-comfortable/
-# set show-mode-in-prompt on
-# set vi-ins-mode-string \1\e[34;1m\2(ins) \1\e[0m\2
-# set vi-cmd-mode-string \1\e[31;1m\2(cmd) \1\e[0m\2
+#  set show-mode-in-prompt on
+#  set vi-ins-mode-string \1\e[34;1m\2(ins) \1\e[0m\2
+#  set vi-cmd-mode-string \1\e[31;1m\2(cmd) \1\e[0m\2
 
+# キーバインドの参考になる記事2本
+# https://www.trhrkmk.com/posts/bash-vi-mode-command-setting/
+# http://www.calmar.ws/vim/vi-bash.html
 
-# vimのnormalモード時に適用される補完
-set keymap vi-command
+# vimのnormalモード時に適用される補完を↓に列挙
+  set keymap vi-command
 
+# normalモード時に<C-l>でターミナルの画面をキレイに
+  "\C-l": clear-screen
 
-# vimのinsertモード時に適用される補完
-set keymap vi-insert
+# vimのinsertモード時に適用される補完を↓に列挙
+  set keymap vi-insert
+
+# normalモード時に<C-l>でターミナルの画面をキレイに
+  "\C-l": clear-screen
 
 # jjでinsertモードからnormalモードへ
-"jj": vi-movement-mode
+  "jj": vi-movement-mode
 
 # insertモード時にカーソルを1文字前進or後退
-"\C-f": forward-char
-"\C-b": backward-char
+  "\C-f": forward-char
+  "\C-b": backward-char
 
 # insertモード時にカーソル前or後の1文字消去
-"\C-h": backward-delete-char
-"\C-d": delete-char
+  "\C-h": backward-delete-char
+  "\C-d": delete-char
 
 # C-(n|p)でhistory-search
 # ※ここはinsertモード時の設定なのに↓のhistory移動はnormalモード時に動作する…
-"\C-p":history-search-backward
-"\C-n":history-search-forward
-"\e[A":history-search-backward
-"\e[B":history-search-forward
+  "\C-p":history-search-backward
+  "\C-n":history-search-forward
+  "\e[A":history-search-backward
+  "\e[B":history-search-forward
 $endif
