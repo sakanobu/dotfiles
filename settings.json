@@ -1,0 +1,129 @@
+{
+    "clang.executable": "clang++",
+    "clang.cxxflags": [
+        "-std=c++14"
+    ],
+    "code-runner.runInTerminal": true,
+    "code-runner.executorMap": {
+        "javascript": "node",
+        "java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
+        "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+        "cpp": "cd $dir && g++ -O2 -std=c++14 $fileName && ./a.out",
+        "objective-c": "cd $dir && gcc -framework Cocoa $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+        "php": "php",
+        "python": "python -u",
+        "perl": "perl",
+        "perl6": "perl6",
+        "ruby": "ruby",
+        "go": "go run",
+        "lua": "lua",
+        "groovy": "groovy",
+        "powershell": "powershell -ExecutionPolicy ByPass -File",
+        "bat": "cmd /c",
+        "shellscript": "bash",
+        "fsharp": "fsi",
+        "csharp": "scriptcs",
+        "vbscript": "cscript //Nologo",
+        "typescript": "ts-node",
+        "coffeescript": "coffee",
+        "scala": "scala",
+        "swift": "swift",
+        "julia": "julia",
+        "crystal": "crystal",
+        "ocaml": "ocaml",
+        "r": "Rscript",
+        "applescript": "osascript",
+        "clojure": "lein exec",
+        "haxe": "haxe --cwd $dirWithoutTrailingSlash --run $fileNameWithoutExt",
+        "rust": "cd $dir && rustc $fileName && $dir$fileNameWithoutExt",
+        "racket": "racket",
+        "ahk": "autohotkey",
+        "autoit": "autoit3",
+        "dart": "dart",
+        "pascal": "cd $dir && fpc $fileName && $dir$fileNameWithoutExt",
+        "d": "cd $dir && dmd $fileName && $dir$fileNameWithoutExt",
+        "haskell": "runhaskell",
+        "nim": "nim compile --verbosity:0 --hints:off --run"
+    },
+    "auto-rename-tag.activationOnLanguage": [
+        "*"
+    ],
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false,
+    "workbench.startupEditor": "newUntitledFile",
+    "workbench.iconTheme": "vscode-icons",
+    "workbench.colorTheme": "Monokai",
+    "window.zoomLevel": -2,
+    "workbench.editorAssociations": [],
+    "liveServer.settings.donotShowInfoMsg": true,
+    "liveServer.settings.CustomBrowser": "chrome",
+    "git.autofetch": true,
+    "files.insertFinalNewline": false,
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "vim.vimrc.enable": true,
+    "vim.vimrc.path": "/Users/tyobi0913/programming_practice/.vimrc",
+    "vim.surround": true,
+    "editor.suggestSelection": "first",
+    "editor.tabSize": 2,
+    "editor.cursorSurroundingLines": 2,
+    "editor.linkedEditing": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "editor.formatOnSave": false,
+    "eslint.packageManager": "yarn",
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "typescript.format.placeOpenBraceOnNewLineForFunctions": true,
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "python.defaultInterpreterPath": "/usr/local/bin/python3.9",
+    "python.languageServer": "Pylance",
+    "python.analysis.typeCheckingMode": "strict",
+    "python.jediEnabled": false,
+    "python.linting.enabled": true,
+    "python.linting.lintOnSave": true,
+    "python.linting.maxNumberOfProblems": 100,
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Enabled": true,
+    "python.linting.flake8Args": [
+        "--ignore=E203,W503,W504",
+        "--max-complexity=20"
+    ],
+    "python.formatting.provider": "black",
+    "[python]": {
+        "editor.tabSize": 4,
+        "editor.formatOnSave": true,
+        "editor.formatOnPaste": false,
+        "editor.formatOnType": false,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": true,
+        }
+    },
+    "html.format.wrapLineLength": 80,
+    "html.format.maxPreserveNewLines": 1,
+    "html.format.indentInnerHtml": true,
+    "html.format.extraLiners": "",
+    "html.format.wrapAttributes": "force-expand-multiline",
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[markdown]": {
+        "editor.tabSize": 4,
+        "editor.wordWrap": "on",
+        "editor.quickSuggestions": false,
+        "bracketLens.mode": "manual"
+    },
+    "markdownlint.config": {
+        "MD030": {
+            "ol_multi": 3,
+            "ol_single": 3,
+            "ul_multi": 3,
+            "ul_single": 3
+        }
+    },
+    "[shellscript]": {
+        "editor.defaultFormatter": "shakram02.bash-beautify"
+    },
+    "explorer.compactFolders": false
+}
