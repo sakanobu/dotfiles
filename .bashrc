@@ -95,6 +95,7 @@ linux*)
   alias ls='ls --color=auto -F'
   ;;
 esac
+alias ll='ls -A'
 
 ## git
 alias g='git'
