@@ -54,13 +54,14 @@ GIT_PS1_SHOWSTASHSTATE=true
 GIT_PS1_SHOWUPSTREAM=auto
 #
 # プロンプト設定
-# デフォルトは"\h:\W \u\$"
-# export PS1="\[\e[1;31m\][\h@\u:\W]\$ \[\e[1;30m\]"
-# gitのブランチ名表示パターン
-# export PS1='\[\e[1;31m\][\h@\u:\W$(__git_ps1 "(%s)")]\$ \[\e[1;30m\]'
+# 1.デフォルト
+# "\h:\W \u\$"
+# 2.gitブランチ名なし情報多めかつ$の行は改行パターン
+# export PS1='\[\e[1;31m\][\h@\u:\W]\n\$ \[\e[1;30m\]'
+# 3.gitのブランチ名表示パターン
 export PS1='\[\e[1;31m\][\h@\u:\W$(__git_ps1 "(%s)")]\n\$ \[\e[1;30m\]'
 
-## 出力の後に改行を入れる
+# 出力の後に改行を入れる
 # https://qiita.com/hmmrjn/items/60d2a64c9e5bf7c0fe60
 function add_line {
   if [[ -z "${PS1_NEWLINE_LOGIN}" ]]; then
