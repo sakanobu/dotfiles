@@ -89,10 +89,10 @@ alias rm='rmtrash'
 # http://mironal-memo.blogspot.com/2012/09/macosx-ls.htmlより､MacとLinux対応
 case "${OSTYPE}" in
 darwin*)
-  alias ls="ls -GF"
+  alias ls="ls -AFG"
   ;;
 linux*)
-  alias ls='ls --color=auto -F'
+  alias ls='ls --color=auto -AF'
   ;;
 esac
 
