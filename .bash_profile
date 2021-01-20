@@ -37,13 +37,6 @@ export HISTTIMEFORMAT='%Y/%m/%d %H:%M:%S '
 ## gitのdiffなどでの文字化け防止
 export GIT_PAGER="LESSCHARSET=utf-8 less"
 
-## pyenv
-# pyenvさんに~/.pyenvではなく、/usr/loca/var/pyenvを使うようにお願いする
-export PYENV_ROOT=/usr/local/var/pyenv
-#
-# pyenvさんに自動補完機能を提供してもらう
-if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
-
 ## pipenvの.venvをプロジェクトディレクトリに作成
 export PIPENV_VENV_IN_PROJECT=true
 
@@ -57,18 +50,6 @@ export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 # nodeのやつ?
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 
-# pyenvのパス
-export PATH="$PYENV_ROOT/shims:$PATH"
-
-# 数ヶ月ぶりにMacのアップデートをしてvimのdeopleteにエラーが出た際､
-# それを直すために使ったもの
-# ※pythonのバージョンが3.8から変化したら､また対処しないとかもか…
-# ※というか､pyenvのせいでvimがpynvimをインストールしたディレクトリを
-# 探せなくなったせいかなって今思えてきた…
-# pythonとpython3､pipとpip3の挙動や組み合わせが違うとかもそのせいだし…
-# https://github.com/roxma/vim-hug-neovim-rpc/issues/47
-export PATH="/usr/local/opt/python@3.8/bin:$PATH"
-
 # なんかのパス
 export PATH=$PATH:/usr/local/bin
 
@@ -79,9 +60,6 @@ export PATH=`printf %s "$PATH" | awk -v RS=: '{ if (!arr[$0]++) {printf("%s%s",!
 # rbenv
 export PATH=~/.rbenv/bin:$PATH
 eval "$(rbenv init -)"
-
-# mysql
-export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
 
 # node
 eval "$(anyenv init -)"
