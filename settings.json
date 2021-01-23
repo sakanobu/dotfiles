@@ -53,7 +53,7 @@
     "workbench.startupEditor": "newUntitledFile",
     "workbench.iconTheme": "vscode-icons",
     "workbench.colorTheme": "Monokai",
-    "window.zoomLevel": -2,
+    "window.zoomLevel": -1,
     "workbench.editorAssociations": [],
     "liveServer.settings.donotShowInfoMsg": true,
     "liveServer.settings.CustomBrowser": "chrome",
