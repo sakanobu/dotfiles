@@ -35,6 +35,12 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
 fi
 #
 # git-completion
+# ↓を参考に設定
+# https://qiita.com/varmil/items/9b0aeafa85975474e9b6
+# まずは↓2つのコマンドを実行
+# wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -O ~/.git-completion.bash
+# chmod a+x ~/.git-completion.bash
+# 後は↓を読み込むようにsource .bashrc
 source ~/.git-completion.bash
 # gというbashのエイリアスからgitの補完を動かせるように
 # https://r17n.page/2019/09/24/git-completion-with-bash-alias/
