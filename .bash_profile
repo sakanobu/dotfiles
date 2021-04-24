@@ -57,11 +57,14 @@ export PATH=$PATH:/usr/local/bin
 # https://qastack.jp/unix/40749/remove-duplicate-path-entries-with-awk-command
 export PATH=`printf %s "$PATH" | awk -v RS=: '{ if (!arr[$0]++) {printf("%s%s",!ln++?"":":",$0)}}'`
 
-# rbenv
-export PATH=~/.rbenv/bin:$PATH
-eval "$(rbenv init -)"
-
 # node
 eval "$(anyenv init -)"
 
 ### 未分類
+# export PATH="/usr/local/opt/ruby/bin:$PATH"
+# export PATH="/usr/local/lib/ruby/gems/3.0.0/bin:$PATH"
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+export LDFLAGS="-L/usr/local/opt/libffi/lib"
+export CPPFLAGS="-I/usr/local/opt/libffi/include"
+export PKG_CONFIG_PATH="/usr/local/opt/libffi/lib/pkgconfig"
