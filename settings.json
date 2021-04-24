@@ -1,86 +1,93 @@
 {
-    "clang.executable": "clang++",
-    "clang.cxxflags": [
-        "-std=c++14"
-    ],
-    "code-runner.runInTerminal": true,
-    "code-runner.executorMap": {
-        "javascript": "node",
-        "java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
-        "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-        "cpp": "cd $dir && g++ -O2 -std=c++14 $fileName && ./a.out",
-        "objective-c": "cd $dir && gcc -framework Cocoa $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-        "php": "php",
-        "python": "python -u",
-        "perl": "perl",
-        "perl6": "perl6",
-        "ruby": "ruby",
-        "go": "go run",
-        "lua": "lua",
-        "groovy": "groovy",
-        "powershell": "powershell -ExecutionPolicy ByPass -File",
-        "bat": "cmd /c",
-        "shellscript": "bash",
-        "fsharp": "fsi",
-        "csharp": "scriptcs",
-        "vbscript": "cscript //Nologo",
-        "typescript": "ts-node",
-        "coffeescript": "coffee",
-        "scala": "scala",
-        "swift": "swift",
-        "julia": "julia",
-        "crystal": "crystal",
-        "ocaml": "ocaml",
-        "r": "Rscript",
-        "applescript": "osascript",
-        "clojure": "lein exec",
-        "haxe": "haxe --cwd $dirWithoutTrailingSlash --run $fileNameWithoutExt",
-        "rust": "cd $dir && rustc $fileName && $dir$fileNameWithoutExt",
-        "racket": "racket",
-        "ahk": "autohotkey",
-        "autoit": "autoit3",
-        "dart": "dart",
-        "pascal": "cd $dir && fpc $fileName && $dir$fileNameWithoutExt",
-        "d": "cd $dir && dmd $fileName && $dir$fileNameWithoutExt",
-        "haskell": "runhaskell",
-        "nim": "nim compile --verbosity:0 --hints:off --run"
-    },
-    "auto-rename-tag.activationOnLanguage": [
-        "*"
-    ],
+    "editor.cursorSurroundingLines": 2,
+    "editor.suggestSelection": "first",
+    "editor.tabSize": 2,
+    "editor.linkedEditing": true,
+    "editor.formatOnSave": false,
+    "explorer.compactFolders": false,
     "explorer.confirmDragAndDrop": false,
     "explorer.confirmDelete": false,
-    "workbench.startupEditor": "newUntitledFile",
-    "workbench.iconTheme": "vscode-icons",
-    "workbench.colorTheme": "Monokai",
-    "window.zoomLevel": -1,
-    "workbench.editorAssociations": [],
-    "liveServer.settings.donotShowInfoMsg": true,
-    "liveServer.settings.CustomBrowser": "chrome",
-    "git.autofetch": true,
+    "files.encoding": "utf8",
     "files.insertFinalNewline": false,
-    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "git.autofetch": true,
+    "git.suggestSmartCommit": false,
+    "terminal.integrated.shell.linux": "/bin/bash",
     "vim.vimrc.enable": true,
     "vim.vimrc.path": "/Users/tyobi0913/programming_practice/.vimrc",
     "vim.surround": true,
-    "editor.suggestSelection": "first",
-    "editor.tabSize": 2,
-    "editor.cursorSurroundingLines": 2,
-    "editor.linkedEditing": true,
-    "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": true
+    "window.zoomLevel": -1,
+    "workbench.colorTheme": "Monokai",
+    "workbench.colorCustomizations": {
+        "[Monokai]": {
+            "terminal.ansiBlack": "#f8f2f2"
+        }
     },
-    "editor.formatOnSave": false,
-    "eslint.packageManager": "yarn",
-    "typescript.updateImportsOnFileMove.enabled": "always",
-    "typescript.format.placeOpenBraceOnNewLineForFunctions": true,
-    "[typescript]": {
+    "workbench.editorAssociations": [
+        {
+            "viewType": "jupyter.notebook.ipynb",
+            "filenamePattern": "*.ipynb"
+        }
+    ],
+    "workbench.iconTheme": "vscode-icons",
+    "workbench.startupEditor": "newUntitledFile",
+    // 各言語
+    "[markdown]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.quickSuggestions": false,
+        "editor.tabSize": 4,
+        "editor.wordWrap": "on"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnPaste": true,
+        "editor.formatOnSave": true,
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features",
+        "editor.formatOnPaste": true,
+        "editor.formatOnSave": true,
+    },
+    "[shellscript]": {
+        // "editor.defaultFormatter": "shakram02.bash-beautify"
+    },
+    "[html]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    "python.defaultInterpreterPath": "/usr/local/bin/python3.9",
-    "python.languageServer": "Pylance",
+    "html.format.extraLiners": "",
+    "html.format.indentInnerHtml": true,
+    "html.format.maxPreserveNewLines": 1,
+    "html.format.wrapAttributes": "force-expand-multiline",
+    "html.format.wrapLineLength": 80,
+    "[typescript]": {
+        "editor.codeActionsOnSave": {
+            "source.fixAll.eslint": true
+        },
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnPaste": true
+    },
+    "typescript.format.placeOpenBraceOnNewLineForFunctions": true,
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "[typescriptreact]": {
+        "editor.codeActionsOnSave": {
+            "source.fixAll.eslint": true
+        },
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnPaste": true
+    },
+    "[python]": {
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": true
+        },
+        "editor.tabSize": 4,
+        "editor.formatOnPaste": true,
+        "editor.formatOnSave": true,
+        "editor.formatOnType": false
+    },
     "python.analysis.typeCheckingMode": "strict",
+    "python.defaultInterpreterPath": "/usr/local/bin/python3.9",
+    "python.formatting.provider": "black",
     "python.jediEnabled": false,
+    "python.languageServer": "Pylance",
     "python.linting.enabled": true,
     "python.linting.lintOnSave": true,
     "python.linting.maxNumberOfProblems": 100,
@@ -90,41 +97,37 @@
         "--ignore=E203,W503,W504",
         "--max-complexity=20"
     ],
-    "python.formatting.provider": "black",
-    "[python]": {
-        "editor.tabSize": 4,
+    "[ruby]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
         "editor.formatOnSave": true,
-        "editor.formatOnPaste": false,
-        "editor.formatOnType": false,
-        "editor.codeActionsOnSave": {
-            "source.organizeImports": true,
-        }
+        "editor.tabSize": 2,
+        "files.insertFinalNewline": true,
+        "files.trimFinalNewlines": true
     },
-    "html.format.wrapLineLength": 80,
-    "html.format.maxPreserveNewLines": 1,
-    "html.format.indentInnerHtml": true,
-    "html.format.extraLiners": "",
-    "html.format.wrapAttributes": "force-expand-multiline",
-    "[html]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "ruby.format": "prettier",
+    "ruby.lint": {
+        "rubocop": true
     },
-    "[markdown]": {
-        "editor.tabSize": 4,
-        "editor.wordWrap": "on",
-        "editor.quickSuggestions": false,
-        "bracketLens.mode": "manual"
-    },
+    // 拡張機能
+    "auto-rename-tag.activationOnLanguage": [
+        "*"
+    ],
+    "eslint.packageManager": "yarn",
+    "kite.showWelcomeNotificationOnStartup": false,
+    "liveServer.settings.donotShowInfoMsg": true,
+    "liveServer.settings.CustomBrowser": "chrome",
     "markdownlint.config": {
         "MD030": {
-            "ol_multi": 3,
-            "ol_single": 3,
-            "ul_multi": 3,
-            "ul_single": 3
-        }
+            "ol_multi": 1,
+            "ol_single": 1,
+            "ul_multi": 1,
+            "ul_single": 1
+        },
+        "MD041": false
     },
-    "[shellscript]": {
-        "editor.defaultFormatter": "shakram02.bash-beautify"
-    },
-    "explorer.compactFolders": false,
-    "terminal.integrated.shell.linux": "/bin/bash"
+    "tabnine.experimentalAutoImports": true,
+    "todo-tree.tree.showScanModeButton": false,
+    "vsicons.dontShowNewVersionMessage": true,
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    // 未分類
 }
