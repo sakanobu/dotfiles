@@ -1,4 +1,6 @@
 {
+    // 補完などを使いたければJavaScriptプロジェクトなどからこのファイルを開くとよい
+    // 標準設定 ※といってもvimとかは拡張機能ですが…
     "editor.cursorSurroundingLines": 2,
     "editor.formatOnSave": false,
     "editor.linkedEditing": true,
@@ -21,6 +23,7 @@
     "vim.vimrc.enable": true,
     "vim.vimrc.path": "/Users/tyobi0913/programming_practice/.vimrc",
     "vim.surround": true,
+    "window.zoomLevel": -1,
     "workbench.colorTheme": "Monokai",
     "workbench.colorCustomizations": {
         "[Monokai]": {
@@ -36,7 +39,7 @@
     "workbench.iconTheme": "vscode-icons",
     "workbench.sash.hoverDelay": 5,
     "workbench.startupEditor": "newUntitledFile",
-    // 各言語
+    // 各言語 ※といってもVSCode標準の設定とか拡張機能の設定とか入り混じっている
     "[markdown]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode",
         "editor.formatOnSave": true,
@@ -143,10 +146,8 @@
         "MD041": false
     },
     "tabnine.experimentalAutoImports": true,
-    "todo-tree.tree.showScanModeButton": false,
     "vsicons.dontShowNewVersionMessage": true,
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-    "window.zoomLevel": -1,
     "todo-tree.general.tags": [
         "BUG",
         "HACK",
@@ -156,6 +157,7 @@
         "[ ]",
         "[x]"
     ],
-    "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)"
+    "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
+    "todo-tree.tree.showScanModeButton": false,
     // 未分類
 }
