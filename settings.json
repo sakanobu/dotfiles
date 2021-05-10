@@ -1,9 +1,9 @@
 {
     "editor.cursorSurroundingLines": 2,
+    "editor.formatOnSave": false,
+    "editor.linkedEditing": true,
     "editor.suggestSelection": "first",
     "editor.tabSize": 2,
-    "editor.linkedEditing": true,
-    "editor.formatOnSave": false,
     "explorer.compactFolders": false,
     "explorer.confirmDragAndDrop": false,
     "explorer.confirmDelete": false,
