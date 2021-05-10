@@ -16,7 +16,6 @@
     "vim.vimrc.enable": true,
     "vim.vimrc.path": "/Users/tyobi0913/programming_practice/.vimrc",
     "vim.surround": true,
-    "window.zoomLevel": -1,
     "workbench.colorTheme": "Monokai",
     "workbench.colorCustomizations": {
         "[Monokai]": {
@@ -132,5 +131,6 @@
     "todo-tree.tree.showScanModeButton": false,
     "vsicons.dontShowNewVersionMessage": true,
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "window.zoomLevel": -1,
     // 未分類
 }
