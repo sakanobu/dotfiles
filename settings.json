@@ -116,6 +116,14 @@
     "ruby.lint": {
         "rubocop": true
     },
+    "[go]": {
+        "editor.insertSpaces": false,
+        "editor.tabSize": 2
+    },
+    "go.lintTool": "golangci-lint",
+    "go.lintFlags": [
+        "--fast"
+    ],
     // 拡張機能
     "auto-rename-tag.activationOnLanguage": [
         "*"
