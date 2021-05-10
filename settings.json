@@ -4,6 +4,11 @@
     "editor.linkedEditing": true,
     "editor.suggestSelection": "first",
     "editor.tabSize": 2,
+    "editor.quickSuggestions": {
+        "other": true,
+        "comments": true,
+        "strings": true
+    },
     "explorer.compactFolders": false,
     "explorer.confirmDragAndDrop": false,
     "explorer.confirmDelete": false,
@@ -29,6 +34,7 @@
         }
     ],
     "workbench.iconTheme": "vscode-icons",
+    "workbench.sash.hoverDelay": 5,
     "workbench.startupEditor": "newUntitledFile",
     // 各言語
     "[markdown]": {
@@ -114,6 +120,7 @@
     "auto-rename-tag.activationOnLanguage": [
         "*"
     ],
+    "cSpell.spellCheckDelayMs": 5000,
     "eslint.packageManager": "yarn",
     "kite.showWelcomeNotificationOnStartup": false,
     "liveServer.settings.donotShowInfoMsg": true,
