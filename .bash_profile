@@ -60,6 +60,13 @@ export PATH=`printf %s "$PATH" | awk -v RS=: '{ if (!arr[$0]++) {printf("%s%s",!
 # node
 eval "$(anyenv init -)"
 
+# GoのHomebrew経由でのインストール時のPATHの設定
+export PATH=$PATH:/usr/local/Cellar/go/1.16.3/libexec
+export GOPATH=$(go env GOPATH)
+export PATH=$PATH:$GOPATH/bin
+
+
+
 ### 未分類
 # export PATH="/usr/local/opt/ruby/bin:$PATH"
 # export PATH="/usr/local/lib/ruby/gems/3.0.0/bin:$PATH"
