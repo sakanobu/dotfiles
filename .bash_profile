@@ -47,31 +47,29 @@ export PIPENV_VENV_IN_PROJECT=true
 export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 # Finished adapting your PATH environment variable for use with MacPorts.
 
-# nodeのやつ?
-export PATH=$HOME/.nodebrew/current/bin:$PATH
-
 # なんかのパス
 export PATH=$PATH:/usr/local/bin
 
-# 環境変数PATHの重複をなくす
-# https://qastack.jp/unix/40749/remove-duplicate-path-entries-with-awk-command
-export PATH=`printf %s "$PATH" | awk -v RS=: '{ if (!arr[$0]++) {printf("%s%s",!ln++?"":":",$0)}}'`
-
-# node
+# Node
+export PATH=$HOME/.nodebrew/current/bin:$PATH
 eval "$(anyenv init -)"
+
+# Ruby
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+export LDFLAGS="-L/usr/local/opt/libffi/lib"
+export CPPFLAGS="-I/usr/local/opt/libffi/include"
+export PKG_CONFIG_PATH="/usr/local/opt/libffi/lib/pkgconfig"
 
 # GoのHomebrew経由でのインストール時のPATHの設定
 export PATH=$PATH:/usr/local/Cellar/go/1.16.3/libexec
 export GOPATH=$(go env GOPATH)
 export PATH=$PATH:$GOPATH/bin
 
+# 環境変数PATHの重複をなくす
+# https://qastack.jp/unix/40749/remove-duplicate-path-entries-with-awk-command
+export PATH=`printf %s "$PATH" | awk -v RS=: '{ if (!arr[$0]++) {printf("%s%s",!ln++?"":":",$0)}}'`
+
 
 
 ### 未分類
-# export PATH="/usr/local/opt/ruby/bin:$PATH"
-# export PATH="/usr/local/lib/ruby/gems/3.0.0/bin:$PATH"
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-export LDFLAGS="-L/usr/local/opt/libffi/lib"
-export CPPFLAGS="-I/usr/local/opt/libffi/include"
-export PKG_CONFIG_PATH="/usr/local/opt/libffi/lib/pkgconfig"
