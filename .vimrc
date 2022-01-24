@@ -558,8 +558,8 @@ augroup END
 " Windowの縦を指定
 set lines=56
 
-" Windowの横幅を指定
-set columns=187
+" Windowの横幅を指定フルで187? 僕のMacの最適な半分は87
+set columns=87
 
 " 構文ごとに文字色を変化
 syntax enable
