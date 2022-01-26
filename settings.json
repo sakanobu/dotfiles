@@ -30,12 +30,9 @@
             "terminal.ansiBlack": "#f8f2f2"
         }
     },
-    "workbench.editorAssociations": [
-        {
-            "viewType": "jupyter.notebook.ipynb",
-            "filenamePattern": "*.ipynb"
-        }
-    ],
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter.notebook.ipynb"
+    },
     "workbench.iconTheme": "vscode-icons",
     "workbench.sash.hoverDelay": 5,
     "workbench.startupEditor": "newUntitledFile",
