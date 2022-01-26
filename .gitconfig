@@ -8,7 +8,7 @@
 	br = branch
 	co = checkout
 	cm = commit
-	pushf = push --force-with-lease
+	push-f = push --force-with-lease
 [core]
 	excludesfile = /Users/tyobi0913/.gitignore_global
 	pager = less -cm
@@ -32,3 +32,8 @@
 	prune = true
 [init]
 	defaultBranch = main
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
