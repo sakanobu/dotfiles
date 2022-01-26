@@ -1,163 +1,307 @@
 {
-    // 補完などを使いたければJavaScriptプロジェクトなどからこのファイルを開くとよい
-    // 標準設定 ※といってもvimとかは拡張機能ですが…
-    "editor.cursorSurroundingLines": 2,
-    "editor.formatOnSave": false,
-    "editor.linkedEditing": true,
-    "editor.suggestSelection": "first",
+  // 補完などを使いたければJavaScriptプロジェクトなどからこのファイルを開くとよい
+  // 標準設定 ※といってもvimとかは拡張機能ですが…
+  "editor.cursorStyle": "line",
+  "editor.cursorSurroundingLines": 2,
+  "editor.detectIndentation": false,
+  "editor.formatOnSave": false,
+  "editor.insertSpaces": true,
+  "editor.lineNumbers": "on",
+  "editor.linkedEditing": true,
+  "editor.minimap.enabled": false,
+  "editor.renderWhitespace": "boundary",
+  "editor.snippetSuggestions": "inline",
+  "editor.suggest.localityBonus": true,
+  "editor.suggest.preview": true,
+  "editor.suggest.showKeywords": true,
+  "editor.suggestSelection": "first",
+  "editor.tabSize": 2,
+  "editor.quickSuggestions": {
+    "other": true,
+    "comments": true,
+    "strings": true
+  },
+  "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
+  "editor.wordWrap": "bounded",
+  "explorer.compactFolders": false,
+  "explorer.confirmDragAndDrop": false,
+  "explorer.confirmDelete": false,
+  "explorer.openEditors.visible": 0,
+  "files.encoding": "utf8",
+  "files.exclude": {
+    "**/.DS_Store": true,
+    "**/.git": false,
+    "**/.hg": true,
+    "**/.svn": true,
+    "**/CVS": true,
+    "**/Assets": false,
+    "**/node_modules": false
+  },
+  "files.insertFinalNewline": true,
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/*/**": true,
+    "**/.hg/store/**": true
+  },
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "git.suggestSmartCommit": false,
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/bower_components": true,
+    "**/*.code-search": true
+  },
+  "terminal.integrated.defaultProfile.linux": "/bin/bash",
+  "terminal.integrated.defaultProfile.osx": "bash",
+  "workbench.colorTheme": "Monokai",
+  "workbench.colorCustomizations": {
+    "[Monokai]": {
+      "terminal.ansiBlack": "#f8f2f2"
+    }
+  },
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter.notebook.ipynb"
+  },
+  "workbench.iconTheme": "vscode-icons",
+  "workbench.sash.hoverDelay": 5,
+  // 各言語 ※といってもVSCode標準の設定とか拡張機能の設定とか入り混じっている
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "editor.quickSuggestions": false,
     "editor.tabSize": 2,
-    "editor.quickSuggestions": {
-        "other": true,
-        "comments": true,
-        "strings": true
+    "editor.wordWrap": "on"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "editor.tabSize": 2
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features",
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "editor.tabSize": 2
+  },
+  "[graphql]": {
+    "editor.formatOnSave": true
+  },
+  "[shellscript]": {
+    // "editor.defaultFormatter": "shakram02.bash-beautify"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "html.format.extraLiners": "",
+  "html.format.indentInnerHtml": true,
+  "html.format.maxPreserveNewLines": 1,
+  "html.format.wrapAttributes": "force-expand-multiline",
+  "html.format.wrapLineLength": 80,
+  "[javascript]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
     },
-    "explorer.compactFolders": false,
-    "explorer.confirmDragAndDrop": false,
-    "explorer.confirmDelete": false,
-    "files.encoding": "utf8",
-    "files.insertFinalNewline": false,
-    "git.autofetch": true,
-    "git.suggestSmartCommit": false,
-    "terminal.integrated.defaultProfile.linux": "/bin/bash",
-    "terminal.integrated.defaultProfile.osx": "/bin/bash",
-    "vim.vimrc.enable": true,
-    "vim.vimrc.path": "/Users/tyobi0913/programming_practice/.vimrc",
-    "vim.surround": true,
-    "window.zoomLevel": -1,
-    "workbench.colorTheme": "Monokai",
-    "workbench.colorCustomizations": {
-        "[Monokai]": {
-            "terminal.ansiBlack": "#f8f2f2"
-        }
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true
+  },
+  "[javascriptreact]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
     },
-    "workbench.editorAssociations": [
-        {
-            "viewType": "jupyter.notebook.ipynb",
-            "filenamePattern": "*.ipynb"
-        }
-    ],
-    "workbench.iconTheme": "vscode-icons",
-    "workbench.sash.hoverDelay": 5,
-    "workbench.startupEditor": "newUntitledFile",
-    // 各言語 ※といってもVSCode標準の設定とか拡張機能の設定とか入り混じっている
-    "[markdown]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode",
-        "editor.formatOnSave": true,
-        "editor.formatOnPaste": true,
-        "editor.quickSuggestions": false,
-        "editor.tabSize": 4,
-        "editor.wordWrap": "on"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true
+  },
+  "[typescript]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
     },
-    "[json]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode",
-        "editor.formatOnPaste": true,
-        "editor.formatOnSave": true
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true
+  },
+  "typescript.format.placeOpenBraceOnNewLineForFunctions": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "[typescriptreact]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
     },
-    "[jsonc]": {
-        "editor.defaultFormatter": "vscode.json-language-features",
-        "editor.formatOnPaste": true,
-        "editor.formatOnSave": true
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true
+  },
+  "[python]": {
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true
     },
-    "[shellscript]": {
-        // "editor.defaultFormatter": "shakram02.bash-beautify"
+    "editor.tabSize": 4,
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "editor.formatOnType": false
+  },
+  "python.analysis.typeCheckingMode": "strict",
+  "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+  "python.formatting.provider": "black",
+  "python.jediEnabled": false,
+  "python.languageServer": "Pylance",
+  "python.linting.enabled": true,
+  "python.linting.lintOnSave": true,
+  "python.linting.maxNumberOfProblems": 100,
+  "python.linting.mypyEnabled": false,
+  "python.linting.pylintEnabled": false,
+  "python.linting.flake8Args": [
+    "--ignore=E203,W503,W504",
+    "--max-line-length=88",
+    "--max-complexity=10"
+  ],
+  "python.linting.flake8Enabled": true,
+  "python.testing.nosetestsEnabled": false,
+  "python.testing.pytestArgs": [
+    "tests"
+  ],
+  "python.testing.pytestEnabled": true,
+  "python.testing.pytestPath": "${workspaceFolder}/.venv/bin/pytest",
+  "python.testing.unittestEnabled": false,
+  "python.pythonPath": "${workspaceFolder}/.venv/bin/python",
+  "python.venvPath": "${workspaceFolder}/.venv",
+  "[ruby]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.tabSize": 2,
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true
+  },
+  "ruby.format": "prettier",
+  "ruby.lint": {
+    "rubocop": true
+  },
+  "[go]": {
+    "editor.insertSpaces": false,
+    "editor.tabSize": 4
+  },
+  "go.lintTool": "golangci-lint",
+  "go.lintFlags": [
+    "--fast"
+  ],
+  "go.toolsManagement.autoUpdate": true,
+  "[csharp]": {
+    "editor.defaultFormatter": "ms-dotnettools.csharp",
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "editor.tabSize": 4
+  },
+  // 拡張機能
+  "auto-rename-tag.activationOnLanguage": [
+    "*"
+  ],
+  "cSpell.spellCheckDelayMs": 300,
+  "cSpell.userWords": [
+    "airbnb",
+    "Behaviour",
+    "binstub",
+    "Bitstream",
+    "bracketspacing",
+    "browserslist",
+    "byebug",
+    "dbconsole",
+    "dotnettools",
+    "erikdstock",
+    "eslintignore",
+    "hoge",
+    "javascripts",
+    "loglevel",
+    "majide",
+    "mkdir",
+    "mswtest",
+    "multiline",
+    "mypy",
+    "nextjs",
+    "nosetests",
+    "omnisharp",
+    "Parens",
+    "postgres",
+    "postgresql",
+    "Pretiier",
+    "prettierignore",
+    "prettierrc",
+    "printwidth",
+    "proptypes",
+    "pytest",
+    "Qiita",
+    "respawn",
+    "rspec",
+    "rubocop",
+    "sakanobu",
+    "sakanobu's",
+    "singlequote",
+    "stylelint",
+    "tailwindcss",
+    "testname",
+    "Todos",
+    "trailingcomma",
+    "TTFB",
+    "typeahead",
+    "typesyc",
+    "typesync",
+    "typesyncrc",
+    "Uncategorized",
+    "usetabs",
+    "uuidv",
+    "venv",
+    "Vercel",
+    "vimrc",
+    "yxxx"
+  ],
+  "eslint.packageManager": "yarn",
+  "kite.showWelcomeNotificationOnStartup": false,
+  "liveServer.settings.donotShowInfoMsg": true,
+  "liveServer.settings.CustomBrowser": "chrome",
+  "markdown.extension.list.indentationSize": "inherit",
+  "markdown.extension.orderedList.marker": "one",
+  "markdownlint.config": {
+    "MD029": {
+      "style": "one"
     },
-    "[html]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "MD030": {
+      "ol_multi": 1,
+      "ol_single": 1,
+      "ul_multi": 1,
+      "ul_single": 1
     },
-    "html.format.extraLiners": "",
-    "html.format.indentInnerHtml": true,
-    "html.format.maxPreserveNewLines": 1,
-    "html.format.wrapAttributes": "force-expand-multiline",
-    "html.format.wrapLineLength": 80,
-    "[typescript]": {
-        "editor.codeActionsOnSave": {
-            "source.fixAll.eslint": true
-        },
-        "editor.defaultFormatter": "esbenp.prettier-vscode",
-        "editor.formatOnPaste": true
-    },
-    "typescript.format.placeOpenBraceOnNewLineForFunctions": true,
-    "typescript.updateImportsOnFileMove.enabled": "always",
-    "[typescriptreact]": {
-        "editor.codeActionsOnSave": {
-            "source.fixAll.eslint": true
-        },
-        "editor.defaultFormatter": "esbenp.prettier-vscode",
-        "editor.formatOnPaste": true
-    },
-    "[python]": {
-        "editor.codeActionsOnSave": {
-            "source.organizeImports": true
-        },
-        "editor.tabSize": 4,
-        "editor.formatOnPaste": true,
-        "editor.formatOnSave": true,
-        "editor.formatOnType": false
-    },
-    "python.analysis.typeCheckingMode": "strict",
-    "python.defaultInterpreterPath": "/usr/local/bin/python3.9",
-    "python.formatting.provider": "black",
-    "python.jediEnabled": false,
-    "python.languageServer": "Pylance",
-    "python.linting.enabled": true,
-    "python.linting.lintOnSave": true,
-    "python.linting.maxNumberOfProblems": 100,
-    "python.linting.pylintEnabled": false,
-    "python.linting.flake8Enabled": true,
-    "python.linting.flake8Args": [
-        "--ignore=E203,W503,W504",
-        "--max-complexity=20"
-    ],
-    "[ruby]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode",
-        "editor.formatOnSave": true,
-        "editor.tabSize": 2,
-        "files.insertFinalNewline": true,
-        "files.trimFinalNewlines": true
-    },
-    "ruby.format": "prettier",
-    "ruby.lint": {
-        "rubocop": true
-    },
-    "[go]": {
-        "editor.insertSpaces": false,
-        "editor.tabSize": 2
-    },
-    "go.lintTool": "golangci-lint",
-    "go.lintFlags": [
-        "--fast"
-    ],
-    // 拡張機能
-    "auto-rename-tag.activationOnLanguage": [
-        "*"
-    ],
-    "cSpell.spellCheckDelayMs": 5000,
-    "eslint.packageManager": "yarn",
-    "kite.showWelcomeNotificationOnStartup": false,
-    "liveServer.settings.donotShowInfoMsg": true,
-    "liveServer.settings.CustomBrowser": "chrome",
-    "markdownlint.config": {
-        "MD030": {
-            "ol_multi": 1,
-            "ol_single": 1,
-            "ul_multi": 1,
-            "ul_single": 1
-        },
-        "MD041": false
-    },
-    "tabnine.experimentalAutoImports": true,
-    "vsicons.dontShowNewVersionMessage": true,
-    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-    "todo-tree.general.tags": [
-        "BUG",
-        "HACK",
-        "FIXME",
-        "TODO",
-        "XXX",
-        "[ ]",
-        "[x]"
-    ],
-    "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
-    "todo-tree.tree.showScanModeButton": false,
-    // 未分類
+    "MD041": false,
+    "MD046": {
+      "style": "fenced"
+    }
+  },
+  "markdown-preview-enhanced.previewTheme": "atom-light.css",
+  "omnisharp.useGlobalMono": "always",
+  "omnisharp.monoPath": "/usr/local/Cellar/mono/6.12.0.122/",
+  "prettier.singleQuote": true,
+  "prettier.trailingComma": "es5",
+  "tabnine.experimentalAutoImports": true,
+  "todo-tree.general.tags": [
+    "BUG",
+    "HACK",
+    "FIXME",
+    "TODO",
+    "XXX",
+    "[ ]",
+    "[x]"
+  ],
+  "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
+  "todo-tree.tree.showScanModeButton": false,
+  "vim.vimrc.enable": true,
+  "vim.vimrc.path": "/Users/tyobi0913/programming_practice/.vimrc",
+  "vim.surround": true,
+  "vsicons.dontShowNewVersionMessage": true,
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "omnisharp.enableEditorConfigSupport": false,
+  "omnisharp.enableMsBuildLoadProjectsOnDemand": true,
+  "omnisharp.enableRoslynAnalyzers": true,
+  "bracket-pair-colorizer-2.depreciation-notice": false,
+  "window.zoomLevel": -1
 }
