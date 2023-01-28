@@ -25,7 +25,7 @@
   "editor.wordWrap": "bounded",
   "explorer.compactFolders": false,
   "explorer.confirmDragAndDrop": false,
-  "explorer.confirmDelete": false,
+  "explorer.confirmDelete": false, // VS Codeの新機能がすごく便利！ JavaScriptやCSSの関数やクラスなどを上部に固定させる「スティッキー スクロール」 | コリス https://coliss.com/articles/build-websites/operation/work/sticky-scroll-for-vs-code.html
   "explorer.openEditors.visible": 0,
   "files.encoding": "utf8",
   "files.exclude": {
@@ -70,7 +70,11 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true,
     "editor.formatOnPaste": true,
-    "editor.quickSuggestions": false,
+    "editor.quickSuggestions": {
+      "comments": "off",
+      "strings": "off",
+      "other": "off"
+    },
     "editor.tabSize": 2,
     "editor.wordWrap": "on"
   },
@@ -254,6 +258,7 @@
     "venv",
     "Vercel",
     "vimrc",
+    "Vite",
     "yxxx"
   ],
   "eslint.packageManager": "yarn",
@@ -295,7 +300,7 @@
   "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
   "todo-tree.tree.showScanModeButton": false,
   "vim.vimrc.enable": true,
-  "vim.vimrc.path": "/Users/tyobi0913/programming_practice/.vimrc",
+  "vim.vimrc.path": "~/dotfiles/directory_of_vimrc_for_vscode/.vimrc",
   "vim.surround": true,
   "vsicons.dontShowNewVersionMessage": true,
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
@@ -303,5 +308,13 @@
   "omnisharp.enableMsBuildLoadProjectsOnDemand": true,
   "omnisharp.enableRoslynAnalyzers": true,
   "bracket-pair-colorizer-2.depreciation-notice": false,
-  "window.zoomLevel": -1
+  "window.zoomLevel": -1,
+  "[sql]": {
+    "editor.defaultFormatter": "adpyke.vscode-sql-formatter"
+  },
+  "editor.stickyScroll.enabled": true,
+  "terminal.integrated.enableMultiLinePasteWarning": false,
+  "files.associations": {
+    ".ideavimrc": "vimrc"
+  },
 }
