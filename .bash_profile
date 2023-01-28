@@ -10,6 +10,9 @@
 # シェル関数を定義する
 # といった設定は .bashrc へ
 
+# 2022.09.19時点での PATH
+# /Users/tyobi0913/.nvm/versions/node/v16.17.0/bin:/Users/tyobi0913/.rbenv/shims:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/dotnet:~/.dotnet/tools:/Library/Apple/usr/bin:/usr/local/opt/fzf/bin:/Users/tyobi0913/.rbenv/bin:/usr/local/Cellar/go/1.16.3/libexec:/Users/tyobi0913/go/bin:/Users/tyobi0913/.poetry/bin
+
 # ↓ 起動時の処理
 
 # Your previous /Users/tyobi0913/.bash_profile file was backed up as /Users/tyobi0913/.bash_profile.macports-saved_2018-11-25_at_10:59:31
@@ -48,8 +51,14 @@ export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 export PATH=$PATH:/usr/local/bin
 
 # Node
-export PATH=$PATH:$HOME/.nodebrew/current/bin
-eval "$(anyenv init -)"
+# nvm の設定
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+# $PATH よりも前に書かないと、/usr/local/bin/node を先に探し出してしまうので、順番に注意
+# export PATH=$HOME/.nodebrew/current/bin:$PATH
+# 以下は anyenv の設定なのでコメントアウト(これを)
+# eval "$(anyenv init -)"
 
 # Ruby
 export PATH="$PATH:$HOME/.rbenv/bin"
