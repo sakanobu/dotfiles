@@ -1,0 +1,22 @@
+" 既存の .vimrc の読み込み
+source ~/dotfiles/directory_of_vimrc_for_vscode/.vimrc
+
+" IdeaVim に用意されている Vim のプラグイン
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'machakann/vim-highlightedyank'
+
+" IdeaVimExtension プラグインの設定
+set keep-english-in-normal-and-restore-in-insert
+
+" IdeaVim-EasyMotion プラグインの設定
+let mapleader = ',' " Leader キーを「\」から「,」に変更 ※Leader のマッピングより前に置かないと「\」のままなので注意
+" map <Leader> <Plug>(easymotion-prefix) " <Leader><Leader> から <Leader> へと easymotion の起動を変更、何故か , を押すと謎のペーストが走るのでコメントアウト
+let g:EasyMotion_smartcase = 1 " Vim のスマートケースオプションを継承
+let g:EasyMotion_use_migemo = 1 " 日本語ユーザー向けマルチバイト対応
+map <leader>f <Plug>(easymotion-f)
+map <leader>F <Plug>(easymotion-F)
+map <leader>s <Plug>(easymotion-s2)
+map <leader>j <Plug>(easymotion-j)
+map <leader>k <Plug>(easymotion-k)
+set easymotion
