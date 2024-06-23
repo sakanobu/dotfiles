@@ -54,7 +54,6 @@
   },
   "terminal.integrated.defaultProfile.linux": "/bin/bash",
   "terminal.integrated.defaultProfile.osx": "bash",
-  "workbench.colorTheme": "Monokai",
   "workbench.colorCustomizations": {
     "[Monokai]": {
       "terminal.ansiBlack": "#f8f2f2"
@@ -106,7 +105,7 @@
   "html.format.wrapLineLength": 80,
   "[javascript]": {
     "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": true
+      "source.fixAll.eslint": "explicit"
     },
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnPaste": true,
@@ -114,7 +113,7 @@
   },
   "[javascriptreact]": {
     "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": true
+      "source.fixAll.eslint": "explicit"
     },
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnPaste": true,
@@ -122,7 +121,7 @@
   },
   "[typescript]": {
     "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": true
+      "source.fixAll.eslint": "explicit"
     },
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnPaste": true,
@@ -132,7 +131,7 @@
   "typescript.updateImportsOnFileMove.enabled": "always",
   "[typescriptreact]": {
     "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": true
+      "source.fixAll.eslint": "explicit"
     },
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnPaste": true,
@@ -140,7 +139,7 @@
   },
   "[python]": {
     "editor.codeActionsOnSave": {
-      "source.organizeImports": true
+      "source.organizeImports": "explicit"
     },
     "editor.tabSize": 4,
     "editor.formatOnPaste": true,
@@ -173,11 +172,17 @@
   "python.pythonPath": "${workspaceFolder}/.venv/bin/python",
   "python.venvPath": "${workspaceFolder}/.venv",
   "[ruby]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.defaultFormatter": "Shopify.ruby-lsp",
     "editor.formatOnSave": true,
     "editor.tabSize": 2,
     "files.insertFinalNewline": true,
-    "files.trimFinalNewlines": true
+    "files.trimFinalNewlines": true,
+    "editor.formatOnType": true,
+    "files.trimTrailingWhitespace": true,
+    "editor.rulers": [
+      120
+    ],
+    "editor.semanticHighlighting.enabled": true
   },
   "ruby.format": "prettier",
   "ruby.lint": {
@@ -317,4 +322,12 @@
   "files.associations": {
     ".ideavimrc": "vimrc"
   },
+  "techtrain-railway.optOutTelemetry": false,
+  "git.openRepositoryInParentFolders": "never",
+  "[javascript][javascriptreact][typescript][typescriptreact]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit"
+    }
+  },
+  "workbench.colorTheme": "Solarized Light+ (Beta)",
 }
