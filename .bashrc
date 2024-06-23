@@ -31,6 +31,8 @@
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
   source $(brew --prefix)/etc/bash_completion
 fi
+# homebrew によるインストール時に書いてあった設定
+[[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
 
 # 2. git-completion による補完
 # 下記を参考に設定
