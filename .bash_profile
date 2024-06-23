@@ -68,11 +68,18 @@ export NVM_DIR="$HOME/.nvm"
 # eval "$(anyenv init -)"
 
 # Ruby
-export PATH="$PATH:$HOME/.rbenv/bin"
-eval "$(rbenv init -)"
-export LDFLAGS="-L/usr/local/opt/libffi/lib"
-export CPPFLAGS="-I/usr/local/opt/libffi/include"
-export PKG_CONFIG_PATH="/usr/local/opt/libffi/lib/pkgconfig"
+# export PATH="$PATH:$HOME/.rbenv/bin"
+# eval "$(rbenv init -)"
+# export LDFLAGS="-L/usr/local/opt/libffi/lib"
+# export CPPFLAGS="-I/usr/local/opt/libffi/include"
+# export PKG_CONFIG_PATH="/usr/local/opt/libffi/lib/pkgconfig"
+# 2023.03.19 の M1 Mac用
+eval "$(rbenv init - bash)"
+# 2023.03.19 rails new で失敗後、libpq を入れて
+export LDFLAGS="-L/opt/homebrew/opt/libpq/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/libpq/include"
+export PKG_CONFIG_PATH="/opt/homebrew/opt/libpq/lib/pkgconfig"
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
 # Go の Homebrew 経由でのインストール時の PATH の設定
 export PATH=$PATH:/usr/local/Cellar/go/1.16.3/libexec
