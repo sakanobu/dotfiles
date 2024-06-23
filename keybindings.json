@@ -12,5 +12,9 @@
   {
     "key": "shift+alt+t",
     "command": "go.test.file"
+  },
+  {
+    "key": "cmd+k shift+s",
+    "command": "workbench.files.action.collapseExplorerFolders"
   }
 ]
