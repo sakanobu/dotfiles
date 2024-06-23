@@ -66,6 +66,8 @@ export NVM_DIR="$HOME/.nvm"
 # export PATH=$HOME/.nodebrew/current/bin:$PATH
 # 以下は anyenv の設定なのでコメントアウト(これを)
 # eval "$(anyenv init -)"
+# npm や yarn でインストールしたパッケージを npm run など無しで実行
+export PATH=$PATH:./node_modules/.bin
 
 # Ruby
 # export PATH="$PATH:$HOME/.rbenv/bin"
