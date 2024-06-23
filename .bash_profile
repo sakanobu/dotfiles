@@ -90,8 +90,10 @@ export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:/usr/local/share/dotnet
 
 # poetry の PATH
-export PATH=$PATH:$HOME/.poetry/bin
-export PATH="$PATH:$HOME/.poetry/bin"
+export PATH=$PATH:$HOME/.local/bin
+
+# Docker の PATH
+export PATH=$PATH:/Applications/Docker.app/Contents/Resources/bin/
 
 # 環境変数 PATH の重複をなくす
 # https://qastack.jp/unix/40749/remove-duplicate-path-entries-with-awk-command
