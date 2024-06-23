@@ -60,10 +60,10 @@
         "enableImportCompletion": true,
         "EnableAnalyzersSupport": true,
         "LocationPaths": [
-            "/Users/tyobi0913/.vscode/extensions/josefpihrt-vscode.roslynator-4.1.1/roslyn/common",
-            "/Users/tyobi0913/.vscode/extensions/josefpihrt-vscode.roslynator-4.1.1/roslyn/analyzers",
-            "/Users/tyobi0913/.vscode/extensions/josefpihrt-vscode.roslynator-4.1.1/roslyn/refactorings",
-            "/Users/tyobi0913/.vscode/extensions/josefpihrt-vscode.roslynator-4.1.1/roslyn/fixes"
+            "/Users/tyobi0913/.vscode/extensions/josefpihrt-vscode.roslynator-4.12.4/roslyn/common",
+            "/Users/tyobi0913/.vscode/extensions/josefpihrt-vscode.roslynator-4.12.4/roslyn/analyzers",
+            "/Users/tyobi0913/.vscode/extensions/josefpihrt-vscode.roslynator-4.12.4/roslyn/refactorings",
+            "/Users/tyobi0913/.vscode/extensions/josefpihrt-vscode.roslynator-4.12.4/roslyn/fixes"
         ]
     }
 }
