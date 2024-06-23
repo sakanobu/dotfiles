@@ -10,10 +10,10 @@
 	cm = commit
 	push-f = push --force-with-lease
 [core]
-	excludesfile = /Users/tyobi0913/.gitignore_global
 	pager = less -cm
   quotepath = false
 	editor = vim -c \"set fenc=utf-8\"
+	autocrlf = input
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
