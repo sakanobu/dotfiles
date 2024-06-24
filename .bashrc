@@ -26,7 +26,7 @@
 
 # 本編
 
-# 1. bash での補完
+# bash での補完
 # bash-completion
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
   source $(brew --prefix)/etc/bash_completion
@@ -34,7 +34,7 @@ fi
 # homebrew によるインストール時に書いてあった設定
 [[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
 
-# 2. git-completion による補完
+# git-completion による補完
 # 下記を参考に設定
 # https://qiita.com/varmil/items/9b0aeafa85975474e9b6
 # まずは下記の2つのコマンドを実行
@@ -43,11 +43,11 @@ fi
 # 後は下記を読み込むように `source .bashrc`
 source ~/.git-completion.bash
 
-# 3. g という bash のエイリアスから git の補完を動かせるように
+# g という bash のエイリアスから git の補完を動かせるように
 # https://r17n.page/2019/09/24/git-completion-with-bash-alias/
 if [ -f ~/.git-completion.bash ]; then source ~/.git-completion.bash; __git_complete g __git_main; fi
 
-# 4. bash の見た目改造
+# bash の見た目改造
 # git のブランチ名をターミナルに表示
 # https://qiita.com/hmmrjn/items/60d2a64c9e5bf7c0fe60
 # git のブランチ名を表示
@@ -67,7 +67,7 @@ GIT_PS1_SHOWUPSTREAM=auto
 # c. git のブランチ名表示パターン
 export PS1='\[\e[1;31m\][\h@\u:\W$(__git_ps1 "(%s)")]\n\$ \[\e[1;30m\]'
 
-# 5. 出力の後に改行を入れる
+# 出力の後に改行を入れる
 # https://qiita.com/hmmrjn/items/60d2a64c9e5bf7c0fe60
 function add_line {
   if [[ -z "${PS1_NEWLINE_LOGIN}" ]]; then
@@ -78,11 +78,11 @@ function add_line {
 }
 PROMPT_COMMAND="add_line; $PROMPT_COMMAND"
 
-# 6. tmux 限定ではないけど、C-d でログアウトするのを防ぐやつ
+# tmux 限定ではないけど、C-d でログアウトするのを防ぐやつ
 # https://superuser.com/questions/479600/how-can-i-prevent-tmux-exiting-with-ctrl-d
 set -o ignoreeof
 
-# ↓ エイリアス
+# エイリアス
 
 # 基本コマンドのエイリアス
 alias cl='clear'
@@ -102,7 +102,7 @@ linux*)
 esac
 alias ll='ls -A'
 
-## git コマンドのエイリアス
+# git コマンドのエイリアス
 alias g='git'
 alias st='git status -bs'
 # -av オプションを付与したことで `git branch feature`` のような操作が出来ないので､
