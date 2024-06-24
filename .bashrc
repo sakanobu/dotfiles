@@ -76,7 +76,7 @@ function add_line {
     printf '\n'
   fi
 }
-PROMPT_COMMAND='add_line'
+PROMPT_COMMAND="add_line; $PROMPT_COMMAND"
 
 # 6. tmux 限定ではないけど、C-d でログアウトするのを防ぐやつ
 # https://superuser.com/questions/479600/how-can-i-prevent-tmux-exiting-with-ctrl-d
@@ -178,5 +178,24 @@ peco-history() {
 }
 
 bind -x '"\C-r":peco-history'
+
+# 各端末でのコマンド履歴の同期 
+# tmuxとかの仮想端末で複数の画面間でBashのコマンド履歴を共有すると同じ履歴が何度も記録されてしまう問題を解決する - Qiita
+# https://qiita.com/piroor/items/7c9380e408d07fd83bfc
+function share_history {
+  # 最後に実行したコマンドを履歴ファイル(.bash_history)に追記
+  history -a
+  # メモリ上のコマンド履歴を消去
+  history -c
+  # 履歴ファイルからメモリへコマンド履歴を読み込む
+  history -r
+}
+
+# 上記の一連の処理を、プロンプト表示前に（＝何かコマンドを実行することに）実行する
+# PROMPT_COMMAND="share_history"
+PROMPT_COMMAND="share_history; $PROMPT_COMMAND"
+
+# bashのプロセスを終了する時に、メモリ上の履歴を履歴ファイルに追記する、という動作を停止する （history -aによって代替されるため）
+shopt -u histappend
 
 # ↓ 未分類
