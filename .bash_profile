@@ -27,8 +27,8 @@ test -r ~/.bashrc && . ~/.bashrc
 export LANG=ja_JP.UTF-8
 
 # history コマンド設定色々
-export HISTSIZE=10000
-export HISTFILESIZE=10000
+export HISTSIZE=50000
+export HISTFILESIZE=50000
 export HISTIGNORE=ls:history*:pwd:clear
 export HISTTIMEFORMAT='%Y/%m/%d %H:%M:%S '
 
