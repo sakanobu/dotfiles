@@ -45,6 +45,9 @@ $if Bash
 # normalモード時に<C-l>でターミナルの画面をキレイに
   "\C-l": clear-screen
 
+# normal モード時に v を押すとエディタによる編集画面に遷移する機能(edit-and-execute-command)をオフにする
+  v: ""
+
 # vimのinsertモード時に適用される補完を↓に列挙
   set keymap vi-insert
 
