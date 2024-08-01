@@ -42,9 +42,6 @@ export PIPENV_VENV_IN_PROJECT=true
 # https://qiita.com/yorokobi_kannsya/items/f77d074e382a88dae971
 export PGDATA=/usr/local/var/postgres
 
-# Homebrew の M1 Mac 対応のための PATH
-export PATH="/opt/homebrew/bin:$PATH"
-
 # なんか知らないうちに設定されてた PATH
 # MacPorts Installer addition on 2018-11-25_at_10:59:31: adding an appropriate PATH variable for use with MacPorts.
 export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
@@ -52,6 +49,13 @@ export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 
 # なんかのパス
 export PATH=$PATH:/usr/local/bin
+
+# OpenSSH が上記の古いものを参照してしまうので Homebrew 系の PATH をちょっと下に移動している
+# Homebrew の M1 Mac 対応のための PATH
+export PATH="/opt/homebrew/bin:$PATH"
+
+# Homebrew の doctor で sbin が PATH に見つからなかったと言われた対策
+export PATH="/opt/homebrew/sbin:$PATH"
 
 # Node
 # nvm の設定(M1 Mac)
