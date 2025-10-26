@@ -198,4 +198,8 @@ PROMPT_COMMAND="share_history; $PROMPT_COMMAND"
 # bashのプロセスを終了する時に、メモリ上の履歴を履歴ファイルに追記する、という動作を停止する （history -aによって代替されるため）
 shopt -u histappend
 
+# 2025_10_27 に GHCup をインストールした際に追加された コマンド
+# $HOME/.ghcup/env の中では $HOME/.ghcup/bin と $HOME/.cabal/bin を PATH に追加
+[ -f "/Users/tyobi0913/.ghcup/env" ] && . "/Users/tyobi0913/.ghcup/env" # ghcup-env
+
 # ↓ 未分類
