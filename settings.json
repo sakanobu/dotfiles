@@ -330,4 +330,5 @@
     }
   },
   "workbench.colorTheme": "Solarized Light+",
+  "editor.guides.bracketPairs": true,
 }
