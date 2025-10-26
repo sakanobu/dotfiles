@@ -1,0 +1,30 @@
+/Users/tyobi0913/.config/bpython/config
+/Users/tyobi0913/.config/git/ignore
+/Users/tyobi0913/.vim
+/Users/tyobi0913/.tmux.conf
+/Users/tyobi0913/.bashrc
+/Users/tyobi0913/.local/bin/poetry
+/Users/tyobi0913/.nvm/nvm-exec
+/Users/tyobi0913/.nvm/nvm.sh
+/Users/tyobi0913/Desktop/全て/場所が変更された項目.nosync
+/Users/tyobi0913/Library/Application Support/Code/User/settings.json
+/Users/tyobi0913/Library/Application Support/Code/User/keybindings.json
+/Users/tyobi0913/Library/Application Support/UnityHub/SS
+/Users/tyobi0913/Library/Saved Application State/jp.naver.line.mac.savedState
+/Users/tyobi0913/Library/ApplicationSupport
+/Users/tyobi0913/Library/Logs/ims.log
+/Users/tyobi0913/Library/LaunchAgents/homebrew.mxcl.mysql@5.6.plist
+/Users/tyobi0913/Exercism
+/Users/tyobi0913/.ideavimrc
+/Users/tyobi0913/Movies/iMovieライブラリ.imovielibrary/.fcpcache
+/Users/tyobi0913/.vimrc
+/Users/tyobi0913/Applications/Rider.app/Contents/bin/Bridge.framework/Bridge
+/Users/tyobi0913/Applications/Rider.app/Contents/bin/Bridge.framework/Resources
+/Users/tyobi0913/Applications/Rider.app/Contents/bin/JBDevice.framework/JBDevice
+/Users/tyobi0913/Applications/Rider.app/Contents/bin/JBDevice.framework/Resources
+/Users/tyobi0913/Documents/CELSYS
+/Users/tyobi0913/.ctags
+/Users/tyobi0913/.bash_profile
+/Users/tyobi0913/.inputrc
+/Users/tyobi0913/.gitconfig
+/Users/tyobi0913/programming_practice/.vimrc
