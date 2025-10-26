@@ -10,8 +10,32 @@
 # シェル関数を定義する
 # といった設定は .bashrc へ
 
-# 2022.09.19時点での PATH
-# /Users/tyobi0913/.nvm/versions/node/v16.17.0/bin:/Users/tyobi0913/.rbenv/shims:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/dotnet:~/.dotnet/tools:/Library/Apple/usr/bin:/usr/local/opt/fzf/bin:/Users/tyobi0913/.rbenv/bin:/usr/local/Cellar/go/1.16.3/libexec:/Users/tyobi0913/go/bin:/Users/tyobi0913/.poetry/bin
+# 2025_10_27 時点での PATH $ echo $PATH | sed "s/:/\n/g"
+# /opt/homebrew/opt/libpq/bin
+# /Users/tyobi0913/.rbenv/shims
+# /Users/tyobi0913/.nvm/versions/node/v16.17.0/bin
+# /opt/homebrew/sbin
+# /opt/homebrew/bin
+# /usr/bin 👹
+# /opt/local/bin 👹
+# /opt/local/sbin
+# /usr/local/bin
+# /System/Cryptexes/App/usr/bin
+# /bin
+# /usr/sbin
+# /sbin
+# /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin
+# /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin
+# /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin
+# /Library/Apple/usr/bin
+# /usr/local/share/dotnet
+# ~/.dotnet/tools
+# /usr/local/opt/fzf/bin
+# ./node_modules/.bin
+# /usr/local/Cellar/go/1.16.3/libexec
+# /Users/tyobi0913/go/bin
+# /Users/tyobi0913/.local/bin
+# /Applications/Docker.app/Contents/Resources/bin/
 
 # ↓ 起動時の処理
 
@@ -44,8 +68,10 @@ export PGDATA=/usr/local/var/postgres
 
 # なんか知らないうちに設定されてた PATH
 # MacPorts Installer addition on 2018-11-25_at_10:59:31: adding an appropriate PATH variable for use with MacPorts.
-export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+# export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 # Finished adapting your PATH environment variable for use with MacPorts.
+# ↓ は 2025_10_27 に Haskell の環境構築しようとしたら MacPorts の gcc5 という古い gcc が参照されてしまい xcode-select の gcc が参照されない問題の解消のための PATH 修正
+export PATH="/usr/bin:/opt/local/bin:/opt/local/sbin:$PATH"
 
 # なんかのパス
 export PATH=$PATH:/usr/local/bin
@@ -104,5 +130,9 @@ export PATH=$PATH:/Applications/Docker.app/Contents/Resources/bin/
 # 環境変数 PATH の重複をなくす
 # https://qastack.jp/unix/40749/remove-duplicate-path-entries-with-awk-command
 export PATH=`printf %s "$PATH" | awk -v RS=: '{ if (!arr[$0]++) {printf("%s%s",!ln++?"":":",$0)}}'`
+
+# 2025_10_27 に GHCup をインストールした際に追加された コマンド
+# $HOME/.ghcup/env の中では $HOME/.ghcup/bin と $HOME/.cabal/bin を PATH に追加
+[[ -f ~/.bashrc ]] && . ~/.bashrc # ghcup-env
 
 # ↓ 未分類
