@@ -134,10 +134,13 @@ alias chromeopen='open -a "Google Chrome"'
 alias bp='bpython'
 
 # atcoder-cli
-alias accs='acc s --skip-filename -- --guess-python-interpreter pypy'
+alias accspy='acc s --skip-filename -- --guess-python-interpreter pypy'
+alias accsrb='acc s --skip-filename'
 
 # online-judge-tools
-alias ojt='oj t -c "python3 ./main.py" -d ./tests'
+alias ojtpy='oj t -c "python3 ./main.py" -d ./tests'
+alias ojtrb='oj t -c "ruby ./main.rb" -d ./tests'
+alias ojtrbN='oj t -c "ruby ./main.rb" -d ./tests -N'
 
 # Mac にある既存のではなく brew でダウンロードした ctags を利用
 alias ctags="`brew --prefix`/bin/ctags"
