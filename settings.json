@@ -331,5 +331,5 @@
   },
   "workbench.colorTheme": "Solarized Light+",
   "editor.guides.bracketPairs": true,
-  "typescript.referencesCodeLens.enabled": true,
+  "typescript.referencesCodeLens.enabled": true
 }
