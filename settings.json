@@ -329,5 +329,5 @@
       "source.fixAll.eslint": "explicit"
     }
   },
-  "workbench.colorTheme": "Solarized Light+ (Beta)",
+  "workbench.colorTheme": "Solarized Light+",
 }
