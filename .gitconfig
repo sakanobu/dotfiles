@@ -8,7 +8,7 @@
 	br = branch
 	co = checkout
 	cm = commit
-	push-f = push --force-with-lease
+	push-f = push --force-with-lease --force-if-includes
 [core]
 	pager = less -cm
   quotepath = false
