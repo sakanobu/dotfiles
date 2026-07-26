@@ -130,6 +130,10 @@ alias brewupdate='brew update && brew upgrade && brew cleanup'
 # chrome をコマンドラインから開くエイリアス、引数として html を指定する｡
 alias chromeopen='open -a "Google Chrome"'
 
+# irb の出力を整形
+alias irbclean_commentout='awk '\''{sub(/^irb\([^)]*\):[0-9]+[>*] ?/,""); if(/^=> /){$0="# "$0; buf=buf $0 ORS ORS} else {buf=buf $0 ORS}} END{print ""; printf "%s", buf}'\'''
+alias irbclean_ignore_return_value='awk '\''{sub(/^irb\([^)]*\):[0-9]+[>*] ?/,""); if(!/^=> /) buf = buf $0 ORS} END{print ""; printf "%s", buf}'\'''
+
 # bpython を少しでも短く
 alias bp='bpython'
 
