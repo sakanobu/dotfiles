@@ -65,11 +65,8 @@
   "workbench.sash.hoverDelay": 5,
   "workbench.secondarySideBar.defaultVisibility": "hidden",
   "[markdown]": {
-    "editor.defaultFormatter": "biomejs.biome",
+    "editor.defaultFormatter": "yzhang.markdown-all-in-one",
     "editor.formatOnSave": true,
-    "editor.codeActionsOnSave": {
-      "source.fixAll.biome": "explicit"
-    },
     "editor.formatOnPaste": true,
     "editor.quickSuggestions": {
       "comments": "off",
@@ -87,14 +84,11 @@
     "editor.tabSize": 2
   },
   "[haskell]": {
+    "editor.defaultFormatter": "haskell.haskell",
     "editor.formatOnSave": true
   },
+  "haskell.formattingProvider": "ormolu",
   "haskell.manageHLS": "GHCup",
-  "haskell.toolchain": {
-    "ghc": "9.6.7",
-    "hls": "2.10.0.0",
-    "cabal": "3.12.1.0"
-  },
   "[html]": {
     "editor.defaultFormatter": "vscode.html-language-features",
     "editor.formatOnSave": true,
