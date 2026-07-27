@@ -1,6 +1,8 @@
 {
+  "diffEditor.ignoreTrimWhitespace": false,
   "editor.cursorSurroundingLines": 2,
   "editor.detectIndentation": false,
+  "editor.dragAndDrop": false,
   "editor.formatOnSave": false,
   "editor.guides.bracketPairs": true,
   "editor.indentSize": "tabSize",
@@ -35,6 +37,7 @@
     "**/CVS": true,
     "**/node_modules": false
   },
+  "files.trimTrailingWhitespace": true,
   "files.insertFinalNewline": true,
   "files.watcherExclude": {
     "**/.git/objects/**": true,
@@ -56,9 +59,18 @@
     "https://developer.microsoft.com/json-schemas/": true,
     "https://biomejs.dev": true
   },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/.git": true,
+    "**/dist": true,
+    "**/build": true,
+    "**/.next": true
+  },
   "terminal.integrated.defaultProfile.linux": "bash",
   "terminal.integrated.defaultProfile.osx": "bash",
   "terminal.integrated.enableMultiLinePasteWarning": "never",
+  "terminal.integrated.fontSize": 13,
+  "terminal.integrated.mouseWheelZoom": true,
   "window.zoomLevel": -1,
   "workbench.colorTheme": "Solarized Light+",
   "workbench.iconTheme": "vscode-icons",
@@ -231,6 +243,7 @@
     "[x]"
   ],
   "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
+  "todo-tree.ripgrep": "/opt/homebrew/bin/rg",
   "todo-tree.tree.showScanModeButton": false,
   "vim.vimrc.enable": true,
   "vim.vimrc.path": "~/dotfiles/directory_of_vimrc_for_vscode/.vimrc",
