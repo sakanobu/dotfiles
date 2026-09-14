@@ -215,6 +215,7 @@
     "Vite",
     "yxxx"
   ],
+  "dbdiagram.disablePremiumFeaturesNotification": true,
   "markdown.extension.list.indentationSize": "inherit",
   "markdown.extension.orderedList.marker": "one",
   "markdownlint.config": {
