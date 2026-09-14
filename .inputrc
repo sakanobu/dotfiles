@@ -1,74 +1,61 @@
-# ↓ Bash Reference Manual 8.3 Readline Init File
-# https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html#Readline-Init-File-Syntax
-# bind -f .inputrc
-
+# Bash で Readline が使われているときだけ以下の設定を有効にする
 $if Bash
-# ベル無
+  # 補完の失敗などによるベル音をオフ
   set bell-style none
 
-# 補完の接頭辞をカラフルに
+  # 補完候補の共通部分を色付きで表示
   set colored-completion-prefix on
 
-# ファイルタイプをカラフルに
+  # 補完候補をファイル種別に応じて色分け
   set colored-stats on
 
-# 補完時大文字小文字無視
+  # Tab 補完時大文字小文字無視
   set completion-ignore-case on
 
-# Mark symlinked directories
+  # シンボリックリンク先がディレクトリの場合、補完表示でディレクトリとして扱いやすくする
   set mark-symlinked-directories on
 
-# Color the common prefix in menu-complete
+  # menu-complete を使う際に、候補の共通接頭辞を強調表示
   set menu-complete-display-prefix on
 
-# Tab補完を2回ではなく1回押すだけで表示
+  # Tab 補完を 2 回ではなく 1 回押すだけで表示
   set show-all-if-ambiguous on
 
-# 入力候補リストのディレクトリや実行可能ファイルに印をつける
+  # 補完候補の末尾にファイル種別を示す記号を付与
   set visible-stats on
 
-# bashをvimライクな操作に変更
+  # Bash のコマンドライン編集を Emacs モードではなく vi モードに
   set editing-mode vi
 
-# 現在のモード表示
-#  set show-mode-in-prompt on
-#  set vi-ins-mode-string \1\e[34;1m\2(ins) \1\e[0m\2
-#  set vi-cmd-mode-string \1\e[31;1m\2(cmd) \1\e[0m\2
-
-# キーバインドの参考になる記事2本
-# https://www.trhrkmk.com/posts/bash-vi-mode-command-setting/
-# http://www.calmar.ws/vim/vi-bash.html
-
-# vimのnormalモード時に適用される補完を↓に列挙
+  # この行以降のキーバインドを vi の command mode つまり vim の normal mode に似たモードとして適用
   set keymap vi-command
 
-# normalモード時に<C-l>でターミナルの画面をキレイに
+  # command mode 時に <C-l> でターミナルの画面をキレイに
   "\C-l": clear-screen
 
-# normal モード時に v を押すとエディタによる編集画面に遷移する機能(edit-and-execute-command)をオフにする
+  # command mode 時に v を押すとエディタによる編集画面に遷移する機能(edit-and-execute-command)をオフにする
   v: ""
 
-# vimのinsertモード時に適用される補完を↓に列挙
+  # この行以降のキーバインドを vi の insert mode つまり vim の insert mode に似たモードとして適用
   set keymap vi-insert
 
-# normalモード時に<C-l>でターミナルの画面をキレイに
+  # insert mode 時に <C-l> でターミナルの画面をキレイに
   "\C-l": clear-screen
 
-# jjでinsertモードからnormalモードへ
+  # insert mode 時に jj で command mode に切り替え
   "jj": vi-movement-mode
 
-# insertモード時にカーソルを1文字前進or後退
+  # insert mode 時ではカーソルの前後 1 文字移動に関して Emacs モードと同じキーバインドにする
   "\C-f": forward-char
   "\C-b": backward-char
 
-# insertモード時にカーソル前or後の1文字消去
+  # insert mode 時ではカーソルの前後 1 文字削除に関して Emacs モードと同じキーバインドにする
   "\C-h": backward-delete-char
   "\C-d": delete-char
 
-# C-(n|p)でhistory-search
-# ※ここはinsertモード時の設定なのに↓のhistory移動はnormalモード時に動作する…
-  "\C-p":history-search-backward
-  "\C-n":history-search-forward
-  "\e[A":history-search-backward
-  "\e[B":history-search-forward
+  # C-(n|p) や ↑ ↓ のカーソルキー でhistory-search
+  "\C-p": history-search-backward
+  "\C-n": history-search-forward
+  "\e[A": history-search-backward
+  "\e[B": history-search-forward
 $endif
