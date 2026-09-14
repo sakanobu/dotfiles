@@ -1,97 +1,160 @@
-# ↓ 注意書き
+# ==============================================================================
+# シェル全般
+# ==============================================================================
 
-# 1. `source ~/.bash_profile` で反映
+# 対話シェル以外では .bashrc の以降の行は実行しない
+case $- in
+  *i*) ;;
+  *) return ;;
+esac
 
-# 2. .bash_profile と .bashrc の使い分けについて
-# .bash_profile は基本的に環境変数について書く
-# それ以外の
-# 環境変数でない変数を設定する (export しない変数)
-# エイリアスを定義する
-# シェル関数を定義する
-# といった設定は .bashrc へ
+# C-d による EOF でシェルが終了するのを無効
+# .inputrc で、insert mode 時には C-d でカーソル上の文字削除というキーバインドにしている
+set -o ignoreeof
 
-# 3. vim ライクな挙動にする設定は .inputrc に書いてる
+# ==============================================================================
+# 補完
+# ==============================================================================
 
-# 4. bash の補完について
-# bash の補完に関しては以下のサイトを参照
-# https://qiita.com/notakaos/items/d44a4c2b72625746de25
-# https://rcmdnk.com/blog/2015/05/14/computer-linux-mac-bash/
-# いや､やっぱり下記を参照するようにした
-# https://qiita.com/Canon11/items/e9efae4966f0d71217f8
-
-# 5. git-prompt.sh が無いとエラーを吐くのでその対処
-# https://qiita.com/varmil/items/9b0aeafa85975474e9b6
-# `wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -O ~/.git-prompt.sh``
-# `chmod a+x ~/.git-prompt.sh``
-
-# 本編
-
-# bash での補完
 # bash-completion
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-  source $(brew --prefix)/etc/bash_completion
+if [ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]; then
+  . "/opt/homebrew/etc/profile.d/bash_completion.sh"
 fi
-# homebrew によるインストール時に書いてあった設定
-[[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
 
-# git-completion による補完
-# 下記を参考に設定
-# https://qiita.com/varmil/items/9b0aeafa85975474e9b6
-# まずは下記の2つのコマンドを実行
-# `wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -O ~/.git-completion.bash`
-# `chmod a+x ~/.git-completion.bash`
-# 後は下記を読み込むように `source .bashrc`
-source ~/.git-completion.bash
+# git-completion
+if [ -r "$HOME/.git-completion.bash" ]; then
+  . "$HOME/.git-completion.bash"
 
-# g という bash のエイリアスから git の補完を動かせるように
-# https://r17n.page/2019/09/24/git-completion-with-bash-alias/
-if [ -f ~/.git-completion.bash ]; then source ~/.git-completion.bash; __git_complete g __git_main; fi
+  # g という git コマンドを表すエイリアスの時でも Git 補完が効くようにする
+  __git_complete g __git_main
+fi
 
-# bash の見た目改造
-# git のブランチ名をターミナルに表示
-# https://qiita.com/hmmrjn/items/60d2a64c9e5bf7c0fe60
-# git のブランチ名を表示
-# https://github.com/git/git/blob/master/contrib/completion/git-prompt.sh
-source ~/.git-prompt.sh
-# git ブランチの状況を *, +, % などで表示
-# https://qiita.com/hmmrjn/items/60d2a64c9e5bf7c0fe60
+# ==============================================================================
+# プロンプト 1/2
+# ==============================================================================
+
+# プロンプトに Git に関する情報を表示するための読み込み
+if [ -r "$HOME/.git-prompt.sh" ]; then
+  . "$HOME/.git-prompt.sh"
+fi
+
+# Git 管理中のファイルに変更がある場合、それを * や + などの記号で表示
 GIT_PS1_SHOWDIRTYSTATE=true
-GIT_PS1_SHOWUNTRACKEDFILES=true
-GIT_PS1_SHOWSTASHSTATE=true
-GIT_PS1_SHOWUPSTREAM=auto
-# プロンプト設定
-# a. デフォルト
-# "\h:\W \u\$"
-# b. git ブランチ名なし情報多めかつ $ の行は改行パターン
-# `export PS1='\[\e[1;31m\][\h@\u:\W]\n\$ \[\e[1;30m\]'`
-# c. git のブランチ名表示パターン
-export PS1='\[\e[1;31m\][\u@\h:\W$(__git_ps1 "(%s)")]\n\$ \[\e[1;30m\]'
 
-# 出力の後に改行を入れる
-# https://qiita.com/hmmrjn/items/60d2a64c9e5bf7c0fe60
-function add_line {
-  if [[ -z "${PS1_NEWLINE_LOGIN}" ]]; then
+# Git でまだ追跡されていないファイルがある場合に % を表示
+GIT_PS1_SHOWUNTRACKEDFILES=true
+
+# stash が存在する場合、その状態を $ で表示
+GIT_PS1_SHOWSTASHSTATE=true
+
+# ローカルブランチと追跡先のリモートブランチとの進み具合を < > <> = などの記号で表示
+GIT_PS1_SHOWUPSTREAM=auto
+
+PS1='\[\e[1;31m\][\u@\h:\W$(__git_ps1 " (%s)")]\[\e[0m\]\n\$ '
+
+# 各プロンプトの前に空行を1行入れるための関数
+add_line() {
+  if [[ -z "$PS1_NEWLINE_LOGIN" ]]; then
     PS1_NEWLINE_LOGIN=true
   else
     printf '\n'
   fi
 }
-PROMPT_COMMAND="add_line; $PROMPT_COMMAND"
 
-# tmux 限定ではないけど、C-d でログアウトするのを防ぐやつ
-# https://superuser.com/questions/479600/how-can-i-prevent-tmux-exiting-with-ctrl-d
-set -o ignoreeof
+# ==============================================================================
+# 履歴
+# ==============================================================================
 
+# 現在のBashセッションがメモリ上に保持する履歴件数
+HISTSIZE=50000
+
+# 履歴用のファイルに保存する履歴ファイルの最大件数
+HISTFILESIZE=50000
+
+# 指定したパターンに一致するコマンドを履歴へ保存しない
+HISTIGNORE='ls:history*:pwd:clear'
+
+# history コマンドの各履歴へ日時を表示する書式設定
+HISTTIMEFORMAT='%Y/%m/%d %H:%M:%S '
+
+# 直前と同じコマンドを連続して履歴へ保存しない
+HISTCONTROL=ignoredups
+
+# シェルの終了時に履歴ファイルを上書きせず追記する
+shopt -s histappend
+
+# 各端末でのコマンド履歴を同期するための関数の自作
+share_history() {
+  # 現在セッションの新しい履歴を書きファイルルに追記
+  history -a
+
+  # 他シェルが追加した未読履歴だけ読み込み
+  history -n
+}
+
+# peco による対話的検索の関数
+peco-history() {
+    local NUM=$(history | wc -l)
+    local FIRST=$((-1*(NUM-1)))
+
+    if [ $FIRST -eq 0 ] ; then
+        history -d $((HISTCMD-1))
+        echo "No history" >&2
+        return
+    fi
+
+    local CMD=$(fc -l $FIRST | sort -k 2 -k 1nr | uniq -f 1 | sort -nr | sed -E 's/^[0-9]+[[:blank:]]+//' | peco | head -n 1)
+
+    if [ -n "$CMD" ] ; then
+        history -s $CMD
+
+        if type osascript > /dev/null 2>&1 ; then
+            (osascript -e 'tell application "System Events" to keystroke (ASCII character 30)' &)
+        fi
+    else
+        history -d $((HISTCMD-1))
+    fi
+}
+
+# Ctrl r を押すと peco-history 関数が実行
+bind -x '"\C-r":peco-history'
+
+# ==============================================================================
+# プロンプト 2/2
+# ==============================================================================
+
+# Bash がプロンプトを表示する直前に、毎回実行する処理 を指定
+PROMPT_COMMAND='share_history; add_line'
+
+# ==============================================================================
+# 外部ツール
+# ==============================================================================
+
+# fzf(対話的な絞り込み検索ツール)
+[ -r "$HOME/.fzf.bash" ] && . "$HOME/.fzf.bash"
+
+# direnv
+if command -v direnv >/dev/null 2>&1; then
+  eval "$(direnv hook bash)"
+fi
+
+# GHCup
+[ -r "$HOME/.ghcup/env" ] && . "$HOME/.ghcup/env"
+
+# ==============================================================================
 # エイリアス
+# ==============================================================================
 
-# 基本コマンドのエイリアス
+# 全般
 alias cl='clear'
 alias ..2='cd ../..'
 alias ..3='cd ../../..'
 alias mv='mv -i'
 alias cp='cp -i'
+
 alias rm='rmtrash'
-# http://mironal-memo.blogspot.com/2012/09/macosx-ls.html より、Mac と Linux 対応
+
+# http://mironal-memo.blogspot.com/2012/09/macosx-ls.html
 case "${OSTYPE}" in
 darwin*)
   alias ls="ls -GF"
@@ -100,9 +163,9 @@ linux*)
   alias ls='ls --color=auto -F'
   ;;
 esac
-alias ll='ls -A'
+alias ll='ls -Alh'
 
-# git コマンドのエイリアス
+# Git
 alias g='git'
 alias st='git status -bs'
 # -av オプションを付与したことで `git branch feature`` のような操作が出来ないので､
@@ -119,23 +182,18 @@ alias pushf='git push --force-with-lease'
 # https://yulii.github.io/git-wip-alias-20160206.html
 # alias ginit='git commit --allow-empty "[ci skip] wip commit"'
 alias glogr='git log --date=short --pretty=format:"%C(Yellow)%h %C(Cyan)%cd %C(Reset)%s %C(Blue)[%cn]%C(Red)%d" --graph'
-
-# その他のエイリアス
-# git のエイリアス確認
+# Git のエイリアス確認
 alias galias='git config --global --list | grep ^alias\.'
 
-# homebrew 一括アップデート
+# HomeBrew 一括アップデート
 alias brewupdate='brew update && brew upgrade && brew cleanup'
 
-# chrome をコマンドラインから開くエイリアス、引数として html を指定する｡
+# Chrome をコマンドラインから開くエイリアス、引数として HTML を指定する｡
 alias chromeopen='open -a "Google Chrome"'
 
 # irb の出力を整形
 alias irbclean_commentout='awk '\''{sub(/^irb\([^)]*\):[0-9]+[>*] ?/,""); if(/^=> /){$0="# "$0; buf=buf $0 ORS ORS} else {buf=buf $0 ORS}} END{print ""; printf "%s", buf}'\'''
 alias irbclean_ignore_return_value='awk '\''{sub(/^irb\([^)]*\):[0-9]+[>*] ?/,""); if(!/^=> /) buf = buf $0 ORS} END{print ""; printf "%s", buf}'\'''
-
-# bpython を少しでも短く
-alias bp='bpython'
 
 # atcoder-cli
 alias accspy='acc s --skip-filename -- --guess-python-interpreter pypy'
@@ -146,67 +204,7 @@ alias ojtpy='oj t -c "python3 ./main.py" -d ./tests'
 alias ojtrb='oj t -c "ruby ./main.rb" -d ./tests'
 alias ojtrbN='oj t -c "ruby ./main.rb" -d ./tests -N'
 
-# Mac にある既存のではなく brew でダウンロードした ctags を利用
+# Mac にある既存のではなく HomeBrew でダウンロードした ctags を利用
 alias ctags="`brew --prefix`/bin/ctags"
-
-# heroku autocomplete setup
-HEROKU_AC_BASH_SETUP_PATH=/Users/tyobi0913/Library/Caches/heroku/autocomplete/bash_setup && test -f $HEROKU_AC_BASH_SETUP_PATH && source $HEROKU_AC_BASH_SETUP_PATH;
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
-# direnv
-# direnv/hook.md at master · direnv/direnv: https://github.com/direnv/direnv/blob/master/docs/hook.md
-# Add the following line at the end of the ~/.bashrc file:
-eval "$(direnv hook bash)"
-
-# pecoの設定
-export HISTCONTROL="ignoredups"
-
-peco-history() {
-    local NUM=$(history | wc -l)
-    local FIRST=$((-1*(NUM-1)))
-
-    if [ $FIRST -eq 0 ] ; then
-        history -d $((HISTCMD-1))
-        echo "No history" >&2
-        return
-    fi  
-
-    local CMD=$(fc -l $FIRST | sort -k 2 -k 1nr | uniq -f 1 | sort -nr | sed -E 's/^[0-9]+[[:blank:]]+//' | peco | head -n 1)
-
-    if [ -n "$CMD" ] ; then
-        history -s $CMD
-
-        if type osascript > /dev/null 2>&1 ; then
-            (osascript -e 'tell application "System Events" to keystroke (ASCII character 30)' &)
-        fi  
-    else
-        history -d $((HISTCMD-1))
-    fi  
-}
-
-bind -x '"\C-r":peco-history'
-
-# 各端末でのコマンド履歴の同期 
-# tmuxとかの仮想端末で複数の画面間でBashのコマンド履歴を共有すると同じ履歴が何度も記録されてしまう問題を解決する - Qiita
-# https://qiita.com/piroor/items/7c9380e408d07fd83bfc
-function share_history {
-  # 最後に実行したコマンドを履歴ファイル(.bash_history)に追記
-  history -a
-  # メモリ上のコマンド履歴を消去
-  history -c
-  # 履歴ファイルからメモリへコマンド履歴を読み込む
-  history -r
-}
-
-# 上記の一連の処理を、プロンプト表示前に（＝何かコマンドを実行することに）実行する
-# PROMPT_COMMAND="share_history"
-PROMPT_COMMAND="share_history; $PROMPT_COMMAND"
-
-# bashのプロセスを終了する時に、メモリ上の履歴を履歴ファイルに追記する、という動作を停止する （history -aによって代替されるため）
-shopt -u histappend
-
-# 2025_10_27 に GHCup をインストールした際に追加された コマンド
-# $HOME/.ghcup/env の中では $HOME/.ghcup/bin と $HOME/.cabal/bin を PATH に追加
-[ -f "/Users/tyobi0913/.ghcup/env" ] && . "/Users/tyobi0913/.ghcup/env" # ghcup-env
 
 # ↓ 未分類
